@@ -34,7 +34,7 @@
     </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.0.0-DEV.SLDisModel.42" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.0.1.7" />
   </ItemGroup>
 
     <ItemGroup>
