@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <AssemblyName>Skyline.DataMiner.CICD.Models.$(MSBuildProjectName)</AssemblyName>
-        <RootNamespace>Skyline.DataMiner.CICD.Models.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+        <AssemblyName>Skyline.DataMiner.CICD.Models.Protocol</AssemblyName>
+        <RootNamespace>Skyline.DataMiner.CICD.Models.Protocol</RootNamespace>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <Authors>SkylineCommunications</Authors>
