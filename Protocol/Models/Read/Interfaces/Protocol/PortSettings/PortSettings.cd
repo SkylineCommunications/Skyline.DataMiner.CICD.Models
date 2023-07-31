@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Skyline.DataMiner.CICD.Models.Protocol.Read.PortSettingsMain" Collapsed="true">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIQoogkAiCKSAKQAgEBEAASoAAgCEFARAQgWFAAQMAA=</HashCode>
+      <FileName>Models\Read\Protocol\GeneratedProtocolModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Skyline.DataMiner.CICD.Models.Protocol.Read.PortSettingsMainType" Collapsed="true">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Models\Read\Protocol\GeneratedProtocolModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Skyline.DataMiner.CICD.Models.Protocol.Read.PortSettingsMainPortTypeIP" Collapsed="true">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Read\Protocol\GeneratedProtocolModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Skyline.DataMiner.CICD.Models.Protocol.Read.PortSettingsMainPortTypeUDP" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Read\Protocol\GeneratedProtocolModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Skyline.DataMiner.CICD.Models.Protocol.Read.PortSettingsMainPortTypeSerial" Collapsed="true">
+    <Position X="9.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Read\Protocol\GeneratedProtocolModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Skyline.DataMiner.CICD.Models.Protocol.Read.PortSettings" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAoogkAiCKSAKQAAEBEAASoAQACEBARCQgWFAAQMAA=</HashCode>
+      <FileName>Models\Read\Protocol\GeneratedProtocolModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Skyline.DataMiner.CICD.Models.Protocol.Read.PortSettingsPortTypeIP" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Read\Protocol\GeneratedProtocolModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Skyline.DataMiner.CICD.Models.Protocol.Read.PortSettingsPortTypeSerial" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Read\Protocol\GeneratedProtocolModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Skyline.DataMiner.CICD.Models.Protocol.Read.PortSettingsPortTypeUDP" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Read\Protocol\GeneratedProtocolModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Skyline.DataMiner.CICD.Models.Protocol.Read.PortSettingsType" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Models\Read\Protocol\GeneratedProtocolModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Skyline.DataMiner.CICD.Models.Protocol.Read.IPortSettingsBase" Collapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAEAABAQAEAAAAAAA=</HashCode>
+      <FileName>Models\Read\Interfaces\Protocol\PortSettings\IPortSettingsBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Skyline.DataMiner.CICD.Models.Protocol.Read.IReadable" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAEAAQAAAAAAAABAAAAgAAAAACAA=</HashCode>
+      <FileName>Models\Read\Interfaces\IReadable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Skyline.DataMiner.CICD.Models.Protocol.Read.IPortSettingsTypeBase" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Read\Interfaces\Protocol\PortSettings\IPortSettingsTypeBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Skyline.DataMiner.CICD.Models.Protocol.Read.IPortSettingsPortTypeIPBase" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Read\Interfaces\Protocol\PortSettings\IPortSettingsPortTypeIPBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Skyline.DataMiner.CICD.Models.Protocol.Read.IPortSettingsPortTypeUDPBase" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Read\Interfaces\Protocol\PortSettings\IPortSettingsPortTypeUDPBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Skyline.DataMiner.CICD.Models.Protocol.Read.IPortSettingsPortTypeSerialBase" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Read\Interfaces\Protocol\PortSettings\IPortSettingsPortTypeSerialBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

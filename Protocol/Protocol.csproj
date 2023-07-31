@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>Skyline.DataMiner.CICD.Models.$(MSBuildProjectName)</AssemblyName>
+        <RootNamespace>Skyline.DataMiner.CICD.Models.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Authors>SkylineCommunications</Authors>
+        <Company>Skyline Communications</Company>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageProjectUrl>https://skyline.be/</PackageProjectUrl>
+        <PackageTags>Skyline;DataMiner;CICD</PackageTags>
+        <Description>Library containing the models for a DataMiner Protocol.</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <SonarQubeSetting Include="sonar.exclusions">
+            <Value>Models/**</Value>
+        </SonarQubeSetting>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\_NuGetItems\icon.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\_NuGetItems\LICENSE.txt">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.0.0-DEV.SLDisModel.42" />
+  </ItemGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="$(MSBuildProjectName)Tests" />
+
+        <!-- Needed for DIS -->
+        <InternalsVisibleTo Include="SLDisUnitTestsShared" />
+    </ItemGroup>
+</Project>

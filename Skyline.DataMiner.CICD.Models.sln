@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protocol", "Protocol\Protocol.csproj", "{C8A12B19-7831-4ECD-8E62-30BC41326B9B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D39D289B-7D79-44A4-A7BB-1740AFF7DA81} = {D39D289B-7D79-44A4-A7BB-1740AFF7DA81}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A182D74B-5489-42DC-A77E-CD92B2B36C74}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protocol.Generator", "Protocol.Generator\Protocol.Generator.csproj", "{D39D289B-7D79-44A4-A7BB-1740AFF7DA81}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProtocolTests", "ProtocolTests\ProtocolTests.csproj", "{71DEF83B-F352-45FE-93DC-295D7CCBE9F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protocol.GeneratorTests", "Protocol.GeneratorTests\Protocol.GeneratorTests.csproj", "{DCDE2F5F-37A5-4F28-B595-B07043120640}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8A12B19-7831-4ECD-8E62-30BC41326B9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8A12B19-7831-4ECD-8E62-30BC41326B9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8A12B19-7831-4ECD-8E62-30BC41326B9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8A12B19-7831-4ECD-8E62-30BC41326B9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D39D289B-7D79-44A4-A7BB-1740AFF7DA81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D39D289B-7D79-44A4-A7BB-1740AFF7DA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D39D289B-7D79-44A4-A7BB-1740AFF7DA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D39D289B-7D79-44A4-A7BB-1740AFF7DA81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71DEF83B-F352-45FE-93DC-295D7CCBE9F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71DEF83B-F352-45FE-93DC-295D7CCBE9F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71DEF83B-F352-45FE-93DC-295D7CCBE9F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71DEF83B-F352-45FE-93DC-295D7CCBE9F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCDE2F5F-37A5-4F28-B595-B07043120640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCDE2F5F-37A5-4F28-B595-B07043120640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCDE2F5F-37A5-4F28-B595-B07043120640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCDE2F5F-37A5-4F28-B595-B07043120640}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {229C3151-904B-41E3-B2D4-09685601C186}
+	EndGlobalSection
+EndGlobal
