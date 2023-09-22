@@ -18,7 +18,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protocol.Generator", "Proto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProtocolTests", "ProtocolTests\ProtocolTests.csproj", "{71DEF83B-F352-45FE-93DC-295D7CCBE9F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protocol.GeneratorTests", "Protocol.GeneratorTests\Protocol.GeneratorTests.csproj", "{DCDE2F5F-37A5-4F28-B595-B07043120640}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protocol.GeneratorTests", "Protocol.GeneratorTests\Protocol.GeneratorTests.csproj", "{DCDE2F5F-37A5-4F28-B595-B07043120640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{D1BC22E3-A091-4396-9546-D146CD6BAF47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,10 @@ Global
 		{DCDE2F5F-37A5-4F28-B595-B07043120640}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCDE2F5F-37A5-4F28-B595-B07043120640}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCDE2F5F-37A5-4F28-B595-B07043120640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1BC22E3-A091-4396-9546-D146CD6BAF47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1BC22E3-A091-4396-9546-D146CD6BAF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1BC22E3-A091-4396-9546-D146CD6BAF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1BC22E3-A091-4396-9546-D146CD6BAF47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
