@@ -9,6 +9,11 @@
     /// </summary>
     public class CompiledProject
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CompiledProject"/> using the project ID and the project.
+        /// </summary>
+        /// <param name="projectId">The project ID.</param>
+        /// <param name="project">The project.</param>
         protected CompiledProject(ProjectId projectId, Project project)
         {
             ProjectId = projectId;

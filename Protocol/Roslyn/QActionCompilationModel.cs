@@ -338,7 +338,7 @@
                                 else
                                 {
                                     // This is a custom DLL that is referenced.
-                                    string resolvedImport = import;
+                                    string resolvedImport;
 
                                     if (dllImportResolver != null)
                                     {
@@ -454,7 +454,7 @@
                     continue;
                 }
 
-                uint? nullableQaId = qAction?.Id?.Value;
+                uint? nullableQaId = qAction.Id?.Value;
 
                 if (nullableQaId == null)
                 {

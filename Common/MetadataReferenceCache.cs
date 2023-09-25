@@ -12,6 +12,12 @@
     {
         private static readonly ConcurrentDictionary<string, Entry> cache = new ConcurrentDictionary<string, Entry>();
 
+        /// <summary>
+        /// Creates a new instance of <see cref="MetadataReference"/> for the given path.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns>The <see cref="MetadataReference"/> instance.</returns>
+        /// <exception cref="ArgumentException"><paramref name="path"/> is <see langword="null"/> or whitespace.</exception>
         public static MetadataReference CreateFromFile(string path)
         {
             if (String.IsNullOrWhiteSpace(path))

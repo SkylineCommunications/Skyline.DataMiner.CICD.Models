@@ -9,7 +9,6 @@
     /// </summary>
     public class InternalFilesAssemblyResolver : IAssemblyResolver
     {
-        public static string DotNetAssemblyPath { get; } = Path.GetDirectoryName(typeof(object).Assembly.Location);
         private readonly IEnumerable<string> _searchDirs;
 
         /// <summary>
@@ -28,6 +27,12 @@
         /// <param name="directory">Directory in which to search.</param>
         /// <exception cref="ArgumentNullException"><paramref name="directory"/> is <see langword="null"/>.</exception>
         public InternalFilesAssemblyResolver(string directory) : this(new[] { directory }) { }
+
+        /// <summary>
+        /// Gets the installation path of the .NET Framework.
+        /// </summary>
+        /// <value>The installation path of the .NET Framework.</value>
+        public static string DotNetFrameworkAssemblyPath { get; } = Path.GetDirectoryName(typeof(object).Assembly.Location);
 
         /// <inheritdoc/>
         public string TryResolve(string assembly)
@@ -73,7 +78,7 @@
                     }
                 }
 
-                filename = Path.Combine(DotNetAssemblyPath, assembly);
+                filename = Path.Combine(DotNetFrameworkAssemblyPath, assembly);
                 if (TryGetFileInfo(filename, out info))
                 {
                     return info;

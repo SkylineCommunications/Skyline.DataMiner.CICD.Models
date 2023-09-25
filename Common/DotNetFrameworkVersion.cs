@@ -22,6 +22,15 @@
 
         private DotNetFrameworkVersion(string specificAssemblyPathFolder, string dotNetVersion, bool fromRegistry)
         {
+            if(specificAssemblyPathFolder == null) throw new ArgumentNullException(nameof(specificAssemblyPathFolder));
+            if (dotNetVersion == null) throw new ArgumentNullException(nameof(dotNetVersion));
+
+            var dirInfo = new DirectoryInfo(AssembliesPath);
+            if (!dirInfo.Exists)
+            {
+                throw new DirectoryNotFoundException(String.Format("Unable to find assemblies directory: {0}", AssembliesPath));
+            }
+
             AssembliesPath = specificAssemblyPathFolder;
             Version = dotNetVersion;
             FromRegistry = fromRegistry;
@@ -51,7 +60,7 @@
         /// Gets the installation path of the .NET Framework assemblies.
         /// </summary>
         /// <value>The installation path of the .NET Framework assemblies.</value>
-        public string AssembliesPath { get; private set; }
+        public string AssembliesPath { get; }
 
         /// <summary>
         /// Gets the available versions of the .NET Framework on the system.
@@ -83,14 +92,9 @@
         {
             get
             {
+                var dirInfo = new DirectoryInfo(AssembliesPath);
                 if (_dotNetFrameworkAssemblies == null)
                 {
-                    var dirInfo = new DirectoryInfo(AssembliesPath);
-                    if (!dirInfo.Exists)
-                    {
-                        throw new DirectoryNotFoundException(String.Format("Unable to find assemblies directory: {0}",  AssembliesPath));
-                    }
-
                     _dotNetFrameworkAssemblies = dirInfo.EnumerateFiles("*.dll", SearchOption.TopDirectoryOnly);
                 }
 
