@@ -25,10 +25,10 @@
             if(specificAssemblyPathFolder == null) throw new ArgumentNullException(nameof(specificAssemblyPathFolder));
             if (dotNetVersion == null) throw new ArgumentNullException(nameof(dotNetVersion));
 
-            var dirInfo = new DirectoryInfo(AssembliesPath);
+            var dirInfo = new DirectoryInfo(specificAssemblyPathFolder);
             if (!dirInfo.Exists)
             {
-                throw new DirectoryNotFoundException(String.Format("Unable to find assemblies directory: {0}", AssembliesPath));
+                throw new DirectoryNotFoundException(String.Format("Unable to find assemblies directory: {0}", specificAssemblyPathFolder));
             }
 
             AssembliesPath = specificAssemblyPathFolder;
