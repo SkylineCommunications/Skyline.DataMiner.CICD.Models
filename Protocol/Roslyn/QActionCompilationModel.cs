@@ -190,41 +190,46 @@
                     continue;
                 }
 
-                // Build the project.
-                var buildResult = BuildProject(project);
+                CompileQAction(projectsData, projectId, project, qaction);
+            }
+        }
 
-                CompiledQActionProject projectData = new CompiledQActionProject(projectId, qaction, project);
-                projectData.BuildSucceeded = buildResult.Result;
-                projectData.CompilationErrors = buildResult.CompilationErrors;
+        private void CompileQAction(Dictionary<ProjectId, CompiledQActionProject> projectsData, ProjectId projectId, Project project, IQActionsQAction qaction)
+        {
+            // Build the project.
+            var buildResult = BuildProject(project);
 
-                var compilation = buildResult.Compilation;
-                if (compilation != null)
+            CompiledQActionProject projectData = new CompiledQActionProject(projectId, qaction, project);
+            projectData.BuildSucceeded = buildResult.Result;
+            projectData.CompilationErrors = buildResult.CompilationErrors;
+
+            var compilation = buildResult.Compilation;
+            if (compilation != null)
+            {
+                string projectFolderPath = null;
+                if (IsSolutionBased)
                 {
-                    string projectFolderPath = null;
-                    if (IsSolutionBased)
-                    {
-                        FileInfo projectFileInfo = new FileInfo(project.FilePath);
-                        DirectoryInfo projectDirectoryInfo = projectFileInfo.Directory;
-                        projectFolderPath = projectDirectoryInfo.FullName;
-                    }
-
-                    foreach (var syntaxTree in compilation.SyntaxTrees)
-                    {
-                        if (IsSolutionBased
-                            && (syntaxTree.FilePath.StartsWith(projectFolderPath + "\\bin\\")
-                                || syntaxTree.FilePath.StartsWith(projectFolderPath + "\\obj\\")
-                                || syntaxTree.FilePath.StartsWith(projectFolderPath + "\\Properties\\")))
-                        {
-                            continue;
-                        }
-
-                        var semanticModel = compilation.GetSemanticModel(syntaxTree, true);
-                        projectData.AddSyntaxTreeAndModelPair(syntaxTree, semanticModel);
-                    }
+                    FileInfo projectFileInfo = new FileInfo(project.FilePath);
+                    DirectoryInfo projectDirectoryInfo = projectFileInfo.Directory;
+                    projectFolderPath = projectDirectoryInfo.FullName;
                 }
 
-                projectsData.Add(projectId, projectData);
+                foreach (var syntaxTree in compilation.SyntaxTrees)
+                {
+                    if (IsSolutionBased
+                        && (syntaxTree.FilePath.StartsWith(projectFolderPath + "\\bin\\")
+                            || syntaxTree.FilePath.StartsWith(projectFolderPath + "\\obj\\")
+                            || syntaxTree.FilePath.StartsWith(projectFolderPath + "\\Properties\\")))
+                    {
+                        continue;
+                    }
+
+                    var semanticModel = compilation.GetSemanticModel(syntaxTree, true);
+                    projectData.AddSyntaxTreeAndModelPair(syntaxTree, semanticModel);
+                }
             }
+
+            projectsData.Add(projectId, projectData);
         }
 
         private CompilationResult BuildProject(Project project)
@@ -316,43 +321,7 @@
                                 continue;
                             }
 
-                            Match m = Regex.Match(import, @"\[ProtocolName\]\.\[ProtocolVersion\]\.QAction\.(?<id>[\d]+)\.dll");
-
-                            // [ProtocolName].[ProtocolVersion].QAction.63000.dll
-                            if (m.Success)
-                            {
-                                int qActionId = Convert.ToInt32(m.Groups["id"].Value);
-
-                                if (allProjects.TryGetValue(qActionId, out (ProjectId project, IQActionsQAction qa) referencedProject))
-                                {
-                                    ProjectReference projectReference = new ProjectReference(referencedProject.project);
-                                    projectReferencesToAdd.Add(projectReference);
-                                }
-                            }
-                            else
-                            {
-                                if (dotNetFrameworkVersion.IsDotNetFrameworkAssemblyFile(import))
-                                {
-                                    additionalDllReferencesToAdd.Add(MetadataReferenceCache.CreateFromFile(string.Format("{0}{1}", dotNetFrameworkVersion.AssembliesPath, import)));
-                                }
-                                else
-                                {
-                                    // This is a custom DLL that is referenced.
-                                    string resolvedImport;
-
-                                    if (dllImportResolver != null)
-                                    {
-                                        bool couldBeResolved = dllImportResolver.TryResolve(import, out resolvedImport);
-
-                                        if (couldBeResolved)
-                                        {
-                                            additionalDllReferencesToAdd.Add(MetadataReferenceCache.CreateFromFile(resolvedImport));
-                                        }
-                                    }
-                                }
-
-                                Debug.Write(import + ",");
-                            }
+                            ProcessDllImport(allProjects, dllImportResolver, dotNetFrameworkVersion, projectReferencesToAdd, additionalDllReferencesToAdd, import);
                         }
                         catch (FileNotFoundException)
                         {
@@ -415,6 +384,47 @@
             if (!changesSucceeded)
             {
                 Debug.Write("Adding references failed");
+            }
+        }
+
+        private static void ProcessDllImport(Dictionary<int, (ProjectId projectId, IQActionsQAction qa)> allProjects, IAssemblyResolver dllImportResolver, DotNetFrameworkVersion dotNetFrameworkVersion, List<ProjectReference> projectReferencesToAdd, List<MetadataReference> additionalDllReferencesToAdd, string import)
+        {
+            Match m = Regex.Match(import, @"\[ProtocolName\]\.\[ProtocolVersion\]\.QAction\.(?<id>[\d]+)\.dll");
+
+            // [ProtocolName].[ProtocolVersion].QAction.63000.dll
+            if (m.Success)
+            {
+                int qActionId = Convert.ToInt32(m.Groups["id"].Value);
+
+                if (allProjects.TryGetValue(qActionId, out (ProjectId project, IQActionsQAction qa) referencedProject))
+                {
+                    ProjectReference projectReference = new ProjectReference(referencedProject.project);
+                    projectReferencesToAdd.Add(projectReference);
+                }
+            }
+            else
+            {
+                if (dotNetFrameworkVersion.IsDotNetFrameworkAssemblyFile(import))
+                {
+                    additionalDllReferencesToAdd.Add(MetadataReferenceCache.CreateFromFile(string.Format("{0}{1}", dotNetFrameworkVersion.AssembliesPath, import)));
+                }
+                else
+                {
+                    // This is a custom DLL that is referenced.
+                    string resolvedImport;
+
+                    if (dllImportResolver != null)
+                    {
+                        bool couldBeResolved = dllImportResolver.TryResolve(import, out resolvedImport);
+
+                        if (couldBeResolved)
+                        {
+                            additionalDllReferencesToAdd.Add(MetadataReferenceCache.CreateFromFile(resolvedImport));
+                        }
+                    }
+                }
+
+                Debug.Write(import + ",");
             }
         }
 
