@@ -10,7 +10,7 @@
     /// </summary>
     public static class MetadataReferenceCache
     {
-        private static readonly ConcurrentDictionary<string, Entry> cache = new ConcurrentDictionary<string, Entry>();
+        private static readonly ConcurrentDictionary<string, Entry> Cache = new ConcurrentDictionary<string, Entry>();
 
         /// <summary>
         /// Creates a new instance of <see cref="MetadataReference"/> for the given path.
@@ -25,11 +25,11 @@
                 throw new ArgumentException($"'{nameof(path)}' cannot be null or whitespace", nameof(path));
             }
 
-            var entry = cache.GetOrAdd(path, (p) => new Entry(p));
+            var entry = Cache.GetOrAdd(path, (p) => new Entry(p));
             return entry.GetReference();
         }
 
-        class Entry
+        private class Entry
         {
             private readonly string path;
             private WeakReference<MetadataReference> weakref;

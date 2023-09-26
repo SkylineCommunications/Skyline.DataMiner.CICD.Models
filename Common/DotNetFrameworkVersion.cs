@@ -13,6 +13,7 @@
     public class DotNetFrameworkVersion
     {
         private const string DotNetAssembliesBasePath = "C:\\Program Files (x86)\\Reference Assemblies\\Microsoft\\Framework\\.NETFramework\\";
+        private const string RegistrySubKey = "SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full\\";
 
         private static readonly object _latestVersionLock = new object();
         private static readonly object _listLock = new object();
@@ -22,18 +23,15 @@
 
         private DotNetFrameworkVersion(string specificAssemblyPathFolder, string dotNetVersion, bool fromRegistry)
         {
-            if(specificAssemblyPathFolder == null) throw new ArgumentNullException(nameof(specificAssemblyPathFolder));
-            if (dotNetVersion == null) throw new ArgumentNullException(nameof(dotNetVersion));
+            AssembliesPath = specificAssemblyPathFolder ?? throw new ArgumentNullException(nameof(specificAssemblyPathFolder));
+            Version = dotNetVersion ?? throw new ArgumentNullException(nameof(dotNetVersion));
+            FromRegistry = fromRegistry;
 
             var dirInfo = new DirectoryInfo(specificAssemblyPathFolder);
             if (!dirInfo.Exists)
             {
-                throw new DirectoryNotFoundException(String.Format("Unable to find assemblies directory: {0}", specificAssemblyPathFolder));
+                throw new DirectoryNotFoundException($"Unable to find assemblies directory: {specificAssemblyPathFolder}");
             }
-
-            AssembliesPath = specificAssemblyPathFolder;
-            Version = dotNetVersion;
-            FromRegistry = fromRegistry;
         }
 
         /// <summary>
@@ -120,9 +118,7 @@
         /// <returns>The latest installed version of the .NET Framework from the registry or <see langword="null"/> if not found.</returns>
         private static DotNetFrameworkVersion GetLatestDotNetFrameworkVersionFromRegistry()
         {
-            string subkey = "SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full\\";
-
-            RegistryKey ndpKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(subkey);
+            RegistryKey ndpKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(RegistrySubKey);
             if (ndpKey == null)
             {
                 return null;

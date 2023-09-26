@@ -6,11 +6,11 @@
     using System.Linq;
     using System.Reflection;
 
-    using Skyline.DataMiner.CICD.Models.Common;
-    using Skyline.DataMiner.CICD.Models.Protocol.Read;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Skyline.DataMiner.CICD.Models.Common;
     using Skyline.DataMiner.CICD.Models.Protocol;
+    using Skyline.DataMiner.CICD.Models.Protocol.Read;
 
     [TestClass]
     public class QActionCompilationModelTests
@@ -21,7 +21,7 @@
             // Arrange.
             string xmlString = File.ReadAllText(@"..\..\..\ProtocolExamples\TestProtocolStorageTypes.xml");
 
-            (ProtocolModel model, Skyline.DataMiner.CICD.Parsers.Common.Xml.XmlDocument xlmDocument) = Generic.ParseProtocol(xmlString);
+            (ProtocolModel model, _) = Generic.ParseProtocol(xmlString);
 
             string qactionHelperSource = @"using System.ComponentModel;
 using System.Collections;
@@ -55,7 +55,6 @@ namespace Skyline.DataMiner.Scripting
     }";
 
             string baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            baseDir = Path.GetFullPath(Path.Combine(baseDir, @"..\..\..\DataMinerFiles"));
 
             IAssemblyResolver dllImportResolver = new InternalFilesAssemblyResolver(baseDir);
 
@@ -100,7 +99,7 @@ namespace Skyline.DataMiner.Scripting
 
             string xmlString = File.ReadAllText(@"..\..\..\ProtocolExamples\TestProtocol.xml");
 
-            (ProtocolModel model, Skyline.DataMiner.CICD.Parsers.Common.Xml.XmlDocument xmlDocument) = Generic.ParseProtocol(xmlString);
+            (ProtocolModel model, _) = Generic.ParseProtocol(xmlString);
 
             string qactionHelperSource = @"using System.ComponentModel;
 using System.Collections;
@@ -134,7 +133,6 @@ namespace Skyline.DataMiner.Scripting
     }";
 
             string baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            baseDir = Path.GetFullPath(Path.Combine(baseDir, @"..\..\..\DataMinerFiles"));
 
             IAssemblyResolver dllImportResolver = new InternalFilesAssemblyResolver(baseDir);
 

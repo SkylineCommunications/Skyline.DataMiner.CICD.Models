@@ -14,7 +14,7 @@
         private readonly IDictionary<int, (ProjectId project, IQActionsQAction qa)> map;
         private readonly IDictionary<ProjectId, IQActionsQAction> projectMap;
 
-        public QActionProjectMap(Microsoft.CodeAnalysis.Solution solution, IDictionary<int, (ProjectId project, IQActionsQAction qa)> qactions)
+        public QActionProjectMap(Solution solution, IDictionary<int, (ProjectId project, IQActionsQAction qa)> qactions)
         {
             Solution = solution;
             map = qactions;
@@ -26,7 +26,7 @@
                 projectMap.Add(item.Value.project, item.Value.qa);
             }
         }
-        public Microsoft.CodeAnalysis.Solution Solution { get; private set; }
+        public Solution Solution { get; private set; }
 
         public IQActionsQAction GetQAction(int id)
         {

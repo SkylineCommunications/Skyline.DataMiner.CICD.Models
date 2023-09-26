@@ -61,14 +61,12 @@
         {
             try
             {
-                FileInfo info = null;
-                string filename = null;
-
-                if (Path.IsPathRooted(assembly) && TryGetFileInfo(assembly, out info))
+                if (Path.IsPathRooted(assembly) && TryGetFileInfo(assembly, out FileInfo info))
                 {
                     return info;
                 }
 
+                string filename;
                 foreach (var dir in _searchDirs)
                 {
                     filename = Path.Combine(dir, assembly);

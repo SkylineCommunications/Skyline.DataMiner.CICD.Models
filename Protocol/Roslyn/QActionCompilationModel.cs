@@ -22,12 +22,13 @@
     /// </summary>
     public class QActionCompilationModel
     {
+        private static readonly IEnumerable<string> DefaultReferencedAssemblies;
+
         private readonly IProtocolModel protocolModel;
 
         private readonly string qactionHelperSourceCode;
 
         private readonly IAssemblyResolver dllImportResolver;
-        private readonly static IEnumerable<string> defaultReferencedAssemblies;
         private List<MetadataReference> defaultReferences;
 
         private readonly Solution existingSolution;
@@ -42,7 +43,7 @@
                 assembliesToReference.Add("netstandard.dll");
             }
 
-            defaultReferencedAssemblies = assembliesToReference.ToArray();
+            DefaultReferencedAssemblies = assembliesToReference.ToArray();
         }
 #pragma warning restore S3963 // "static" fields should be initialized inline
 
@@ -53,11 +54,8 @@
         /// <param name="solution">The solution.</param>
         public QActionCompilationModel(IProtocolModel protocolModel, Solution solution)
         {
-            if(protocolModel == null) throw new ArgumentNullException(nameof(protocolModel));
-            if (solution == null) throw new ArgumentNullException(nameof(solution));
-
-            this.protocolModel = protocolModel;
-            this.existingSolution = solution;
+            this.protocolModel = protocolModel ?? throw new ArgumentNullException(nameof(protocolModel));
+            existingSolution = solution ?? throw new ArgumentNullException(nameof(solution));
             IsSolutionBased = true;
         }
 
@@ -71,7 +69,7 @@
         {
             this.qactionHelperSourceCode = qactionHelperSourceCode;
             this.protocolModel = protocolModel;
-            this.dllImportResolver = assemblyResolver;
+            dllImportResolver = assemblyResolver;
         }
 
         /// <summary>
@@ -96,15 +94,13 @@
                 BuildFromNewWorkspace(projectsData);
             }
 
-            return  new ReadOnlyDictionary<ProjectId, CompiledQActionProject>(projectsData);
+            return new ReadOnlyDictionary<ProjectId, CompiledQActionProject>(projectsData);
         }
 
         private LanguageVersion CSharpLanguageVersion { get; set; } = LanguageVersion.CSharp7_3;
 
         private void BuildBasedOnExistingSolution(Dictionary<ProjectId, CompiledQActionProject> projectsData)
         {
-            var qActions = QuickActionExtractor.Extract(protocolModel);
-
             Dictionary<int, (ProjectId project, IQActionsQAction qa)> allProjects = new Dictionary<int, (ProjectId project, IQActionsQAction qa)>();
 
             Dictionary<string, Project> projectsMap = new Dictionary<string, Project>();
@@ -114,18 +110,15 @@
                 projectsMap.Add(project.Name, project);
             }
 
-            foreach (var qAction in qActions)
+            foreach (IQActionsQAction qAction in protocolModel.EachQActionWithValidId())
             {
                 uint? qactionId = qAction.Id.Value;
 
-                if (qactionId != null)
-                {
-                    string qactionName = "QAction_" + qactionId;
+                string qactionName = "QAction_" + qactionId;
 
-                    if (projectsMap.TryGetValue(qactionName, out Project project))
-                    {
-                        allProjects.Add(Convert.ToInt32(qactionId), (project.Id, qAction));
-                    }
+                if (projectsMap.TryGetValue(qactionName, out Project project))
+                {
+                    allProjects.Add(Convert.ToInt32(qactionId), (project.Id, qAction));
                 }
             }
 
@@ -159,7 +152,7 @@
                 adhocWorkspace.AddDocument(helperProject, fileName, sourceText);
             }
 
-            var qActions = QuickActionExtractor.Extract(protocolModel);
+            var qActions = protocolModel.EachQActionWithValidId();
             Dictionary<int, (ProjectId project, IQActionsQAction qa)> allProjects = AddProjectsToWorkSpace(qActions, adhocWorkspace, versionStamp, defaultReferences, CSharpLanguageVersion);
 
             AddDllImportReferences(adhocWorkspace, allProjects, helperProject, dllImportResolver, dotNetVersion, projectsData);
@@ -264,7 +257,7 @@
         {
             defaultReferences = new List<MetadataReference>();
 
-            foreach (var assemblyRef in defaultReferencedAssemblies)
+            foreach (var assemblyRef in DefaultReferencedAssemblies)
             {
                 string assemblyRefFullPath = assemblyRef;
 
@@ -308,7 +301,7 @@
                 var quickAction = currentProject.Value.qa;
                 string dllImportAttributeValue = quickAction?.DllImport?.Value;
 
-                if (!string.IsNullOrWhiteSpace(dllImportAttributeValue))
+                if (!String.IsNullOrWhiteSpace(dllImportAttributeValue))
                 {
                     IEnumerable<string> imports = dllImportAttributeValue.Split(';').Distinct();
 
@@ -316,7 +309,7 @@
                     {
                         try
                         {
-                            if (string.IsNullOrWhiteSpace(import) || import.EndsWith("\\") || import.EndsWith("/") || defaultReferencedAssemblies.Contains(import))
+                            if (String.IsNullOrWhiteSpace(import) || import.EndsWith("\\") || import.EndsWith("/") || DefaultReferencedAssemblies.Contains(import))
                             {
                                 continue;
                             }
@@ -349,18 +342,20 @@
 
                     foreach (var projectReferenceToAdd in projectReferencesToAdd)
                     {
-                        if (projectReferenceToAdd.ProjectId.Id != currentProject.Value.projectId.Id)
+                        if (projectReferenceToAdd.ProjectId.Id == currentProject.Value.projectId.Id)
                         {
-                            var projectDependencyGraph = solution.GetProjectDependencyGraph();
+                            continue;
+                        }
 
-                            var projectsReferencingThisProject = projectDependencyGraph.GetProjectsThatTransitivelyDependOnThisProject(currentProject.Value.projectId);
+                        var projectDependencyGraph = solution.GetProjectDependencyGraph();
 
-                            var circularReferencedProjects = projectsReferencingThisProject.Where(p => p.Id == projectReferenceToAdd.ProjectId.Id).ToList();
+                        var projectsReferencingThisProject = projectDependencyGraph.GetProjectsThatTransitivelyDependOnThisProject(currentProject.Value.projectId);
 
-                            if (circularReferencedProjects.Count == 0)
-                            {
-                                referencesToAdd.Add(projectReferenceToAdd);
-                            }
+                        var circularReferencedProjects = projectsReferencingThisProject.Where(p => p.Id == projectReferenceToAdd.ProjectId.Id).ToList();
+
+                        if (circularReferencedProjects.Count == 0)
+                        {
+                            referencesToAdd.Add(projectReferenceToAdd);
                         }
                     }
 
@@ -406,16 +401,14 @@
             {
                 if (dotNetFrameworkVersion.IsDotNetFrameworkAssemblyFile(import))
                 {
-                    additionalDllReferencesToAdd.Add(MetadataReferenceCache.CreateFromFile(string.Format("{0}{1}", dotNetFrameworkVersion.AssembliesPath, import)));
+                    additionalDllReferencesToAdd.Add(MetadataReferenceCache.CreateFromFile($"{dotNetFrameworkVersion.AssembliesPath}{import}"));
                 }
                 else
                 {
                     // This is a custom DLL that is referenced.
-                    string resolvedImport;
-
                     if (dllImportResolver != null)
                     {
-                        bool couldBeResolved = dllImportResolver.TryResolve(import, out resolvedImport);
+                        bool couldBeResolved = dllImportResolver.TryResolve(import, out string resolvedImport);
 
                         if (couldBeResolved)
                         {
@@ -459,7 +452,7 @@
 
             foreach (var qAction in qActions)
             {
-                if (string.IsNullOrEmpty(qAction.Code))
+                if (String.IsNullOrEmpty(qAction.Code))
                 {
                     continue;
                 }
