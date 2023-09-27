@@ -113,6 +113,33 @@
         public string Version { get; }
 
         /// <summary>
+        /// Returns a value indicating whether the specified assembly is part of the .NET Framework.
+        /// </summary>
+        /// <param name="filename">The assembly file name.</param>
+        /// <returns><c>true</c> if the specified assembly is part of the .NET Framework; otherwise, <c>false</c>.</returns>
+        public bool IsDotNetFrameworkAssemblyFile(string filename)
+        {
+            foreach (var fi in DotNetFrameworkAssemblies)
+            {
+                if (fi.Name.Equals(filename, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override string ToString()
+        {
+            return Version;
+        }
+
+        /// <summary>
         /// Retrieves the latest installed version of the .NET Framework from the registry.
         /// </summary>
         /// <returns>The latest installed version of the .NET Framework from the registry or <see langword="null"/> if not found.</returns>
@@ -140,33 +167,6 @@
 
             ndpKey.Dispose();
             return new DotNetFrameworkVersion((string)installPath, (string)version, true);
-        }
-
-        /// <summary>
-        /// Returns a value indicating whether the specified assembly is part of the .NET Framework.
-        /// </summary>
-        /// <param name="filename">The assembly file name.</param>
-        /// <returns><c>true</c> if the specified assembly is part of the .NET Framework; otherwise, <c>false</c>.</returns>
-        public bool IsDotNetFrameworkAssemblyFile(string filename)
-        {
-            foreach (var fi in DotNetFrameworkAssemblies)
-            {
-                if (fi.Name.Equals(filename, StringComparison.InvariantCultureIgnoreCase))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Returns a string that represents the current object.
-        /// </summary>
-        /// <returns>A string that represents the current object.</returns>
-        public override string ToString()
-        {
-            return Version;
         }
 
         private static IEnumerable<DotNetFrameworkVersion> FindAvailableDotNetFrameworkVersions()

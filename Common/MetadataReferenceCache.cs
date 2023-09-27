@@ -8,7 +8,7 @@
     /// <summary>
     /// Represents a cache for metadata references.
     /// </summary>
-    public static class MetadataReferenceCache
+    internal static class MetadataReferenceCache
     {
         private static readonly ConcurrentDictionary<string, Entry> Cache = new ConcurrentDictionary<string, Entry>();
 
@@ -29,7 +29,7 @@
             return entry.GetReference();
         }
 
-        private class Entry
+        private sealed class Entry
         {
             private readonly string path;
             private WeakReference<MetadataReference> weakref;

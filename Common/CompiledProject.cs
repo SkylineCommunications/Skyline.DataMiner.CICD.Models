@@ -54,12 +54,12 @@
         /// Gets or sets a value indicating whether the build of the project succeeded.
         /// </summary>
         /// <value><c>true</c> if the compilation succeeded; otherwise, <c>false</c>.</value>
-        public bool BuildSucceeded { get; set; }
+        public bool BuildSucceeded { get; internal set; }
 
         /// <summary>
         /// Gets the compilation error messages.
         /// </summary>
         /// <value>The compilation error messages.</value>
-        public IList<Diagnostic> CompilationErrors { get; set; }
+        public IList<Diagnostic> CompilationErrors { get; internal set; }
     }
 }

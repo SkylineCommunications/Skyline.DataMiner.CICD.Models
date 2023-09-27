@@ -7,7 +7,7 @@
     /// <summary>
     /// Represents a build result.
     /// </summary>
-    public class CompilationResult
+    internal class CompilationResult
     {
         /// <summary>
         /// Gets or sets the name of the assembly.

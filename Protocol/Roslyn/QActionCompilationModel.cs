@@ -22,6 +22,9 @@
     /// </summary>
     public class QActionCompilationModel
     {
+        private static readonly string[] Preprocessors = { "DCFv1", "ALARM_SQUASHING", "DBInfo" };
+        private static readonly Regex QActionRegex = new Regex(@"\[ProtocolName\]\.\[ProtocolVersion\]\.QAction\.(?<id>[\d]+)\.dll", RegexOptions.Compiled);
+
         private static readonly IEnumerable<string> DefaultReferencedAssemblies;
 
         private readonly IProtocolModel protocolModel;
@@ -76,7 +79,10 @@
         /// Returns a value indicating whether the compilation model is based on an existing solution.
         /// </summary>
         /// <value><c>true</c> if the compilation model is based on an existing solution; otherwise, <c>false</c>.</value>
-        public bool IsSolutionBased { get; private set; }
+        public bool IsSolutionBased { get; }
+
+        // Keep this as is, as it could be needed in the future when e.g. .NET is supported and depending on minimum required DM version a different version is used.
+        private LanguageVersion CSharpLanguageVersion => LanguageVersion.CSharp7_3;
 
         /// <summary>
         /// Performs a build of solution. If no solution exists yet, the solution is first created form the protocol model.
@@ -97,18 +103,11 @@
             return new ReadOnlyDictionary<ProjectId, CompiledQActionProject>(projectsData);
         }
 
-        private LanguageVersion CSharpLanguageVersion { get; set; } = LanguageVersion.CSharp7_3;
-
         private void BuildBasedOnExistingSolution(Dictionary<ProjectId, CompiledQActionProject> projectsData)
         {
             Dictionary<int, (ProjectId project, IQActionsQAction qa)> allProjects = new Dictionary<int, (ProjectId project, IQActionsQAction qa)>();
 
-            Dictionary<string, Project> projectsMap = new Dictionary<string, Project>();
-
-            foreach (var project in existingSolution.Projects)
-            {
-                projectsMap.Add(project.Name, project);
-            }
+            Dictionary<string, Project> projectsMap = existingSolution.Projects.ToDictionary(project => project.Name);
 
             foreach (IQActionsQAction qAction in protocolModel.EachQActionWithValidId())
             {
@@ -140,12 +139,12 @@
 
             adhocWorkspace.AddSolution(solutionInfo);
 
-            CreateDefaultDllReferences(dotNetVersion, dllImportResolver);
+            CreateDefaultDllReferences(dotNetVersion);
 
             ProjectId helperProject = null;
             if (qactionHelperSourceCode != null)
             {
-                string fileName = "QAction_Helper.cs";
+                const string fileName = "QAction_Helper.cs";
                 var sourceText = SourceText.From(qactionHelperSourceCode);
 
                 helperProject = AddProject(adhocWorkspace, versionStamp, "QAction_Helper", CSharpLanguageVersion, defaultReferences);
@@ -155,7 +154,7 @@
             var qActions = protocolModel.EachQActionWithValidId();
             Dictionary<int, (ProjectId project, IQActionsQAction qa)> allProjects = AddProjectsToWorkSpace(qActions, adhocWorkspace, versionStamp, defaultReferences, CSharpLanguageVersion);
 
-            AddDllImportReferences(adhocWorkspace, allProjects, helperProject, dllImportResolver, dotNetVersion, projectsData);
+            AddDllImportReferences(adhocWorkspace, allProjects, helperProject, dotNetVersion, projectsData);
 
             QActionProjectMap solutionModel = new QActionProjectMap(adhocWorkspace.CurrentSolution, allProjects);
 
@@ -192,9 +191,11 @@
             // Build the project.
             var buildResult = BuildProject(project);
 
-            CompiledQActionProject projectData = new CompiledQActionProject(projectId, qaction, project);
-            projectData.BuildSucceeded = buildResult.Result;
-            projectData.CompilationErrors = buildResult.CompilationErrors;
+            CompiledQActionProject projectData = new CompiledQActionProject(projectId, qaction, project)
+            {
+                BuildSucceeded = buildResult.Result,
+                CompilationErrors = buildResult.CompilationErrors
+            };
 
             var compilation = buildResult.Compilation;
             if (compilation != null)
@@ -225,7 +226,7 @@
             projectsData.Add(projectId, projectData);
         }
 
-        private CompilationResult BuildProject(Project project)
+        private static CompilationResult BuildProject(Project project)
         {
             CompilationResult buildResult = new CompilationResult { AssemblyName = project.Name };
 
@@ -253,7 +254,7 @@
             return buildResult;
         }
 
-        private void CreateDefaultDllReferences(DotNetFrameworkVersion dotNetVersion, IAssemblyResolver dllImportResolver)
+        private void CreateDefaultDllReferences(DotNetFrameworkVersion dotNetVersion)
         {
             defaultReferences = new List<MetadataReference>();
 
@@ -278,7 +279,7 @@
             }
         }
 
-        private void AddDllImportReferences(AdhocWorkspace workspace, Dictionary<int, (ProjectId projectId, IQActionsQAction qa)> allProjects, ProjectId helperProject, IAssemblyResolver dllImportResolver, DotNetFrameworkVersion dotNetFrameworkVersion, Dictionary<ProjectId, CompiledQActionProject> projectsData)
+        private void AddDllImportReferences(AdhocWorkspace workspace, Dictionary<int, (ProjectId projectId, IQActionsQAction qa)> allProjects, ProjectId helperProject, DotNetFrameworkVersion dotNetFrameworkVersion, Dictionary<ProjectId, CompiledQActionProject> projectsData)
         {
             var solution = workspace.CurrentSolution;
 
@@ -384,7 +385,7 @@
 
         private static void ProcessDllImport(Dictionary<int, (ProjectId projectId, IQActionsQAction qa)> allProjects, IAssemblyResolver dllImportResolver, DotNetFrameworkVersion dotNetFrameworkVersion, List<ProjectReference> projectReferencesToAdd, List<MetadataReference> additionalDllReferencesToAdd, string import)
         {
-            Match m = Regex.Match(import, @"\[ProtocolName\]\.\[ProtocolVersion\]\.QAction\.(?<id>[\d]+)\.dll");
+            Match m = QActionRegex.Match(import);
 
             // [ProtocolName].[ProtocolVersion].QAction.63000.dll
             if (m.Success)
@@ -426,7 +427,7 @@
             ProjectId projectId = ProjectId.CreateNewId();
 
             CSharpParseOptions parseOptions = new CSharpParseOptions(languageVersion)
-                .WithPreprocessorSymbols("DCFv1", "ALARM_SQUASHING", "DBInfo");
+                .WithPreprocessorSymbols(Preprocessors);
 
             CompilationOptions compilationOptions = new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary);
 
@@ -476,10 +477,6 @@
                 {
                     allProjects.Add(qaId, (newProject, qAction));
                 }
-                //else
-                //{
-                //    throw new InvalidOperationException("Multiple QActions with the same ID detected: QA " + qaId);
-                //}
             }
 
             return allProjects;

@@ -26,6 +26,7 @@
                 projectMap.Add(item.Value.project, item.Value.qa);
             }
         }
+
         public Solution Solution { get; private set; }
 
         public IQActionsQAction GetQAction(int id)
