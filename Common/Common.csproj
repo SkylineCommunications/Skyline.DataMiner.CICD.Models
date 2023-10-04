@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <AssemblyName>Skyline.DataMiner.CICD.Models.Protocol</AssemblyName>
-        <RootNamespace>Skyline.DataMiner.CICD.Models.Protocol</RootNamespace>
+        <AssemblyName>Skyline.DataMiner.CICD.Models.Common</AssemblyName>
+        <RootNamespace>Skyline.DataMiner.CICD.Models.Common</RootNamespace>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <Authors>SkylineCommunications</Authors>
@@ -13,16 +13,10 @@
         <PackageIcon>icon.png</PackageIcon>
         <PackageProjectUrl>https://skyline.be/</PackageProjectUrl>
         <PackageTags>Skyline;DataMiner;CICD</PackageTags>
-        <Description>Library containing the models for a DataMiner Protocol.</Description>
-		<RepositoryUrl>https://github.com/SkylineCommunications/Skyline.DataMiner.CICD.Models.git</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
+        <Description>Library containing common functionality for models of DataMiner objects (e.g. protocols).</Description>
+        <RepositoryUrl>https://github.com/SkylineCommunications/Skyline.DataMiner.CICD.Models.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
-
-    <ItemGroup>
-        <SonarQubeSetting Include="sonar.exclusions">
-            <Value>Models/**</Value>
-        </SonarQubeSetting>
-    </ItemGroup>
 
     <ItemGroup>
         <None Include="..\_NuGetItems\icon.png">
@@ -35,18 +29,14 @@
         </None>
     </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.0.1.7" />
-  </ItemGroup>
-
     <ItemGroup>
-        <InternalsVisibleTo Include="$(MSBuildProjectName)Tests" />
-
-        <!-- Needed for DIS -->
-        <InternalsVisibleTo Include="SLDisUnitTestsShared" />
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.11.0" />
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.11.0" />
+      <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Common\Common.csproj" />
+        <InternalsVisibleTo Include="Skyline.DataMiner.CICD.Models.Protocol" />
     </ItemGroup>
+
 </Project>
