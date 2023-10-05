@@ -465,6 +465,11 @@
                     continue;
                 }
 
+                if(qAction.Encoding?.Value != Enums.EnumQActionEncoding.Csharp)
+                {
+                    continue;
+                }
+
                 int qaId = (int)nullableQaId;
                 string projectName = $"QAction_{qaId}";
                 string fileName = $"{projectName}.cs";
