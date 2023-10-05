@@ -172,5 +172,86 @@ namespace Skyline.DataMiner.Scripting
 
             Assert.AreEqual(expectedViolationCount, detectedViolationCount);
         }
+
+        [TestMethod]
+        public void TestProtocolWithDifferentQActionEncodings()
+        {
+            // Arrange.
+            string xmlString = File.ReadAllText(@"..\..\..\ProtocolExamples\TestProtocolQActionTypes.xml");
+
+            (ProtocolModel model, _) = Generic.ParseProtocol(xmlString);
+
+            string qactionHelperSource = @"using System.ComponentModel;
+using System.Collections;
+            using System.Collections.Generic;
+            using System.Linq;
+
+namespace Skyline.DataMiner.Scripting
+    {
+        public static class Parameter
+        {
+            public class Write
+            {
+            }
+        }
+        public class SLProtocolExt : SLProtocol
+        {
+            public WriteParameters Write;
+            public class WriteParameters
+            {
+                public SLProtocolExt Protocol;
+                public WriteParameters(SLProtocolExt protocol)
+                {
+                    Protocol = protocol;
+                }
+            }
+            public SLProtocolExt()
+            {
+                Write = new WriteParameters(this);
+            }
+        }
+    }";
+
+            string baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+            IAssemblyResolver dllImportResolver = new InternalFilesAssemblyResolver(baseDir);
+
+            var qactionCompilationModel = new QActionCompilationModel(qactionHelperSource, model, dllImportResolver);
+
+            bool buildSucceeded = true;
+
+            IReadOnlyDictionary<Microsoft.CodeAnalysis.ProjectId, CompiledQActionProject> compiledQActionProjects = null;
+
+            // Act.
+            try
+            {
+                compiledQActionProjects = qactionCompilationModel.Build();
+            }
+            catch (ReflectionTypeLoadException e)
+            {
+                string message = String.Join("###", e.LoaderExceptions?.Select(x => x.Message));
+                Assert.Fail(message);
+            }
+
+            Assert.AreEqual(5, compiledQActionProjects.Count); // 5 C# QActions
+
+            Assert.IsNull(compiledQActionProjects.FirstOrDefault(q => q.Value.QAction.Id.Value == 10000).Value); // jscript QAction.
+            Assert.IsNull(compiledQActionProjects.FirstOrDefault(q => q.Value.QAction.Id.Value == 10001).Value); // vbscript QAction.
+
+            // Assert compilation of C# QActions succeeded.
+            foreach (var projectId in compiledQActionProjects.Keys)
+            {
+                var compiledProject = compiledQActionProjects[projectId];
+
+                // We only validate if the build of the project succeeded.
+                if (!compiledProject.BuildSucceeded)
+                {
+                    buildSucceeded = false;
+                    break;
+                }
+            }
+
+            Assert.IsTrue(buildSucceeded);
+        }
     }
 }
