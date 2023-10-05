@@ -40,7 +40,7 @@
 #pragma warning disable S3963 // "static" fields should be initialized inline
         static QActionCompilationModel()
         {
-            List<string> assembliesToReference = new List<string>(QActionAssemblyReferncesHelper.DefaultReferencedAssemblies);
+            List<string> assembliesToReference = new List<string>(QActionAssemblyReferencesHelper.DefaultReferencedAssemblies);
             if (!assembliesToReference.Contains("netstandard.dll"))
             {
                 assembliesToReference.Add("netstandard.dll");

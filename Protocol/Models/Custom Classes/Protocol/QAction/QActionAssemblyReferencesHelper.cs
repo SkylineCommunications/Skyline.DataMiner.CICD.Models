@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Skyline.DataMiner.CICD.Models.Protocol.Models.Custom_Classes.Protocol.QAction
+﻿namespace Skyline.DataMiner.CICD.Models.Protocol.Models.Custom_Classes.Protocol.QAction
 {
-    public class QActionAssemblyReferncesHelper
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// QAction assembly references helper.
+    /// </summary>
+    public class QActionAssemblyReferencesHelper
     {
         /// <summary>
         /// Defines the assemblies that are referenced by default in DataMiner when a QAction is compiled.
