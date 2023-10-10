@@ -181,8 +181,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreNotEqual(2, parameter.Measurement.Discreets.GetEnumerator());
+            Assert.IsNotNull(parameter.Measurement.Discreets.GetEnumerator());
         }
-
     }
 }
