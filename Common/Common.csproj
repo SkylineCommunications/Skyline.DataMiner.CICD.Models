@@ -14,11 +14,16 @@
         <PackageProjectUrl>https://skyline.be/</PackageProjectUrl>
         <PackageTags>Skyline;DataMiner;CICD</PackageTags>
         <Description>Library containing common functionality for models of DataMiner objects (e.g. protocols).</Description>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/SkylineCommunications/Skyline.DataMiner.CICD.Models.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>
+        <None Include="..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
         <None Include="..\_NuGetItems\icon.png">
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>

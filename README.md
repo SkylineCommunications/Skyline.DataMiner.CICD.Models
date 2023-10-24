@@ -8,6 +8,7 @@ Skyline.DataMiner.CICD.Models packages are NuGet packages available in the publi
 
 The following packages are available:
 
+- Skyline.DataMiner.CICD.Models.Common
 - Skyline.DataMiner.CICD.Models.Protocol
 
 ### About DataMiner

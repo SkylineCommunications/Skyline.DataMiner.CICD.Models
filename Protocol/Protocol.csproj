@@ -14,6 +14,7 @@
         <PackageProjectUrl>https://skyline.be/</PackageProjectUrl>
         <PackageTags>Skyline;DataMiner;CICD</PackageTags>
         <Description>Library containing the models for a DataMiner Protocol.</Description>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/SkylineCommunications/Skyline.DataMiner.CICD.Models.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
     </PropertyGroup>
@@ -25,6 +26,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <None Include="..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
         <None Include="..\_NuGetItems\icon.png">
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>
@@ -36,7 +41,8 @@
     </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.0.2.2" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Common" Version="1.0.3" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.0.3" />
   </ItemGroup>
 
     <ItemGroup>
