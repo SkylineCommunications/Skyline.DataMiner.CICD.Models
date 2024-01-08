@@ -47,9 +47,6 @@
 
     <ItemGroup>
         <InternalsVisibleTo Include="$(MSBuildProjectName)Tests" />
-
-        <!-- Needed for DIS -->
-        <InternalsVisibleTo Include="SLDisUnitTestsShared" />
     </ItemGroup>
 
     <ItemGroup>

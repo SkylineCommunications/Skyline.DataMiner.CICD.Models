@@ -37,15 +37,8 @@
 
         public Protocol Protocol
         {
-            get
-            {
-                return protocol;
-            }
-
-            set
-            {
-                AssignProtocol(value);
-            }
+            get => protocol;
+            set => AssignProtocol(value);
         }
 
         #endregion
