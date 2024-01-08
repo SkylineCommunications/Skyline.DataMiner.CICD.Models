@@ -9,17 +9,11 @@
             "Name", "Description", "Version","Provider", "Vendor", "VendorOID", "DeviceOID", "ElementType", "Type", "Display", "SNMP",
             "DVEs", "ExportRules", "Params", "QActions", "Groups", "Triggers", "Actions", "Timers", "PortSettings"
         };
-
-        // Used by DIS > SLDisUnitTestsShared > ProtocolTestsHelper.cs
+        
         internal Protocol(Read.IProtocol read, EditXml.XmlElement editNode) : base(read, null, editNode)
         {
         }
-
-        // Used by DIS > SLDisUnitTestsShared > ProtocolTestsHelper.cs
-        internal Protocol(Read.IProtocol read) : base(read, null, CreateEditNode(read))
-        {
-        }
-
+        
         public override string[] ElementOrder => elementOrder;
 
         protected override void OnCreated()

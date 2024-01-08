@@ -47,11 +47,6 @@
 
     <ItemGroup>
         <InternalsVisibleTo Include="$(MSBuildProjectName)Tests" />
-
-        <!-- Needed for DIS unit tests -->
-        <InternalsVisibleTo Include="SLDisUnitTestsShared" />
-        <!-- Needed for Validators unit tests -->
-        <InternalsVisibleTo Include="Skyline.DataMiner.CICD.Validators.Common.Testing" />
     </ItemGroup>
 
     <ItemGroup>
