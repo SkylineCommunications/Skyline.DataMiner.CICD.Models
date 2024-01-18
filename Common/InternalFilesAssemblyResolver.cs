@@ -11,6 +11,8 @@
     {
         private readonly IEnumerable<string> _searchDirs;
 
+        private readonly static DotNetFrameworkVersion dotnetFrameworkVersion = DotNetFrameworkVersion.LatestVersionFromRegistry;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="InternalFilesAssemblyResolver"/> class using the specified search directories.
         /// </summary>
@@ -32,8 +34,14 @@
         /// Gets the installation path of the .NET Framework.
         /// </summary>
         /// <value>The installation path of the .NET Framework.</value>
-        public static string DotNetFrameworkAssemblyPath { get; } = Path.GetDirectoryName(typeof(object).Assembly.Location);
-
+        public static string DotNetFrameworkAssemblyPath
+        {
+            get
+            {
+                return dotnetFrameworkVersion?.AssembliesPath;
+            }
+        }
+    
         /// <inheritdoc/>
         public string TryResolve(string assembly)
         {
@@ -76,10 +84,13 @@
                     }
                 }
 
-                filename = Path.Combine(DotNetFrameworkAssemblyPath, assembly);
-                if (TryGetFileInfo(filename, out info))
+                if(DotNetFrameworkAssemblyPath != null)
                 {
-                    return info;
+                    filename = Path.Combine(DotNetFrameworkAssemblyPath, assembly);
+                    if (TryGetFileInfo(filename, out info))
+                    {
+                        return info;
+                    }
                 }
             }
             catch
