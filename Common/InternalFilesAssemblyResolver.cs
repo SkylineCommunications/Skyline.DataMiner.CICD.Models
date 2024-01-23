@@ -34,14 +34,8 @@
         /// Gets the installation path of the .NET Framework.
         /// </summary>
         /// <value>The installation path of the .NET Framework.</value>
-        public static string DotNetFrameworkAssemblyPath
-        {
-            get
-            {
-                return dotnetFrameworkVersion?.AssembliesPath;
-            }
-        }
-    
+        public static string DotNetFrameworkAssemblyPath => dotnetFrameworkVersion?.AssembliesPath;
+
         /// <inheritdoc/>
         public string TryResolve(string assembly)
         {
@@ -84,7 +78,7 @@
                     }
                 }
 
-                if(DotNetFrameworkAssemblyPath != null)
+                if (DotNetFrameworkAssemblyPath != null)
                 {
                     filename = Path.Combine(DotNetFrameworkAssemblyPath, assembly);
                     if (TryGetFileInfo(filename, out info))
