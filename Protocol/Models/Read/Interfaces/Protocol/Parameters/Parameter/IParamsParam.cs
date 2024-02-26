@@ -93,10 +93,11 @@
         bool IsNumber();
 
         /// <summary>
-        /// Determines whether this parameter is datetime parameter.
+        /// Determines whether this parameter is a datetime parameter.
+        /// This will check if the parameter has the option 'date', 'datetime' or 'datetime:minute'.
         /// </summary>
         /// <returns>
-        ///   <c>true</c> if the specified parameter is datetime parameter; otherwise, <c>false</c>.
+        ///   <c>true</c> if the specified parameter is a datetime parameter; otherwise, <c>false</c>.
         /// </returns>
         bool IsDateTime();
 
