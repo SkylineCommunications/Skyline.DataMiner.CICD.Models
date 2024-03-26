@@ -16,7 +16,7 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.4.3.3" />
+        <PackageReference Include="Skyline.DataMiner.Dev.Protocol" Version="10.4.4.2" />
         <PackageReference Include="System.ValueTuple" Version="4.5.0" />
     </ItemGroup>
 
