@@ -5,9 +5,10 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
+
     using Skyline.DataMiner.CICD.Models.Protocol.Models.Custom_Classes;
-    using Skyline.DataMiner.CICD.Parsers.Common.XmlEdit;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
+    using Skyline.DataMiner.CICD.Parsers.Common.XmlEdit;
 
     public abstract class EditableListNode<TReadList, VReadChild, UEditable> : EditableElementNode<TReadList>, IList<UEditable>
         where TReadList : IReadableList<VReadChild>
@@ -262,6 +263,17 @@
             EditNode.Children.Add(item.EditNode);
             EditNode.Format();
 
+            children.Value.Add(item);
+        }
+
+        /// <summary>
+        /// Adds the specified item with performing formatting.
+        /// </summary>
+        /// <param name="item">The item to add.</param>
+        /// <remarks>This method can be used when adding items in bulk. Performing a single Format of the item that contains these items performs much better than executing a Format call on every added parameter.</remarks>
+        public void AddWithoutFormat(UEditable item)
+        {
+            EditNode.Children.Add(item.EditNode);
             children.Value.Add(item);
         }
 
