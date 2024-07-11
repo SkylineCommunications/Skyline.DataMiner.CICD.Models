@@ -44,7 +44,7 @@
 
         public MultipleGetBulkClass MultipleGetBulk { get; private set; }
 
-        public MultipleGetBulkClass PartialSnmp { get; private set; }
+        public PartialSnmpClass PartialSnmp { get; private set; }
 
         public bool HasSubtable { get; private set; }
 
@@ -65,7 +65,7 @@
                     break;
 
                 case "partialsnmp":
-                    PartialSnmp = new MultipleGetBulkClass(option);
+                    PartialSnmp = new PartialSnmpClass(option);
                     break;
 
                 default:
