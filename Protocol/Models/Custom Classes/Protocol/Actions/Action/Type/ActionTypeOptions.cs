@@ -644,7 +644,7 @@
                     Pid = pid;
                 }
 
-                PrimaryKey = secondParts[4];
+                PrimaryKey = secondParts[3];
             }
 
             public string EquationType { get; }
