@@ -8562,6 +8562,7 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Read
             obj.ConnectionPID?.Accept(this);
             obj.Id?.Accept(this);
             obj.Ping?.Accept(this);
+            obj.ThreadId?.Accept(this);
         }
 
         public virtual void VisitGroupsGroupContent(IGroupsGroupContent obj)
@@ -9849,6 +9850,8 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Read
         {
             this.DefaultVisit(obj);
             obj.Connection?.Accept(this);
+            obj.Name?.Accept(this);
+            obj.Id?.Accept(this);
         }
 
         public virtual void VisitTimers(ITimers obj)
@@ -14168,6 +14171,12 @@ IValueTag<uint?> Id { get; }
         /// Specifies whether this is the group to be used when testing the connection in the element wizard.
         ///</summary>
 IValueTag<bool?> Ping { get; }
+
+        ///<summary>
+        /// Specifies the ID of the thread that should execute the group.
+        /// Default: -1 (main protocol thread)
+        ///</summary>
+IValueTag<int?> ThreadId { get; }
     }
 
     ///<summary>
@@ -17500,6 +17509,16 @@ public partial interface IThreadsThread : IReadable
         /// In the connection attribute, you can specify a single connection ID or a comma-separated list of multiple connection IDs in case you want to combine a number of connections into one single thread).
         ///</summary>
 IValueTag<string> Connection { get; }
+
+        ///<summary>
+        /// Specifies a name for the thread.
+        ///</summary>
+IValueTag<string> Name { get; }
+
+        ///<summary>
+        /// Specifies a unique ID that can be used as a target for group execution.
+        ///</summary>
+IValueTag<uint?> Id { get; }
     }
 
     ///<summary>
@@ -26535,6 +26554,7 @@ internal partial class GroupsGroup : ElementTag, IGroupsGroup
         private AttributeTag<uint?> _connectionPID;
         private AttributeTag<uint?> _id;
         private AttributeTag<bool?> _ping;
+        private AttributeTag<int?> _threadId;
         ///<summary>
         /// Specifies a condition that must be met in order for the group to execute.
         ///</summary>
@@ -26583,6 +26603,11 @@ public IValueTag<uint?> Id => _id;
         /// Specifies whether this is the group to be used when testing the connection in the element wizard.
         ///</summary>
 public IValueTag<bool?> Ping => _ping;
+        ///<summary>
+        /// Specifies the ID of the thread that should execute the group.
+        /// Default: -1 (main protocol thread)
+        ///</summary>
+public IValueTag<int?> ThreadId => _threadId;
 
         protected override void Parse(string notifyPropertyName)
         {
@@ -26591,6 +26616,7 @@ public IValueTag<bool?> Ping => _ping;
             ParseAttributeTag("connectionPID", nameof(ConnectionPID), _connectionPID, value => _connectionPID = value);
             ParseAttributeTag("id", nameof(Id), _id, value => _id = value);
             ParseAttributeTag("ping", nameof(Ping), _ping, value => _ping = value);
+            ParseAttributeTag("threadId", nameof(ThreadId), _threadId, value => _threadId = value);
             ParseElementTag("Condition", nameof(Condition), _condition, value => _condition = value);
             ParseElementTag("Content", nameof(Content), _content, value => _content = value);
             ParseElementTag("Description", nameof(Description), _description, value => _description = value);
@@ -33568,17 +33594,29 @@ internal partial class ThreadsThread : ElementTag, IThreadsThread
         }
 
         private AttributeTag<string> _connection;
+        private AttributeTag<string> _name;
+        private AttributeTag<uint?> _id;
         ///<summary>
         /// When you create an additional thread, you have to link it to a particular connection.
         /// This can be either a real connection or a virtual connection. All groups linked to that connection will then be executed on that thread.
         /// In the connection attribute, you can specify a single connection ID or a comma-separated list of multiple connection IDs in case you want to combine a number of connections into one single thread).
         ///</summary>
 public IValueTag<string> Connection => _connection;
+        ///<summary>
+        /// Specifies a name for the thread.
+        ///</summary>
+public IValueTag<string> Name => _name;
+        ///<summary>
+        /// Specifies a unique ID that can be used as a target for group execution.
+        ///</summary>
+public IValueTag<uint?> Id => _id;
 
         protected override void Parse(string notifyPropertyName)
         {
             base.Parse(notifyPropertyName);
             ParseAttributeTag("connection", nameof(Connection), _connection, value => _connection = value);
+            ParseAttributeTag("name", nameof(Name), _name, value => _name = value);
+            ParseAttributeTag("id", nameof(Id), _id, value => _id = value);
         }
 
         public override void Accept(ProtocolVisitor visitor)
@@ -58626,6 +58664,7 @@ public GroupsGroup() : base("Group")
         private AttributeValue<uint?> _connectionPID;
         private AttributeValue<uint?> _id;
         private AttributeValue<bool?> _ping;
+        private AttributeValue<int?> _threadId;
         ///<summary>
         /// Specifies a condition that must be met in order for the group to execute.
         ///</summary>
@@ -58818,6 +58857,27 @@ public AttributeValue<bool?> Ping
             }
         }
 
+        ///<summary>
+        /// Specifies the ID of the thread that should execute the group.
+        /// Default: -1 (main protocol thread)
+        ///</summary>
+public AttributeValue<int?> ThreadId
+        {
+            get
+            {
+                return _threadId;
+            }
+
+            set
+            {
+                if (_threadId != value)
+                {
+                    _threadId = value;
+                    AttributeHandler.Assign(value, this, "threadId");
+                }
+            }
+        }
+
         public ElementValue<string> GetOrCreateCondition()
         {
             if (Condition == null)
@@ -58881,6 +58941,13 @@ public AttributeValue<bool?> Ping
             return Ping;
         }
 
+        public AttributeValue<int?> GetOrCreateThreadId()
+        {
+            if (ThreadId == null)
+                ThreadId = new AttributeValue<int?>();
+            return ThreadId;
+        }
+
         protected override void Initialize(Read.IGroupsGroup read, XmlElement editNode)
         {
             if (read == null)
@@ -58894,6 +58961,7 @@ public AttributeValue<bool?> Ping
             _connectionPID = read.ConnectionPID != null ? new AttributeValue<uint?>(read.ConnectionPID, this) : null;
             _id = read.Id != null ? new AttributeValue<uint?>(read.Id, this) : null;
             _ping = read.Ping != null ? new AttributeValue<bool?>(read.Ping, this) : null;
+            _threadId = read.ThreadId != null ? new AttributeValue<int?>(read.ThreadId, this) : null;
         }
 
         public static GroupsGroup FromRead(Read.IGroupsGroup read)
@@ -58910,6 +58978,7 @@ public AttributeValue<bool?> Ping
             item.ConnectionPID = AttributeValue<uint?>.FromRead(read.ConnectionPID);
             item.Id = AttributeValue<uint?>.FromRead(read.Id);
             item.Ping = AttributeValue<bool?>.FromRead(read.Ping);
+            item.ThreadId = AttributeValue<int?>.FromRead(read.ThreadId);
             return item;
         }
 
@@ -78903,6 +78972,8 @@ public ThreadsThread() : base("Thread")
         }
 
         private AttributeValue<string> _connection;
+        private AttributeValue<string> _name;
+        private AttributeValue<uint?> _id;
         ///<summary>
         /// When you create an additional thread, you have to link it to a particular connection.
         /// This can be either a real connection or a virtual connection. All groups linked to that connection will then be executed on that thread.
@@ -78925,6 +78996,46 @@ public AttributeValue<string> Connection
             }
         }
 
+        ///<summary>
+        /// Specifies a name for the thread.
+        ///</summary>
+public AttributeValue<string> Name
+        {
+            get
+            {
+                return _name;
+            }
+
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    AttributeHandler.Assign(value, this, "name");
+                }
+            }
+        }
+
+        ///<summary>
+        /// Specifies a unique ID that can be used as a target for group execution.
+        ///</summary>
+public AttributeValue<uint?> Id
+        {
+            get
+            {
+                return _id;
+            }
+
+            set
+            {
+                if (_id != value)
+                {
+                    _id = value;
+                    AttributeHandler.Assign(value, this, "id");
+                }
+            }
+        }
+
         public AttributeValue<string> GetOrCreateConnection()
         {
             if (Connection == null)
@@ -78932,11 +79043,27 @@ public AttributeValue<string> Connection
             return Connection;
         }
 
+        public AttributeValue<string> GetOrCreateName()
+        {
+            if (Name == null)
+                Name = new AttributeValue<string>();
+            return Name;
+        }
+
+        public AttributeValue<uint?> GetOrCreateId()
+        {
+            if (Id == null)
+                Id = new AttributeValue<uint?>();
+            return Id;
+        }
+
         protected override void Initialize(Read.IThreadsThread read, XmlElement editNode)
         {
             if (read == null)
                 return;
             _connection = read.Connection != null ? new AttributeValue<string>(read.Connection, this) : null;
+            _name = read.Name != null ? new AttributeValue<string>(read.Name, this) : null;
+            _id = read.Id != null ? new AttributeValue<uint?>(read.Id, this) : null;
         }
 
         public static ThreadsThread FromRead(Read.IThreadsThread read)
@@ -78945,6 +79072,8 @@ public AttributeValue<string> Connection
                 return null;
             var item = new ThreadsThread();
             item.Connection = AttributeValue<string>.FromRead(read.Connection);
+            item.Name = AttributeValue<string>.FromRead(read.Name);
+            item.Id = AttributeValue<uint?>.FromRead(read.Id);
             return item;
         }
 
@@ -101072,6 +101201,7 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Edit
             obj.ConnectionPID?.Accept(this);
             obj.Id?.Accept(this);
             obj.Ping?.Accept(this);
+            obj.ThreadId?.Accept(this);
         }
 
         public virtual void VisitGroupsGroupContent(GroupsGroupContent obj)
@@ -102359,6 +102489,8 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Edit
         {
             this.DefaultVisit(obj);
             obj.Connection?.Accept(this);
+            obj.Name?.Accept(this);
+            obj.Id?.Accept(this);
         }
 
         public virtual void VisitTimers(Timers obj)

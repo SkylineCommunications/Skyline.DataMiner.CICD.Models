@@ -418,6 +418,8 @@
 
         public IValueTag<bool?> Ping => null;
 
+        public IValueTag<int?> ThreadId => null;
+
         public DummyGroup(string id)
         {
             var attrId = new AttributeTag<uint?>(null, null, "id");
