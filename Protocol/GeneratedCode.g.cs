@@ -10407,6 +10407,7 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Read
             obj.PortTypeUDP?.Accept(this);
             obj.Retries?.Accept(this);
             obj.SetCommunity?.Accept(this);
+            obj.SkipCertificateVerification?.Accept(this);
             obj.SSH?.Accept(this);
             obj.Stopbits?.Accept(this);
             obj.TimeoutTimeElement?.Accept(this);
@@ -10629,6 +10630,13 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Read
             obj.Disabled?.Accept(this);
         }
 
+        public virtual void VisitPortSettingsSkipCertificateVerification(IPortSettingsSkipCertificateVerification obj)
+        {
+            this.DefaultVisit(obj);
+            obj.DefaultValue?.Accept(this);
+            obj.Disabled?.Accept(this);
+        }
+
         public virtual void VisitPortSettingsSSH(IPortSettingsSSH obj)
         {
             this.DefaultVisit(obj);
@@ -10723,6 +10731,7 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Read
             obj.PortTypeUDP?.Accept(this);
             obj.Retries?.Accept(this);
             obj.SetCommunity?.Accept(this);
+            obj.SkipCertificateVerification?.Accept(this);
             obj.SlowPoll?.Accept(this);
             obj.SlowPollBase?.Accept(this);
             obj.SSH?.Accept(this);
@@ -10940,6 +10949,13 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Read
         }
 
         public virtual void VisitPortSettingsMainSetCommunity(IPortSettingsMainSetCommunity obj)
+        {
+            this.DefaultVisit(obj);
+            obj.DefaultValue?.Accept(this);
+            obj.Disabled?.Accept(this);
+        }
+
+        public virtual void VisitPortSettingsMainSkipCertificateVerification(IPortSettingsMainSkipCertificateVerification obj)
         {
             this.DefaultVisit(obj);
             obj.DefaultValue?.Accept(this);
@@ -16019,7 +16035,7 @@ IValueTag<decimal?> High { get; }
 public partial interface IParamsParamDisplayRTDisplay : IValueTag<bool?>
     {
         ///<summary>
-        /// Set this attribute to "true" if the parameter has no position but needs RTDisplay true for application purposes. For validation only.
+        /// Obsolete -&gt; Use ValidatorSuppression instead so that you can give more context. If set to "true", this indicates the parameter needs to be available on application level (e.g. Visual Overview, Automation script, GQI query, etc.). Note: this attribute is not known by DataMiner, it's only used by the validator.
         ///</summary>
 IValueTag<bool?> OnAppLevel { get; }
     }
@@ -18735,6 +18751,12 @@ IPortSettingsRetries Retries { get; }
 IPortSettingsSetCommunity SetCommunity { get; }
 
         ///<summary>
+        /// Specifies settings related to verification process of SSL/TLS certificates.
+        /// Feature introduced in DataMiner 10.4.12 (RN 40877, RN 41285).
+        ///</summary>
+IPortSettingsSkipCertificateVerification SkipCertificateVerification { get; }
+
+        ///<summary>
         /// Specifies the SSH settings (only applicable for serial connections of type TCP).
         /// Feature introduced in DataMiner 9.5.9 (RN 17732).
         ///</summary>
@@ -19200,6 +19222,23 @@ IValueTag<bool?> Disabled { get; }
     }
 
     ///<summary>
+    /// Specifies settings related to verification process of SSL/TLS certificates.
+    /// Feature introduced in DataMiner 10.4.12 (RN 40877, RN 41285).
+    ///</summary>
+public partial interface IPortSettingsSkipCertificateVerification : IReadable
+    {
+        ///<summary>
+        /// Specifies whether the SSL/TLS certificate verification should be skipped by default.
+        ///</summary>
+IValueTag<bool?> DefaultValue { get; }
+
+        ///<summary>
+        /// Specifies whether the DataMiner interface can be used to configure if the SSL/TLS certificate verification is skipped.
+        ///</summary>
+IValueTag<bool?> Disabled { get; }
+    }
+
+    ///<summary>
     /// Specifies the SSH settings (only applicable for serial connections of type TCP).
     /// Feature introduced in DataMiner 9.5.9 (RN 17732).
     ///</summary>
@@ -19437,6 +19476,12 @@ IPortSettingsMainRetries Retries { get; }
         /// For SNMPv3, this contains the Encryption Password.
         ///</summary>
 IPortSettingsMainSetCommunity SetCommunity { get; }
+
+        ///<summary>
+        /// Specifies settings related to verification process of SSL/TLS certificates.
+        /// Feature introduced in DataMiner 10.4.12 (RN 40877, RN 41285).
+        ///</summary>
+IPortSettingsMainSkipCertificateVerification SkipCertificateVerification { get; }
 
         ///<summary>
         /// Specifies the slow poll configuration.
@@ -19904,6 +19949,23 @@ IValueTag<string> DefaultValue { get; }
 
         ///<summary>
         /// Specifies whether the SetCommunity string can be modified in the DataMiner user interface.
+        ///</summary>
+IValueTag<bool?> Disabled { get; }
+    }
+
+    ///<summary>
+    /// Specifies settings related to verification process of SSL/TLS certificates.
+    /// Feature introduced in DataMiner 10.4.12 (RN 40877, RN 41285).
+    ///</summary>
+public partial interface IPortSettingsMainSkipCertificateVerification : IReadable
+    {
+        ///<summary>
+        /// Specifies whether the SSL/TLS certificate verification should be skipped by default.
+        ///</summary>
+IValueTag<bool?> DefaultValue { get; }
+
+        ///<summary>
+        /// Specifies whether the DataMiner interface can be used to configure if the SSL/TLS certificate verification is skipped.
         ///</summary>
 IValueTag<bool?> Disabled { get; }
     }
@@ -30416,7 +30478,7 @@ internal partial class ParamsParamDisplayRTDisplay : ElementValueTag<bool?>, IPa
 
         private AttributeTag<bool?> _onAppLevel;
         ///<summary>
-        /// Set this attribute to "true" if the parameter has no position but needs RTDisplay true for application purposes. For validation only.
+        /// Obsolete -&gt; Use ValidatorSuppression instead so that you can give more context. If set to "true", this indicates the parameter needs to be available on application level (e.g. Visual Overview, Automation script, GQI query, etc.). Note: this attribute is not known by DataMiner, it's only used by the validator.
         ///</summary>
 public IValueTag<bool?> OnAppLevel => _onAppLevel;
 
@@ -36197,6 +36259,7 @@ internal partial class PortSettings : ElementTag, IPortSettings
         private PortSettingsPortTypeUDP _portTypeUDP;
         private PortSettingsRetries _retries;
         private PortSettingsSetCommunity _setCommunity;
+        private PortSettingsSkipCertificateVerification _skipCertificateVerification;
         private PortSettingsSSH _sSH;
         private PortSettingsStopbits _stopbits;
         private PortSettingsTimeoutTimeElement _timeoutTimeElement;
@@ -36271,6 +36334,11 @@ public IPortSettingsRetries Retries => _retries;
         ///</summary>
 public IPortSettingsSetCommunity SetCommunity => _setCommunity;
         ///<summary>
+        /// Specifies settings related to verification process of SSL/TLS certificates.
+        /// Feature introduced in DataMiner 10.4.12 (RN 40877, RN 41285).
+        ///</summary>
+public IPortSettingsSkipCertificateVerification SkipCertificateVerification => _skipCertificateVerification;
+        ///<summary>
         /// Specifies the SSH settings (only applicable for serial connections of type TCP).
         /// Feature introduced in DataMiner 9.5.9 (RN 17732).
         ///</summary>
@@ -36321,6 +36389,7 @@ public IValueTag<bool?> VisibleInUi => _visibleInUi;
             ParseElementTag("PortTypeUDP", nameof(PortTypeUDP), _portTypeUDP, value => _portTypeUDP = value);
             ParseElementTag("Retries", nameof(Retries), _retries, value => _retries = value);
             ParseElementTag("SetCommunity", nameof(SetCommunity), _setCommunity, value => _setCommunity = value);
+            ParseElementTag("SkipCertificateVerification", nameof(SkipCertificateVerification), _skipCertificateVerification, value => _skipCertificateVerification = value);
             ParseElementTag("SSH", nameof(SSH), _sSH, value => _sSH = value);
             ParseElementTag("Stopbits", nameof(Stopbits), _stopbits, value => _stopbits = value);
             ParseElementTag("TimeoutTimeElement", nameof(TimeoutTimeElement), _timeoutTimeElement, value => _timeoutTimeElement = value);
@@ -37323,6 +37392,40 @@ public IValueTag<bool?> Disabled => _disabled;
     }
 
     ///<summary>
+    /// Specifies settings related to verification process of SSL/TLS certificates.
+    /// Feature introduced in DataMiner 10.4.12 (RN 40877, RN 41285).
+    ///</summary>
+internal partial class PortSettingsSkipCertificateVerification : ElementTag, IPortSettingsSkipCertificateVerification
+    {
+        internal PortSettingsSkipCertificateVerification(ProtocolModel model, ProtocolTag parent) : base(model, parent, "SkipCertificateVerification")
+        {
+        }
+
+        private ElementValueTag<bool?> _defaultValue;
+        private ElementValueTag<bool?> _disabled;
+        ///<summary>
+        /// Specifies whether the SSL/TLS certificate verification should be skipped by default.
+        ///</summary>
+public IValueTag<bool?> DefaultValue => _defaultValue;
+        ///<summary>
+        /// Specifies whether the DataMiner interface can be used to configure if the SSL/TLS certificate verification is skipped.
+        ///</summary>
+public IValueTag<bool?> Disabled => _disabled;
+
+        protected override void Parse(string notifyPropertyName)
+        {
+            base.Parse(notifyPropertyName);
+            ParseElementTag("DefaultValue", nameof(DefaultValue), _defaultValue, value => _defaultValue = value);
+            ParseElementTag("Disabled", nameof(Disabled), _disabled, value => _disabled = value);
+        }
+
+        public override void Accept(ProtocolVisitor visitor)
+        {
+            visitor.VisitPortSettingsSkipCertificateVerification(this);
+        }
+    }
+
+    ///<summary>
     /// Specifies the SSH settings (only applicable for serial connections of type TCP).
     /// Feature introduced in DataMiner 9.5.9 (RN 17732).
     ///</summary>
@@ -37702,6 +37805,7 @@ internal partial class PortSettingsMain : ElementTag, IPortSettingsMain
         private PortSettingsMainPortTypeUDP _portTypeUDP;
         private PortSettingsMainRetries _retries;
         private PortSettingsMainSetCommunity _setCommunity;
+        private PortSettingsMainSkipCertificateVerification _skipCertificateVerification;
         private SlowPoll _slowPoll;
         private SlowPollBase _slowPollBase;
         private PortSettingsMainSSH _sSH;
@@ -37777,6 +37881,11 @@ public IPortSettingsMainRetries Retries => _retries;
         ///</summary>
 public IPortSettingsMainSetCommunity SetCommunity => _setCommunity;
         ///<summary>
+        /// Specifies settings related to verification process of SSL/TLS certificates.
+        /// Feature introduced in DataMiner 10.4.12 (RN 40877, RN 41285).
+        ///</summary>
+public IPortSettingsMainSkipCertificateVerification SkipCertificateVerification => _skipCertificateVerification;
+        ///<summary>
         /// Specifies the slow poll configuration.
         ///</summary>
 public ISlowPoll SlowPoll => _slowPoll;
@@ -37830,6 +37939,7 @@ public IValueTag<string> Name => _name;
             ParseElementTag("PortTypeUDP", nameof(PortTypeUDP), _portTypeUDP, value => _portTypeUDP = value);
             ParseElementTag("Retries", nameof(Retries), _retries, value => _retries = value);
             ParseElementTag("SetCommunity", nameof(SetCommunity), _setCommunity, value => _setCommunity = value);
+            ParseElementTag("SkipCertificateVerification", nameof(SkipCertificateVerification), _skipCertificateVerification, value => _skipCertificateVerification = value);
             ParseElementTag("SlowPoll", nameof(SlowPoll), _slowPoll, value => _slowPoll = value);
             ParseElementTag("SlowPollBase", nameof(SlowPollBase), _slowPollBase, value => _slowPollBase = value);
             ParseElementTag("SSH", nameof(SSH), _sSH, value => _sSH = value);
@@ -38830,6 +38940,40 @@ public IValueTag<bool?> Disabled => _disabled;
         public override void Accept(ProtocolVisitor visitor)
         {
             visitor.VisitPortSettingsMainSetCommunity(this);
+        }
+    }
+
+    ///<summary>
+    /// Specifies settings related to verification process of SSL/TLS certificates.
+    /// Feature introduced in DataMiner 10.4.12 (RN 40877, RN 41285).
+    ///</summary>
+internal partial class PortSettingsMainSkipCertificateVerification : ElementTag, IPortSettingsMainSkipCertificateVerification
+    {
+        internal PortSettingsMainSkipCertificateVerification(ProtocolModel model, ProtocolTag parent) : base(model, parent, "SkipCertificateVerification")
+        {
+        }
+
+        private ElementValueTag<bool?> _defaultValue;
+        private ElementValueTag<bool?> _disabled;
+        ///<summary>
+        /// Specifies whether the SSL/TLS certificate verification should be skipped by default.
+        ///</summary>
+public IValueTag<bool?> DefaultValue => _defaultValue;
+        ///<summary>
+        /// Specifies whether the DataMiner interface can be used to configure if the SSL/TLS certificate verification is skipped.
+        ///</summary>
+public IValueTag<bool?> Disabled => _disabled;
+
+        protected override void Parse(string notifyPropertyName)
+        {
+            base.Parse(notifyPropertyName);
+            ParseElementTag("DefaultValue", nameof(DefaultValue), _defaultValue, value => _defaultValue = value);
+            ParseElementTag("Disabled", nameof(Disabled), _disabled, value => _disabled = value);
+        }
+
+        public override void Accept(ProtocolVisitor visitor)
+        {
+            visitor.VisitPortSettingsMainSkipCertificateVerification(this);
         }
     }
 
@@ -69839,7 +69983,7 @@ public ParamsParamDisplayRTDisplay() : base("RTDisplay")
 
         private AttributeValue<bool?> _onAppLevel;
         ///<summary>
-        /// Set this attribute to "true" if the parameter has no position but needs RTDisplay true for application purposes. For validation only.
+        /// Obsolete -&gt; Use ValidatorSuppression instead so that you can give more context. If set to "true", this indicates the parameter needs to be available on application level (e.g. Visual Overview, Automation script, GQI query, etc.). Note: this attribute is not known by DataMiner, it's only used by the validator.
         ///</summary>
 public AttributeValue<bool?> OnAppLevel
         {
@@ -86049,6 +86193,7 @@ public PortSettings(string tagName) : base(tagName)
         private PortSettingsPortTypeUDP _portTypeUDP;
         private PortSettingsRetries _retries;
         private PortSettingsSetCommunity _setCommunity;
+        private PortSettingsSkipCertificateVerification _skipCertificateVerification;
         private PortSettingsSSH _sSH;
         private PortSettingsStopbits _stopbits;
         private PortSettingsTimeoutTimeElement _timeoutTimeElement;
@@ -86363,6 +86508,27 @@ public PortSettingsSetCommunity SetCommunity
         }
 
         ///<summary>
+        /// Specifies settings related to verification process of SSL/TLS certificates.
+        /// Feature introduced in DataMiner 10.4.12 (RN 40877, RN 41285).
+        ///</summary>
+public PortSettingsSkipCertificateVerification SkipCertificateVerification
+        {
+            get
+            {
+                return _skipCertificateVerification;
+            }
+
+            set
+            {
+                if (_skipCertificateVerification != value)
+                {
+                    _skipCertificateVerification = value;
+                    CombinedTagHandler.Assign(value, this, "SkipCertificateVerification");
+                }
+            }
+        }
+
+        ///<summary>
         /// Specifies the SSH settings (only applicable for serial connections of type TCP).
         /// Feature introduced in DataMiner 9.5.9 (RN 17732).
         ///</summary>
@@ -86609,6 +86775,13 @@ public AttributeValue<bool?> VisibleInUi
             return SetCommunity;
         }
 
+        public PortSettingsSkipCertificateVerification GetOrCreateSkipCertificateVerification()
+        {
+            if (SkipCertificateVerification == null)
+                SkipCertificateVerification = new PortSettingsSkipCertificateVerification();
+            return SkipCertificateVerification;
+        }
+
         public PortSettingsSSH GetOrCreateSSH()
         {
             if (SSH == null)
@@ -86677,6 +86850,7 @@ public AttributeValue<bool?> VisibleInUi
             _portTypeUDP = read.PortTypeUDP != null ? new PortSettingsPortTypeUDP(read.PortTypeUDP, this, editNode.Element["PortTypeUDP"]) : null;
             _retries = read.Retries != null ? new PortSettingsRetries(read.Retries, this, editNode.Element["Retries"]) : null;
             _setCommunity = read.SetCommunity != null ? new PortSettingsSetCommunity(read.SetCommunity, this, editNode.Element["SetCommunity"]) : null;
+            _skipCertificateVerification = read.SkipCertificateVerification != null ? new PortSettingsSkipCertificateVerification(read.SkipCertificateVerification, this, editNode.Element["SkipCertificateVerification"]) : null;
             _sSH = read.SSH != null ? new PortSettingsSSH(read.SSH, this, editNode.Element["SSH"]) : null;
             _stopbits = read.Stopbits != null ? new PortSettingsStopbits(read.Stopbits, this, editNode.Element["Stopbits"]) : null;
             _timeoutTimeElement = read.TimeoutTimeElement != null ? new PortSettingsTimeoutTimeElement(read.TimeoutTimeElement, this, editNode.Element["TimeoutTimeElement"]) : null;
@@ -86706,6 +86880,7 @@ public AttributeValue<bool?> VisibleInUi
             item.PortTypeUDP = PortSettingsPortTypeUDP.FromRead(read.PortTypeUDP);
             item.Retries = PortSettingsRetries.FromRead(read.Retries);
             item.SetCommunity = PortSettingsSetCommunity.FromRead(read.SetCommunity);
+            item.SkipCertificateVerification = PortSettingsSkipCertificateVerification.FromRead(read.SkipCertificateVerification);
             item.SSH = PortSettingsSSH.FromRead(read.SSH);
             item.Stopbits = PortSettingsStopbits.FromRead(read.Stopbits);
             item.TimeoutTimeElement = PortSettingsTimeoutTimeElement.FromRead(read.TimeoutTimeElement);
@@ -89346,6 +89521,104 @@ public ElementValue<bool?> Disabled
     }
 
     ///<summary>
+    /// Specifies settings related to verification process of SSL/TLS certificates.
+    /// Feature introduced in DataMiner 10.4.12 (RN 40877, RN 41285).
+    ///</summary>
+public partial class PortSettingsSkipCertificateVerification : EditableElementNode<Read.IPortSettingsSkipCertificateVerification>
+    {
+        internal PortSettingsSkipCertificateVerification(Read.IPortSettingsSkipCertificateVerification read, IEditableNode parent, XmlElement editNode) : base(read, parent, editNode)
+        {
+        }
+
+        ///<summary>
+        /// Creates a new instance of this class, that represents a SkipCertificateVerification node. None of it's properties will be set.
+        ///</summary>
+public PortSettingsSkipCertificateVerification() : base("SkipCertificateVerification")
+        {
+            OnCreated();
+        }
+
+        private ElementValue<bool?> _defaultValue;
+        private ElementValue<bool?> _disabled;
+        ///<summary>
+        /// Specifies whether the SSL/TLS certificate verification should be skipped by default.
+        ///</summary>
+public ElementValue<bool?> DefaultValue
+        {
+            get
+            {
+                return _defaultValue;
+            }
+
+            set
+            {
+                if (_defaultValue != value)
+                {
+                    _defaultValue = value;
+                    ElementHandler.Assign(value, this, "DefaultValue");
+                }
+            }
+        }
+
+        ///<summary>
+        /// Specifies whether the DataMiner interface can be used to configure if the SSL/TLS certificate verification is skipped.
+        ///</summary>
+public ElementValue<bool?> Disabled
+        {
+            get
+            {
+                return _disabled;
+            }
+
+            set
+            {
+                if (_disabled != value)
+                {
+                    _disabled = value;
+                    ElementHandler.Assign(value, this, "Disabled");
+                }
+            }
+        }
+
+        public ElementValue<bool?> GetOrCreateDefaultValue()
+        {
+            if (DefaultValue == null)
+                DefaultValue = new ElementValue<bool?>();
+            return DefaultValue;
+        }
+
+        public ElementValue<bool?> GetOrCreateDisabled()
+        {
+            if (Disabled == null)
+                Disabled = new ElementValue<bool?>();
+            return Disabled;
+        }
+
+        protected override void Initialize(Read.IPortSettingsSkipCertificateVerification read, XmlElement editNode)
+        {
+            if (read == null)
+                return;
+            _defaultValue = read.DefaultValue != null ? new ElementValue<bool?>(read.DefaultValue, this) : null;
+            _disabled = read.Disabled != null ? new ElementValue<bool?>(read.Disabled, this) : null;
+        }
+
+        public static PortSettingsSkipCertificateVerification FromRead(Read.IPortSettingsSkipCertificateVerification read)
+        {
+            if (read == null)
+                return null;
+            var item = new PortSettingsSkipCertificateVerification();
+            item.DefaultValue = ElementValue<bool?>.FromRead(read.DefaultValue);
+            item.Disabled = ElementValue<bool?>.FromRead(read.Disabled);
+            return item;
+        }
+
+        public override void Accept(ProtocolVisitor visitor)
+        {
+            visitor.VisitPortSettingsSkipCertificateVerification(this);
+        }
+    }
+
+    ///<summary>
     /// Specifies the SSH settings (only applicable for serial connections of type TCP).
     /// Feature introduced in DataMiner 9.5.9 (RN 17732).
     ///</summary>
@@ -90307,6 +90580,7 @@ public PortSettingsMain(string tagName) : base(tagName)
         private PortSettingsMainPortTypeUDP _portTypeUDP;
         private PortSettingsMainRetries _retries;
         private PortSettingsMainSetCommunity _setCommunity;
+        private PortSettingsMainSkipCertificateVerification _skipCertificateVerification;
         private SlowPoll _slowPoll;
         private SlowPollBase _slowPollBase;
         private PortSettingsMainSSH _sSH;
@@ -90622,6 +90896,27 @@ public PortSettingsMainSetCommunity SetCommunity
         }
 
         ///<summary>
+        /// Specifies settings related to verification process of SSL/TLS certificates.
+        /// Feature introduced in DataMiner 10.4.12 (RN 40877, RN 41285).
+        ///</summary>
+public PortSettingsMainSkipCertificateVerification SkipCertificateVerification
+        {
+            get
+            {
+                return _skipCertificateVerification;
+            }
+
+            set
+            {
+                if (_skipCertificateVerification != value)
+                {
+                    _skipCertificateVerification = value;
+                    CombinedTagHandler.Assign(value, this, "SkipCertificateVerification");
+                }
+            }
+        }
+
+        ///<summary>
         /// Specifies the slow poll configuration.
         ///</summary>
 public SlowPoll SlowPoll
@@ -90888,6 +91183,13 @@ public AttributeValue<string> Name
             return SetCommunity;
         }
 
+        public PortSettingsMainSkipCertificateVerification GetOrCreateSkipCertificateVerification()
+        {
+            if (SkipCertificateVerification == null)
+                SkipCertificateVerification = new PortSettingsMainSkipCertificateVerification();
+            return SkipCertificateVerification;
+        }
+
         public SlowPoll GetOrCreateSlowPoll()
         {
             if (SlowPoll == null)
@@ -90963,6 +91265,7 @@ public AttributeValue<string> Name
             _portTypeUDP = read.PortTypeUDP != null ? new PortSettingsMainPortTypeUDP(read.PortTypeUDP, this, editNode.Element["PortTypeUDP"]) : null;
             _retries = read.Retries != null ? new PortSettingsMainRetries(read.Retries, this, editNode.Element["Retries"]) : null;
             _setCommunity = read.SetCommunity != null ? new PortSettingsMainSetCommunity(read.SetCommunity, this, editNode.Element["SetCommunity"]) : null;
+            _skipCertificateVerification = read.SkipCertificateVerification != null ? new PortSettingsMainSkipCertificateVerification(read.SkipCertificateVerification, this, editNode.Element["SkipCertificateVerification"]) : null;
             _slowPoll = read.SlowPoll != null ? new SlowPoll(read.SlowPoll, this, editNode.Element["SlowPoll"]) : null;
             _slowPollBase = read.SlowPollBase != null ? new SlowPollBase(read.SlowPollBase, this, editNode.Element["SlowPollBase"]) : null;
             _sSH = read.SSH != null ? new PortSettingsMainSSH(read.SSH, this, editNode.Element["SSH"]) : null;
@@ -90993,6 +91296,7 @@ public AttributeValue<string> Name
             item.PortTypeUDP = PortSettingsMainPortTypeUDP.FromRead(read.PortTypeUDP);
             item.Retries = PortSettingsMainRetries.FromRead(read.Retries);
             item.SetCommunity = PortSettingsMainSetCommunity.FromRead(read.SetCommunity);
+            item.SkipCertificateVerification = PortSettingsMainSkipCertificateVerification.FromRead(read.SkipCertificateVerification);
             item.SlowPoll = SlowPoll.FromRead(read.SlowPoll);
             item.SlowPollBase = SlowPollBase.FromRead(read.SlowPollBase);
             item.SSH = PortSettingsMainSSH.FromRead(read.SSH);
@@ -93630,6 +93934,104 @@ public ElementValue<bool?> Disabled
         public override void Accept(ProtocolVisitor visitor)
         {
             visitor.VisitPortSettingsMainSetCommunity(this);
+        }
+    }
+
+    ///<summary>
+    /// Specifies settings related to verification process of SSL/TLS certificates.
+    /// Feature introduced in DataMiner 10.4.12 (RN 40877, RN 41285).
+    ///</summary>
+public partial class PortSettingsMainSkipCertificateVerification : EditableElementNode<Read.IPortSettingsMainSkipCertificateVerification>
+    {
+        internal PortSettingsMainSkipCertificateVerification(Read.IPortSettingsMainSkipCertificateVerification read, IEditableNode parent, XmlElement editNode) : base(read, parent, editNode)
+        {
+        }
+
+        ///<summary>
+        /// Creates a new instance of this class, that represents a SkipCertificateVerification node. None of it's properties will be set.
+        ///</summary>
+public PortSettingsMainSkipCertificateVerification() : base("SkipCertificateVerification")
+        {
+            OnCreated();
+        }
+
+        private ElementValue<bool?> _defaultValue;
+        private ElementValue<bool?> _disabled;
+        ///<summary>
+        /// Specifies whether the SSL/TLS certificate verification should be skipped by default.
+        ///</summary>
+public ElementValue<bool?> DefaultValue
+        {
+            get
+            {
+                return _defaultValue;
+            }
+
+            set
+            {
+                if (_defaultValue != value)
+                {
+                    _defaultValue = value;
+                    ElementHandler.Assign(value, this, "DefaultValue");
+                }
+            }
+        }
+
+        ///<summary>
+        /// Specifies whether the DataMiner interface can be used to configure if the SSL/TLS certificate verification is skipped.
+        ///</summary>
+public ElementValue<bool?> Disabled
+        {
+            get
+            {
+                return _disabled;
+            }
+
+            set
+            {
+                if (_disabled != value)
+                {
+                    _disabled = value;
+                    ElementHandler.Assign(value, this, "Disabled");
+                }
+            }
+        }
+
+        public ElementValue<bool?> GetOrCreateDefaultValue()
+        {
+            if (DefaultValue == null)
+                DefaultValue = new ElementValue<bool?>();
+            return DefaultValue;
+        }
+
+        public ElementValue<bool?> GetOrCreateDisabled()
+        {
+            if (Disabled == null)
+                Disabled = new ElementValue<bool?>();
+            return Disabled;
+        }
+
+        protected override void Initialize(Read.IPortSettingsMainSkipCertificateVerification read, XmlElement editNode)
+        {
+            if (read == null)
+                return;
+            _defaultValue = read.DefaultValue != null ? new ElementValue<bool?>(read.DefaultValue, this) : null;
+            _disabled = read.Disabled != null ? new ElementValue<bool?>(read.Disabled, this) : null;
+        }
+
+        public static PortSettingsMainSkipCertificateVerification FromRead(Read.IPortSettingsMainSkipCertificateVerification read)
+        {
+            if (read == null)
+                return null;
+            var item = new PortSettingsMainSkipCertificateVerification();
+            item.DefaultValue = ElementValue<bool?>.FromRead(read.DefaultValue);
+            item.Disabled = ElementValue<bool?>.FromRead(read.Disabled);
+            return item;
+        }
+
+        public override void Accept(ProtocolVisitor visitor)
+        {
+            visitor.VisitPortSettingsMainSkipCertificateVerification(this);
         }
     }
 
@@ -103046,6 +103448,7 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Edit
             obj.PortTypeUDP?.Accept(this);
             obj.Retries?.Accept(this);
             obj.SetCommunity?.Accept(this);
+            obj.SkipCertificateVerification?.Accept(this);
             obj.SSH?.Accept(this);
             obj.Stopbits?.Accept(this);
             obj.TimeoutTimeElement?.Accept(this);
@@ -103268,6 +103671,13 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Edit
             obj.Disabled?.Accept(this);
         }
 
+        public virtual void VisitPortSettingsSkipCertificateVerification(PortSettingsSkipCertificateVerification obj)
+        {
+            this.DefaultVisit(obj);
+            obj.DefaultValue?.Accept(this);
+            obj.Disabled?.Accept(this);
+        }
+
         public virtual void VisitPortSettingsSSH(PortSettingsSSH obj)
         {
             this.DefaultVisit(obj);
@@ -103362,6 +103772,7 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Edit
             obj.PortTypeUDP?.Accept(this);
             obj.Retries?.Accept(this);
             obj.SetCommunity?.Accept(this);
+            obj.SkipCertificateVerification?.Accept(this);
             obj.SlowPoll?.Accept(this);
             obj.SlowPollBase?.Accept(this);
             obj.SSH?.Accept(this);
@@ -103579,6 +103990,13 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Edit
         }
 
         public virtual void VisitPortSettingsMainSetCommunity(PortSettingsMainSetCommunity obj)
+        {
+            this.DefaultVisit(obj);
+            obj.DefaultValue?.Accept(this);
+            obj.Disabled?.Accept(this);
+        }
+
+        public virtual void VisitPortSettingsMainSkipCertificateVerification(PortSettingsMainSkipCertificateVerification obj)
         {
             this.DefaultVisit(obj);
             obj.DefaultValue?.Accept(this);
