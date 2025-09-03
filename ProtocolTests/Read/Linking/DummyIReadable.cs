@@ -387,6 +387,16 @@
             throw new NotImplementedException();
         }
 
+        public IEnumerable<ICommandsCommand> GetCommands(RelationManager relationManager)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IResponsesResponse> GetResponses(RelationManager relationManager)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool IsPositioned(RelationManager relationManager)
         {
             throw new NotImplementedException();
