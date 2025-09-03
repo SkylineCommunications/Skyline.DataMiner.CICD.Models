@@ -353,5 +353,19 @@
         /// <param name="relationManager">The relation manager.</param>
         /// <returns>Dependency Parameters from the reference Parameter.</returns>
         ICollection<IParamsParam> GetDependencyParameters(RelationManager relationManager);
+
+        /// <summary>
+        /// Gets the commands associated to this parameter.
+        /// </summary>
+        /// <param name="relationManager">The relation manager.</param>
+        /// <returns>A collection of commands that contains this parameter.</returns>
+        IEnumerable<ICommandsCommand> GetCommands(RelationManager relationManager);
+
+        /// <summary>
+        /// Gets the responses associated to this parameter.
+        /// </summary>
+        /// <param name="relationManager">The relation manager.</param>
+        /// <returns>A collection of responses that contains this parameter.</returns>
+        IEnumerable<IResponsesResponse> GetResponses(RelationManager relationManager);
     }
 }

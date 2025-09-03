@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using FluentAssertions;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Skyline.DataMiner.CICD.Models.Protocol.Enums;
     using Skyline.DataMiner.CICD.Models.Protocol.Read;
@@ -3034,7 +3035,7 @@
         }
 
         #endregion
-
+        
         #endregion
 
         #region IsTreeControl
@@ -4153,6 +4154,216 @@
             Assert.AreEqual(1, relations.Count);
             Assert.AreEqual("7", reference.TargetId);
         }
+        #endregion
+
+        #region GetCommands
+
+        [TestMethod]
+        public void GetCommands_ZeroCommand()
+        {
+            // Arrange.
+            string xml = @"<Protocol>
+        	<Params>
+        		<Param id='1'>
+        			<Name>Param</Name>
+        			<Description>Param</Description>
+        			<Type>read</Type>
+        		</Param>
+        	</Params>
+        </Protocol>";
+
+            // Act.
+            ProtocolModel model = CreateModelFromXML(xml);
+
+            IProtocol protocol = model.Protocol;
+            var param = protocol.Params[0];
+
+            var result = param.GetCommands(model.RelationManager).ToList();
+
+            // Assert
+            result.Should().HaveCount(0);
+        }
+
+        [TestMethod]
+        public void GetCommands_OneCommand()
+        {
+            // Arrange.
+            string xml = @"<Protocol>
+        	<Params>
+        		<Param id='1'>
+        			<Name>Param</Name>
+        			<Description>Param</Description>
+        			<Type>read</Type>
+        		</Param>
+        	</Params>
+            <Commands>
+                <Command id='10'>
+                    <Name>Command</Name>
+                    <Content>
+                        <Param>1</Param>
+                    </Content>
+                </Command>
+            </Commands>
+        </Protocol>";
+
+            // Act.
+            ProtocolModel model = CreateModelFromXML(xml);
+
+            IProtocol protocol = model.Protocol;
+            var param = protocol.Params[0];
+
+            var result = param.GetCommands(model.RelationManager).ToList();
+
+            // Assert
+            result.Should().HaveCount(1);
+            result[0].Id.Value.Should().Be(10);
+        }
+
+        [TestMethod]
+        public void GetCommands_TwoCommands()
+        {
+            // Arrange.
+            string xml = @"<Protocol>
+        	<Params>
+        		<Param id='1'>
+        			<Name>Param</Name>
+        			<Description>Param</Description>
+        			<Type>read</Type>
+        		</Param>
+        	</Params>
+            <Commands>
+                <Command id='10'>
+                    <Name>Command1</Name>
+                    <Content>
+                        <Param>1</Param>
+                    </Content>
+                </Command>
+                <Command id='20'>
+                    <Name>Command2</Name>
+                    <Content>
+                        <Param>1</Param>
+                    </Content>
+                </Command>
+            </Commands>
+        </Protocol>";
+
+            // Act.
+            ProtocolModel model = CreateModelFromXML(xml);
+
+            IProtocol protocol = model.Protocol;
+            var param = protocol.Params[0];
+
+            var result = param.GetCommands(model.RelationManager).ToList();
+
+            // Assert
+            result.Should().HaveCount(2);
+        }
+
+        #endregion
+
+        #region GetResponses
+
+        [TestMethod]
+        public void GetResponses_ZeroResponse()
+        {
+            // Arrange.
+            string xml = @"<Protocol>
+        	<Params>
+        		<Param id='1'>
+        			<Name>Param</Name>
+        			<Description>Param</Description>
+        			<Type>read</Type>
+        		</Param>
+        	</Params>
+        </Protocol>";
+
+            // Act.
+            ProtocolModel model = CreateModelFromXML(xml);
+
+            IProtocol protocol = model.Protocol;
+            var param = protocol.Params[0];
+
+            var result = param.GetResponses(model.RelationManager).ToList();
+
+            // Assert
+            result.Should().HaveCount(0);
+        }
+
+        [TestMethod]
+        public void GetResponses_OneResponse()
+        {
+            // Arrange.
+            string xml = @"<Protocol>
+        	<Params>
+        		<Param id='1'>
+        			<Name>Param</Name>
+        			<Description>Param</Description>
+        			<Type>read</Type>
+        		</Param>
+        	</Params>
+            <Responses>
+                <Response id='10'>
+                    <Name>Response</Name>
+                    <Content>
+                        <Param>1</Param>
+                    </Content>
+                </Response>
+            </Responses>
+        </Protocol>";
+
+            // Act.
+            ProtocolModel model = CreateModelFromXML(xml);
+
+            IProtocol protocol = model.Protocol;
+            var param = protocol.Params[0];
+
+            var result = param.GetResponses(model.RelationManager).ToList();
+
+            // Assert
+            result.Should().HaveCount(1);
+            result[0].Id.Value.Should().Be(10);
+        }
+
+        [TestMethod]
+        public void GetResponses_TwoResponses()
+        {
+            // Arrange.
+            string xml = @"<Protocol>
+        	<Params>
+        		<Param id='1'>
+        			<Name>Param</Name>
+        			<Description>Param</Description>
+        			<Type>read</Type>
+        		</Param>
+        	</Params>
+            <Responses>
+                <Response id='10'>
+                    <Name>Response1</Name>
+                    <Content>
+                        <Param>1</Param>
+                    </Content>
+                </Response>
+                <Response id='20'>
+                    <Name>Response2</Name>
+                    <Content>
+                        <Param>1</Param>
+                    </Content>
+                </Response>
+            </Responses>
+        </Protocol>";
+
+            // Act.
+            ProtocolModel model = CreateModelFromXML(xml);
+
+            IProtocol protocol = model.Protocol;
+            var param = protocol.Params[0];
+
+            var result = param.GetResponses(model.RelationManager).ToList();
+
+            // Assert
+            result.Should().HaveCount(2);
+        }
+
         #endregion
     }
 }

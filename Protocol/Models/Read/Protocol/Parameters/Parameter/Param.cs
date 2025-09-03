@@ -394,7 +394,7 @@
                 }
             }
         }
-
+        
         #endregion
 
         public bool IsTreeControl(RelationManager relationManager)
@@ -660,6 +660,40 @@
             }
 
             return parameters;
+        }
+
+        public IEnumerable<ICommandsCommand> GetCommands(RelationManager relationManager)
+        {
+            IEnumerable<Link> links = relationManager.GetReverseLinks(this);
+            foreach (Link link in links)
+            {
+                if (!(link.Source is ICommandsCommand command) || link.Target != this || !(link.Target is IParamsParam))
+                {
+                    continue;
+                }
+
+                if (link.Reference.ReferencingObject is ICommandsCommandContentParam)
+                {
+                    yield return command;
+                }
+            }
+        }
+
+        public IEnumerable<IResponsesResponse> GetResponses(RelationManager relationManager)
+        {
+            IEnumerable<Link> links = relationManager.GetReverseLinks(this);
+            foreach (Link link in links)
+            {
+                if (!(link.Source is IResponsesResponse response) || link.Target != this || !(link.Target is IParamsParam))
+                {
+                    continue;
+                }
+
+                if (link.Reference.ReferencingObject is IResponsesResponseContentParam)
+                {
+                    yield return response;
+                }
+            }
         }
 
         #region IRelationManager
