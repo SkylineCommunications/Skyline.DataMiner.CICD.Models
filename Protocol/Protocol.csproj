@@ -33,7 +33,7 @@
 
   <ItemGroup>
     <PackageReference Include="Skyline.DataMiner.CICD.Common" Version="1.0.6" />
-    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.2.0" />
+    <PackageReference Include="Skyline.DataMiner.CICD.Parsers.Protocol" Version="1.2.1" />
   </ItemGroup>
 
   <ItemGroup>
