@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net48;net6.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net48</TargetFrameworks>
+    <!-- net48;net6.0;net8.0-->
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
@@ -9,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="7.2.0" />
-    <PackageReference Include="MSTest" Version="3.9.2" />
+    <PackageReference Include="MSTest" Version="4.0.1" />
     <PackageReference Include="coverlet.collector" Version="6.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

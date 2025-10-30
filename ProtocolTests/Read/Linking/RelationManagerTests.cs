@@ -14,7 +14,7 @@
         [TestMethod]
         public void Ctor_MappingsIsNull_ThrowsArgumentNullException()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => new RelationManager(null));
+            Assert.Throws<ArgumentNullException>(() => new RelationManager(null));
         }
 
         [TestMethod]
