@@ -1208,7 +1208,6 @@
 
             // Act.
             ProtocolModel model = CreateModelFromXML(xml);
-
             IProtocol protocol = model.Protocol;
 
             // Assert

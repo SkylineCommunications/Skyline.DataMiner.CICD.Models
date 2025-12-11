@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public class ActionTypeOptions : OptionsBase
     {
@@ -693,7 +694,7 @@
 
                 foreach (var part in secondParts)
                 {
-                    if (UInt32.TryParse(parts[1], out uint v))
+                    if (UInt32.TryParse(part, out uint v))
                     {
                         pids.Add(v);
                     }
@@ -1049,15 +1050,20 @@
             {
                 string[] parts = option.Split(':');
 
-                if (parts.Length != 2)
+                switch (parts.Length)
                 {
-                    return;
+                    case 2:
+                        Value = parts[1];
+                        break;
+                    case 3 when String.Equals(parts[1], "ID", StringComparison.OrdinalIgnoreCase) && UInt32.TryParse(parts[2], out uint id):
+                        Pid = id;
+                        break;
                 }
-
-                Value = parts[1];
             }
 
-            public string Value { get; }
+            public string Value { get; set; }
+
+            public uint? Pid { get; set; }
         }
     }
 }
