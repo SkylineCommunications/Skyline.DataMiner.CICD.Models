@@ -65,7 +65,7 @@
                 }
             }
 
-            if(o?.Value != null)
+            if (o?.Value != null)
             {
                 switch (o.Value)
                 {
@@ -135,113 +135,83 @@
                     }
                 }
 
-                var optionsValue = Convert.ToString(t.Options?.Value);
-                if (!String.IsNullOrWhiteSpace(optionsValue))
+                var optionsByType = t.GetOptionsByType();
+                if (optionsByType != null)
                 {
                     switch (t.Value.Value)
                     {
                         case EnumActionType.Aggregate:
-                            string[] options = optionsValue.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-                            foreach (var option in options)
+                            var aggregateOptions = optionsByType.Aggregate;
+                            if (aggregateOptions.DefaultValue?.ColumnPid != null)
                             {
-                                if (option.StartsWith("defaultValue:", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    var defaultValue = option.Substring(12);
-                                    string[] defaultValueParts = defaultValue.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                                yield return new Reference(this, Mappings.ParamsById, aggregateOptions.DefaultValue.ColumnPid.ToString(), t, reverse: true, isLogic: false);
+                            }
 
-                                    if (defaultValueParts.Length > 1 && Int32.TryParse(defaultValueParts[0], out int defaultValueColumnPid))
-                                    {
-                                        yield return new Reference(this, Mappings.ParamsById, defaultValueColumnPid.ToString(), t, reverse: true, isLogic: false);
-                                    }
-                                }
-                                else if (option.StartsWith("equation:", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    var equationValue = option.Substring(8);
-                                    string[] equationValueParts = equationValue.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                            if (aggregateOptions.Equation?.Pid != null)
+                            {
+                                yield return new Reference(this, Mappings.ParamsById, aggregateOptions.Equation.Pid.ToString(), t, reverse: true, isLogic: false);
+                            }
 
-                                    if (equationValueParts.Length > 1 && Int32.TryParse(equationValueParts[1], out int columnPid))
-                                    {
-                                        yield return new Reference(this, Mappings.ParamsById, columnPid.ToString(), t, reverse: true, isLogic: false);
-                                    }
-                                }
-                                else if (option.StartsWith("equationvalue:", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    var equationValue = option.Substring(13);
-                                    string[] equationValueParts = equationValue.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                            if (aggregateOptions.EquationValue?.Pid != null)
+                            {
+                                yield return new Reference(this, Mappings.ParamsById, aggregateOptions.EquationValue.Pid.ToString(), t, reverse: true, isLogic: false);
+                            }
 
-                                    if (equationValueParts.Length > 2 && Int32.TryParse(equationValueParts[2], out int columnPid))
-                                    {
-                                        yield return new Reference(this, Mappings.ParamsById, columnPid.ToString(), t, reverse: true, isLogic: false);
-                                    }
-                                }
-                                else if(option.StartsWith("groupby:", StringComparison.OrdinalIgnoreCase))
+                            if (aggregateOptions.GroupBy?.Values != null)
+                            {
+                                foreach ((_, uint? columnPid, _) in aggregateOptions.GroupBy.Values.Where(x => x.columnPid != null))
                                 {
-                                    var groupByValue = option.Substring(7);
-                                    string[] groupByValueParts = groupByValue.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-
-                                    foreach(var groupByPart in groupByValueParts)
-                                    {
-                                        string[] groupByEntryParts = groupByPart.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
-
-                                        if (groupByEntryParts.Length > 1 && Int32.TryParse(groupByEntryParts[1], out int groupByParamId))
-                                        {
-                                            yield return new Reference(this, Mappings.ParamsById, groupByParamId.ToString(), t, reverse: true, isLogic: false);
-                                        }
-                                    }
-                                }
-                                else if (option.StartsWith("groupbytable:", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    var groupByTableValue = option.Substring(13);
-
-                                    if (Int32.TryParse(groupByTableValue, out int groupByTableParamId))
-                                    {
-                                        yield return new Reference(this, Mappings.ParamsById, groupByTableParamId.ToString(), t, reverse: true, isLogic: false);
-                                    }
-                                }
-                                else if (option.StartsWith("join:", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    var joinValue = option.Substring(5);
-                                    string[] joinValueParts = joinValue.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                                    foreach (var joinPart in joinValueParts)
-                                    {
-                                        if (Int32.TryParse(joinPart, out int joinParamId))
-                                        {
-                                            yield return new Reference(this, Mappings.ParamsById, joinPart, t, reverse: true, isLogic: false);
-                                        }
-                                    }
-                                }
-                                else if (option.StartsWith("return:", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    var returnValue = option.Substring(7);
-                                    string[] returnValueParts = returnValue.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                                    foreach (var returnValuePart in returnValueParts)
-                                    {
-                                        if (Int32.TryParse(returnValuePart, out int returnParamId))
-                                        {
-                                            yield return new Reference(this, Mappings.ParamsById, returnValuePart, t, reverse: true, isLogic: false);
-                                        }
-                                    }
-                                }
-                                else if (option.StartsWith("status:", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    var statusValue = option.Substring(7);
-
-                                    if (Int32.TryParse(statusValue, out int columnPid))
-                                    {
-                                        yield return new Reference(this, Mappings.ParamsById, columnPid.ToString(), t, reverse: true, isLogic: false);
-                                    }
-                                }
-                                else if (option.StartsWith("weight:", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    var weightValue = option.Substring(7);
-
-                                    if (Int32.TryParse(weightValue, out int columnPid))
-                                    {
-                                        yield return new Reference(this, Mappings.ParamsById, columnPid.ToString(), t, reverse: true, isLogic: false);
-                                    }
+                                    yield return new Reference(this, Mappings.ParamsById, columnPid.ToString(), t, reverse: true, isLogic: false);
                                 }
                             }
-                           break;
+
+                            if (aggregateOptions.GroupByTable?.Pid != null)
+                            {
+                                yield return new Reference(this, Mappings.ParamsById, aggregateOptions.GroupByTable.Pid.ToString(), t, reverse: true, isLogic: false);
+                            }
+
+                            if (aggregateOptions.Join?.ColumnPids != null)
+                            {
+                                foreach (uint? columnPid in aggregateOptions.Join.ColumnPids.Where(pid => pid != null))
+                                {
+                                    yield return new Reference(this, Mappings.ParamsById, columnPid.ToString(), t, reverse: true, isLogic: false);
+                                }
+                            }
+
+                            if (aggregateOptions.Return != null)
+                            {
+                                if (aggregateOptions.Return.Value1 != null)
+                                {
+                                    yield return new Reference(this, Mappings.ParamsById, aggregateOptions.Return.Value1.ToString(), t, reverse: true, isLogic: false);
+                                }
+
+                                if (aggregateOptions.Return.Value2 != null)
+                                {
+                                    yield return new Reference(this, Mappings.ParamsById, aggregateOptions.Return.Value2.ToString(), t, reverse: true, isLogic: false);
+                                }
+
+                                if (aggregateOptions.Return.Value3 != null)
+                                {
+                                    yield return new Reference(this, Mappings.ParamsById, aggregateOptions.Return.Value3.ToString(), t, reverse: true, isLogic: false);
+                                }
+
+                                if (aggregateOptions.Return.Value4 != null)
+                                {
+                                    yield return new Reference(this, Mappings.ParamsById, aggregateOptions.Return.Value4.ToString(), t, reverse: true, isLogic: false);
+                                }
+                            }
+
+                            if (aggregateOptions.Status?.Value != null)
+                            {
+                                yield return new Reference(this, Mappings.ParamsById, aggregateOptions.Status.Value.ToString(), t, reverse: true, isLogic: false);
+                            }
+
+                            if (aggregateOptions.Weight?.Value != null)
+                            {
+                                yield return new Reference(this, Mappings.ParamsById, aggregateOptions.Weight.Value.ToString(), t, reverse: true, isLogic: false);
+                            }
+
+                            break;
                     }
                 }
             }
@@ -287,7 +257,7 @@
                     switch (t.Value.Value)
                     {
                         case EnumActionType.ReadFile:
-                            if(Int32.TryParse(returnValue_id, out _))
+                            if (Int32.TryParse(returnValue_id, out _))
                             {
                                 yield return new Reference(this, Mappings.ParamsById, returnValue_id, t, reverse: true, isLogic: false);
                             }
@@ -324,136 +294,105 @@
                 }
             }
 
-            if (t?.Options != null)
+            var optionsByType = t?.GetOptionsByType();
+            if (optionsByType != null)
             {
-                string optionsValue = Convert.ToString(t.Options?.Value);
-
-                if (!String.IsNullOrEmpty(optionsValue))
+                switch (t.Value.Value)
                 {
-                    switch (t.Value.Value)
-                    {
-                        case EnumActionType.Merge:
+                    case EnumActionType.Merge:
+                        {
+                            var mergeOptions = optionsByType.Merge;
+                            if (mergeOptions.Destination?.ColumnPids != null)
                             {
-                                string[] options = optionsValue.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-                                foreach (var option in options)
+                                foreach (uint? columnPid in mergeOptions.Destination.ColumnPids.Where(pid => pid != null))
                                 {
-                                    if (option.StartsWith("destination:", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        var destinations = option.Substring(12).Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-
-                                        foreach(var destination in destinations)
-                                        {
-                                            if (Int32.TryParse(destination, out _))
-                                            {
-                                                yield return new Reference(this, Mappings.ParamsById, destination, t, reverse: true, isLogic: false);
-                                            }
-                                        }
-                                    }
-                                    else if (option.StartsWith("defaultValue:", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        var defaultValue = option.Substring(13);
-                                        int commaIndex = defaultValue.IndexOf(',');
-
-                                        if (commaIndex > -1 && Int32.TryParse(defaultValue.Substring(0, commaIndex), out int defaultValueColumnPid))
-                                        {
-                                            yield return new Reference(this, Mappings.ParamsById, defaultValueColumnPid.ToString(), t, reverse: true, isLogic: false);
-                                        }
-                                    }
-                                    else if (option.StartsWith("destinationfindpk:", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        var destinations = option.Substring(18).Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-
-                                        foreach (var destination in destinations)
-                                        {
-                                            if (Int32.TryParse(destination, out _))
-                                            {
-                                                yield return new Reference(this, Mappings.ParamsById, destination, t, reverse: true, isLogic: false);
-                                            }
-                                        }
-                                    }
-                                    else if (option.StartsWith("limitresult:", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        var limitResultValue = option.Substring(12);
-
-                                        if (Int32.TryParse(limitResultValue, out _))
-                                        {
-                                            yield return new Reference(this, Mappings.ParamsById, limitResultValue, t, reverse: true, isLogic: false);
-                                        }
-                                    }
-                                    else if (option.StartsWith("remoteElements:", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        var remoteElementsValue = option.Substring(15);
-
-                                        if (Int32.TryParse(remoteElementsValue, out _))
-                                        {
-                                            yield return new Reference(this, Mappings.ParamsById, remoteElementsValue, t, reverse: true, isLogic: false);
-                                        }
-                                    }
-                                    else if (option.StartsWith("resolve:", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        var resolveValue = option.Substring(8).Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-
-                                        foreach (var resolvePid in resolveValue)
-                                        {
-                                            if (Int32.TryParse(resolvePid, out _))
-                                            {
-                                                yield return new Reference(this, Mappings.ParamsById, resolvePid, t, reverse: true, isLogic: false);
-                                            }
-                                        }
-                                    }
-                                    else if (option.StartsWith("trigger:", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        var triggerValue = option.Substring(8);
-
-                                        if (Int32.TryParse(triggerValue, out _))
-                                        {
-                                            yield return new Reference(this, Mappings.ParamsById, triggerValue, t, reverse: true, isLogic: false);
-                                        }
-                                    }
+                                    yield return new Reference(this, Mappings.ParamsById, columnPid.ToString(), t, reverse: true, isLogic: false);
                                 }
                             }
-                            break;
-                        case EnumActionType.SwapColumn:
+
+                            if (mergeOptions.DefaultValue?.ColumnPid != null)
                             {
-                                string[] parts = optionsValue.Split(new[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
-                                if(parts.Length > 1)
+                                yield return new Reference(this, Mappings.ParamsById, mergeOptions.DefaultValue.ColumnPid.ToString(), t, reverse: true, isLogic: false);
+                            }
+
+                            if (mergeOptions.DestinationFindPk?.ColumnPids != null)
+                            {
+                                foreach (uint? columnPid in mergeOptions.DestinationFindPk.ColumnPids.Where(pid => pid != null))
                                 {
-                                    for(int i=1; i < parts.Length; i++)
-                                    {
-                                        string paramId = parts[i];
-                                        if (!String.IsNullOrWhiteSpace(paramId) && Int32.TryParse(paramId, out _))
-                                        {
-                                            yield return new Reference(this, Mappings.ParamsById, paramId, t, reverse: true, isLogic: false);
-                                        }
-                                    }
+                                    yield return new Reference(this, Mappings.ParamsById, columnPid.ToString(), t, reverse: true, isLogic: false);
                                 }
                             }
-                            break;
-                        case EnumActionType.Wmi:
+
+                            if (mergeOptions.LimitResult?.Pid != null)
                             {
-                                string[] options = optionsValue.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-                                foreach(var option in options)
+                                yield return new Reference(this, Mappings.ParamsById, mergeOptions.LimitResult.Pid.ToString(), t, reverse: true, isLogic: false);
+                            }
+
+                            if (mergeOptions.RemoteElements?.ColumnPid != null)
+                            {
+                                yield return new Reference(this, Mappings.ParamsById, mergeOptions.RemoteElements.ColumnPid.ToString(), t, reverse: true, isLogic: false);
+                            }
+
+                            if (mergeOptions.Resolve?.ColumnPids != null)
+                            {
+                                foreach (uint? columnPid in mergeOptions.Resolve.ColumnPids.Where(pid => pid != null))
                                 {
-                                    if (option.StartsWith("pwd:", StringComparison.OrdinalIgnoreCase) && Int32.TryParse(option.Substring(4), out int pwdParamId))
-                                    {
-                                        yield return new Reference(this, Mappings.ParamsById, pwdParamId.ToString(), t, reverse: true, isLogic: false);
-                                    }
-                                    else if (option.StartsWith("server:", StringComparison.OrdinalIgnoreCase) && Int32.TryParse(option.Substring(7), out int serverParamId))
-                                    {
-                                        yield return new Reference(this, Mappings.ParamsById, serverParamId.ToString(), t, reverse: true, isLogic: false);
-                                    }
-                                    else if (option.StartsWith("uname:", StringComparison.OrdinalIgnoreCase) && Int32.TryParse(option.Substring(6), out int userParamId))
-                                    {
-                                        yield return new Reference(this, Mappings.ParamsById, userParamId.ToString(), t, reverse: true, isLogic: false);
-                                    }
-                                    else if (option.StartsWith("where:ID:", StringComparison.OrdinalIgnoreCase) && Int32.TryParse(option.Substring(9), out int whereClauseParamId))
-                                    {
-                                        yield return new Reference(this, Mappings.ParamsById, whereClauseParamId.ToString(), t, reverse: true, isLogic: false);
-                                    }
+                                    yield return new Reference(this, Mappings.ParamsById, columnPid.ToString(), t, reverse: true, isLogic: false);
                                 }
                             }
-                            break;
-                    }
+
+                            if (mergeOptions.Trigger?.Pid != null)
+                            {
+                                yield return new Reference(this, Mappings.ParamsById, mergeOptions.Trigger.Pid.ToString(), t, reverse: true, isLogic: false);
+                            }
+                        }
+                        break;
+                    case EnumActionType.SwapColumn:
+                        {
+                            var swapOptions = optionsByType.Swap;
+                            if (swapOptions.Swap != null)
+                            {
+                                if (swapOptions.Swap.TablePid != null)
+                                {
+                                    yield return new Reference(this, Mappings.ParamsById, swapOptions.Swap.TablePid.ToString(), t, reverse: true, isLogic: false);
+                                }
+
+                                if (swapOptions.Swap.SourceColumnPid != null)
+                                {
+                                    yield return new Reference(this, Mappings.ParamsById, swapOptions.Swap.SourceColumnPid.ToString(), t, reverse: true, isLogic: false);
+                                }
+
+                                if (swapOptions.Swap.DestinationColumnPid != null)
+                                {
+                                    yield return new Reference(this, Mappings.ParamsById, swapOptions.Swap.DestinationColumnPid.ToString(), t, reverse: true, isLogic: false);
+                                }
+                            }
+                        }
+                        break;
+                    case EnumActionType.Wmi:
+                        {
+                            var wmiOptions = optionsByType.Wmi;
+                            if (wmiOptions.Pwd?.Pid != null)
+                            {
+                                yield return new Reference(this, Mappings.ParamsById, wmiOptions.Pwd.Pid.ToString(), t, reverse: true, isLogic: false);
+                            }
+
+                            if (wmiOptions.Server?.Pid != null)
+                            {
+                                yield return new Reference(this, Mappings.ParamsById, wmiOptions.Server.Pid.ToString(), t, reverse: true, isLogic: false);
+                            }
+
+                            if (wmiOptions.UName?.Pid != null)
+                            {
+                                yield return new Reference(this, Mappings.ParamsById, wmiOptions.UName.Pid.ToString(), t, reverse: true, isLogic: false);
+                            }
+
+                            if (wmiOptions.Where?.Pid != null)
+                            {
+                                yield return new Reference(this, Mappings.ParamsById, wmiOptions.Where.Pid.ToString(), t, reverse: true, isLogic: false);
+                            }
+                        }
+                        break;
                 }
             }
         }

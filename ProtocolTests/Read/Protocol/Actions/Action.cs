@@ -347,7 +347,7 @@
                             <Actions>
                                 <Action id=""1"">
                                     <On id=""1"">parameter</On>
-                                    <Type id=""2"" options=""defaultValue:1,123;equation:regex,2;equationvalue:regex,123,3;groupby:123:4,456:5;groupbyTable:6;join:7,8;return:9,10;status:11;weight:12"">aggregate</Type>
+                                    <Type id=""2"" options=""defaultValue:1,123;equation:regex,2;equationvalue:regex,123,3,;groupby:123:4,456:5;groupbyTable:6;join:7,8;return:9,10;status:11;weight:12"">aggregate</Type>
                                 </Action>
                             </Actions>
                            </Protocol>";
@@ -361,29 +361,34 @@
             var references = protocol.Model.RelationManager.GetForwardReferences(action).ToImmutableList();
 
             // Assert
+            // Via On
             Assert.AreEqual("1", references[0].TargetId);
             Assert.AreEqual(Mappings.ParamsById, references[0].TargetMapping);
-            Assert.AreEqual("2", references[1].TargetId);
+
+            // Via Type
+            Assert.AreEqual("1", references[1].TargetId);
+            Assert.AreEqual(Mappings.ParamsById, references[0].TargetMapping);
+            Assert.AreEqual("2", references[2].TargetId);
             Assert.AreEqual(Mappings.ParamsById, references[1].TargetMapping);
-            Assert.AreEqual("3", references[2].TargetId);
+            Assert.AreEqual("3", references[3].TargetId);
             Assert.AreEqual(Mappings.ParamsById, references[2].TargetMapping);
-            Assert.AreEqual("4", references[3].TargetId);
+            Assert.AreEqual("4", references[4].TargetId);
             Assert.AreEqual(Mappings.ParamsById, references[3].TargetMapping);
-            Assert.AreEqual("5", references[4].TargetId);
+            Assert.AreEqual("5", references[5].TargetId);
             Assert.AreEqual(Mappings.ParamsById, references[4].TargetMapping);
-            Assert.AreEqual("6", references[5].TargetId);
+            Assert.AreEqual("6", references[6].TargetId);
             Assert.AreEqual(Mappings.ParamsById, references[5].TargetMapping);
-            Assert.AreEqual("7", references[6].TargetId);
+            Assert.AreEqual("7", references[7].TargetId);
             Assert.AreEqual(Mappings.ParamsById, references[6].TargetMapping);
-            Assert.AreEqual("8", references[7].TargetId);
+            Assert.AreEqual("8", references[8].TargetId);
             Assert.AreEqual(Mappings.ParamsById, references[7].TargetMapping);
-            Assert.AreEqual("9", references[8].TargetId);
+            Assert.AreEqual("9", references[9].TargetId);
             Assert.AreEqual(Mappings.ParamsById, references[8].TargetMapping);
-            Assert.AreEqual("10", references[9].TargetId);
+            Assert.AreEqual("10", references[10].TargetId);
             Assert.AreEqual(Mappings.ParamsById, references[9].TargetMapping);
-            Assert.AreEqual("11", references[10].TargetId);
+            Assert.AreEqual("11", references[11].TargetId);
             Assert.AreEqual(Mappings.ParamsById, references[10].TargetMapping);
-            Assert.AreEqual("12", references[11].TargetId);
+            Assert.AreEqual("12", references[12].TargetId);
             Assert.AreEqual(Mappings.ParamsById, references[11].TargetMapping);
         }
 
