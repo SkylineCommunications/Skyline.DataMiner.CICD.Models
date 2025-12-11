@@ -238,8 +238,8 @@
             // assert
             var linksParam = relationManager.GetLinks(dummyParam).ToList();
             var linksGroup = relationManager.GetLinks(dummyGroup).ToList();
-            Assert.AreEqual(1, linksParam.Count);
-            Assert.AreEqual(1, linksGroup.Count);
+            Assert.HasCount(1, linksParam);
+            Assert.HasCount(1, linksGroup);
 
             var link = linksParam.First();
             Assert.AreEqual(link, linksGroup.First());
@@ -268,8 +268,8 @@
             // assert
             var linksParam = relationManager.GetLinks(dummyParam).ToList();
             var linksGroup = relationManager.GetLinks(dummyGroup).ToList();
-            Assert.AreEqual(1, linksParam.Count);
-            Assert.AreEqual(1, linksGroup.Count);
+            Assert.HasCount(1, linksParam);
+            Assert.HasCount(1, linksGroup);
 
             var link = linksParam.First();
             Assert.AreEqual(link, linksGroup.First());
@@ -309,9 +309,9 @@
             var linksParam1 = relationManager.GetLinks(dummyParam1).ToList();
             var linksParam2 = relationManager.GetLinks(dummyParam2).ToList();
             var linksGroup = relationManager.GetLinks(dummyGroup).ToList();
-            Assert.AreEqual(0, linksParam1.Count);
-            Assert.AreEqual(1, linksParam2.Count);
-            Assert.AreEqual(1, linksGroup.Count);
+            Assert.HasCount(0, linksParam1);
+            Assert.HasCount(1, linksParam2);
+            Assert.HasCount(1, linksGroup);
 
             var link = linksParam2.First();
             Assert.AreEqual(link, linksGroup.First());
@@ -338,7 +338,7 @@
             NotifyAdded(mappings, relationManager, dummyGroup);
 
             var links = relationManager.GetLinks(dummyParam).ToList();
-            Assert.AreEqual(1, links.Count);
+            Assert.HasCount(1, links);
             Assert.AreEqual(r1, links.First().Reference);
 
             // act
@@ -350,8 +350,8 @@
             // assert
             var linksParam = relationManager.GetLinks(dummyParam).ToList();
             var linksGroup = relationManager.GetLinks(dummyGroup).ToList();
-            Assert.AreEqual(1, linksParam.Count);
-            Assert.AreEqual(1, linksGroup.Count);
+            Assert.HasCount(1, linksParam);
+            Assert.HasCount(1, linksGroup);
 
             var link = linksParam.First();
             Assert.AreEqual(link, linksGroup.First());
@@ -385,8 +385,8 @@
             // assert
             var linksParam = relationManager.GetLinks(dummyParam).ToList();
             var linksGroup = relationManager.GetLinks(dummyGroup).ToList();
-            Assert.AreEqual(0, linksParam.Count);
-            Assert.AreEqual(0, linksGroup.Count);
+            Assert.HasCount(0, linksParam);
+            Assert.HasCount(0, linksGroup);
         }
 
         [TestMethod]
@@ -413,8 +413,8 @@
             // assert
             var linksParam = relationManager.GetLinks(dummyParam).ToList();
             var linksGroup = relationManager.GetLinks(dummyGroup).ToList();
-            Assert.AreEqual(0, linksParam.Count);
-            Assert.AreEqual(0, linksGroup.Count);
+            Assert.HasCount(0, linksParam);
+            Assert.HasCount(0, linksGroup);
         }
 
         [TestMethod]
