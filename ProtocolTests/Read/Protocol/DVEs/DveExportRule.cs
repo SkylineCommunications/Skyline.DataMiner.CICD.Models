@@ -72,7 +72,7 @@
             var rule = protocol.DVEs.ExportRules[0];
 
             // Assert
-            Assert.AreEqual(null, rule.Tag);
+            Assert.IsNull(rule.Tag);
         }
 
         #endregion
@@ -142,7 +142,7 @@
             var rule = protocol.DVEs.ExportRules[0];
 
             // Assert
-            Assert.AreEqual(null, rule.ValueAttribute);
+            Assert.IsNull(rule.ValueAttribute);
         }
 
         #endregion
@@ -212,7 +212,7 @@
             var rule = protocol.DVEs.ExportRules[0];
 
             // Assert
-            Assert.AreEqual(null, rule.Table);
+            Assert.IsNull(rule.Table);
         }
         #endregion
     }

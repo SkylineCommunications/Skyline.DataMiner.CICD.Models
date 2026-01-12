@@ -65,7 +65,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Relations[0].Name);
+            Assert.IsNull(protocol.Relations[0].Name);
         }
 
         #endregion
@@ -126,7 +126,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Relations[0].Options);
+            Assert.IsNull(protocol.Relations[0].Options);
         }
 
         #endregion
@@ -187,7 +187,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Relations[0].Path);
+            Assert.IsNull(protocol.Relations[0].Path);
         }
 
         #endregion

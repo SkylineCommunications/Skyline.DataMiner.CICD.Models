@@ -56,7 +56,7 @@
             IPingInterval PingInterval = portSettings.PingInterval;
 
             // Assert
-            Assert.AreEqual(null, PingInterval.DefaultValue.Value);
+            Assert.IsNull(PingInterval.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -80,7 +80,7 @@
             IPingInterval PingInterval = portSettings.PingInterval;
 
             // Assert
-            Assert.AreEqual(null, PingInterval.DefaultValue);
+            Assert.IsNull(PingInterval.DefaultValue);
         }
 
         #endregion
@@ -109,7 +109,7 @@
             IPingInterval PingInterval = portSettings.PingInterval;
 
             // Assert
-            Assert.AreEqual(true, PingInterval.Disabled.Value);
+            Assert.IsTrue(PingInterval.Disabled.Value);
         }
 
         [TestMethod]
@@ -134,7 +134,7 @@
             IPingInterval PingInterval = portSettings.PingInterval;
 
             // Assert
-            Assert.AreEqual(null, PingInterval.Disabled.Value);
+            Assert.IsNull(PingInterval.Disabled.Value);
         }
 
         [TestMethod]
@@ -159,7 +159,7 @@
             IPingInterval PingInterval = portSettings.PingInterval;
 
             // Assert
-            Assert.AreEqual(null, PingInterval.Disabled.Value);
+            Assert.IsNull(PingInterval.Disabled.Value);
         }
 
         [TestMethod]
@@ -183,7 +183,7 @@
             IPingInterval PingInterval = portSettings.PingInterval;
 
             // Assert
-            Assert.AreEqual(null, PingInterval.Disabled);
+            Assert.IsNull(PingInterval.Disabled);
         }
 
         #endregion

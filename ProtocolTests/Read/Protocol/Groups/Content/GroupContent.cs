@@ -27,7 +27,7 @@
             var contents = group.Content;
 
             // Assert
-            Assert.AreEqual(0, contents.Count);
+            Assert.IsEmpty(contents);
         }
 
         [TestMethod]
@@ -57,7 +57,7 @@
             var contents = group.Content;
 
             // Assert
-            Assert.AreEqual(5, contents.Count);
+            Assert.HasCount(5, contents);
         }
 
         [TestMethod]
@@ -87,7 +87,7 @@
             var contents = group.Content;
 
             // Assert
-            Assert.AreNotEqual(null, contents.GetEnumerator());
+            Assert.IsNotNull(contents.GetEnumerator());
         }
 
 

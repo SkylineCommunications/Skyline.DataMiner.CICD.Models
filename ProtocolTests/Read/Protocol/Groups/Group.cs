@@ -51,7 +51,7 @@ namespace Models.ProtocolTests.Read.Protocol.Groups
             var group = protocol.Groups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Id.Value);
+            Assert.IsNull(group.Id.Value);
         }
 
         [TestMethod]
@@ -71,7 +71,7 @@ namespace Models.ProtocolTests.Read.Protocol.Groups
             var group = protocol.Groups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Id.Value);
+            Assert.IsNull(group.Id.Value);
         }
 
         [TestMethod]
@@ -91,7 +91,7 @@ namespace Models.ProtocolTests.Read.Protocol.Groups
             var group = protocol.Groups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Id);
+            Assert.IsNull(group.Id);
         }
 
         #endregion
@@ -155,7 +155,7 @@ namespace Models.ProtocolTests.Read.Protocol.Groups
             var group = protocol.Groups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Name);
+            Assert.IsNull(group.Name);
         }
         #endregion
 
@@ -218,7 +218,7 @@ namespace Models.ProtocolTests.Read.Protocol.Groups
             var group = protocol.Groups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Description);
+            Assert.IsNull(group.Description);
         }
         #endregion
 
@@ -341,7 +341,7 @@ namespace Models.ProtocolTests.Read.Protocol.Groups
             var group = protocol.Groups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Type.Value);
+            Assert.IsNull(group.Type.Value);
         }
 
         [TestMethod]
@@ -361,7 +361,7 @@ namespace Models.ProtocolTests.Read.Protocol.Groups
             var group = protocol.Groups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Type);
+            Assert.IsNull(group.Type);
         }
         #endregion
 
@@ -424,7 +424,7 @@ namespace Models.ProtocolTests.Read.Protocol.Groups
             var group = protocol.Groups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Condition);
+            Assert.IsNull(group.Condition);
         }
         #endregion
 
@@ -447,7 +447,7 @@ namespace Models.ProtocolTests.Read.Protocol.Groups
             var group = protocol.Groups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Content);
+            Assert.IsNull(group.Content);
         }
 
         [TestMethod]
@@ -467,7 +467,7 @@ namespace Models.ProtocolTests.Read.Protocol.Groups
             var group = protocol.Groups[0];
 
             // Assert
-            Assert.AreNotEqual(null, group.Content);
+            Assert.IsNotNull(group.Content);
         }
 
 
@@ -497,7 +497,7 @@ namespace Models.ProtocolTests.Read.Protocol.Groups
             var relations = ((IRelationEvaluator)group).GetRelations().ToList();
 
             // Assert
-            Assert.AreEqual(0, relations.Count);
+            Assert.IsEmpty(relations);
         }
 
         [TestMethod]
@@ -526,7 +526,7 @@ namespace Models.ProtocolTests.Read.Protocol.Groups
 
             // Assert
             var reference = relations.First();
-            Assert.AreEqual(1, relations.Count);
+            Assert.HasCount(1, relations);
             Assert.AreEqual("2", reference.TargetId);
         }
     }

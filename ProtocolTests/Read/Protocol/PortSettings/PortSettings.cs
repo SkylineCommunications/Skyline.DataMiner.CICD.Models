@@ -28,7 +28,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.Baudrate);
+            Assert.IsNotNull(portSettings.Baudrate);
         }
 
         [TestMethod]
@@ -48,7 +48,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.Baudrate);
+            Assert.IsNull(portSettings.Baudrate);
         }
 
         #endregion
@@ -74,7 +74,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.BusAddress);
+            Assert.IsNotNull(portSettings.BusAddress);
         }
 
         [TestMethod]
@@ -94,7 +94,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.BusAddress);
+            Assert.IsNull(portSettings.BusAddress);
         }
 
         #endregion
@@ -120,7 +120,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.Databits);
+            Assert.IsNotNull(portSettings.Databits);
         }
 
         [TestMethod]
@@ -140,7 +140,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.Databits);
+            Assert.IsNull(portSettings.Databits);
         }
 
         #endregion
@@ -166,7 +166,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.Flowcontrol);
+            Assert.IsNotNull(portSettings.Flowcontrol);
         }
 
         [TestMethod]
@@ -186,7 +186,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.Flowcontrol);
+            Assert.IsNull(portSettings.Flowcontrol);
         }
 
         #endregion
@@ -212,7 +212,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.GetCommunity);
+            Assert.IsNotNull(portSettings.GetCommunity);
         }
 
         [TestMethod]
@@ -232,7 +232,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.GetCommunity);
+            Assert.IsNull(portSettings.GetCommunity);
         }
 
         #endregion
@@ -258,7 +258,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.IPport);
+            Assert.IsNotNull(portSettings.IPport);
         }
 
         [TestMethod]
@@ -278,7 +278,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.IPport);
+            Assert.IsNull(portSettings.IPport);
         }
 
         #endregion
@@ -304,7 +304,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.LocalIPport);
+            Assert.IsNotNull(portSettings.LocalIPport);
         }
 
         [TestMethod]
@@ -324,7 +324,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.LocalIPport);
+            Assert.IsNull(portSettings.LocalIPport);
         }
 
         #endregion
@@ -350,7 +350,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.Parity);
+            Assert.IsNotNull(portSettings.Parity);
         }
 
         [TestMethod]
@@ -370,7 +370,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.Parity);
+            Assert.IsNull(portSettings.Parity);
         }
 
         #endregion
@@ -396,7 +396,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.PingInterval);
+            Assert.IsNotNull(portSettings.PingInterval);
         }
 
         [TestMethod]
@@ -416,7 +416,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.PingInterval);
+            Assert.IsNull(portSettings.PingInterval);
         }
 
         #endregion
@@ -442,7 +442,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.PortTypeIP);
+            Assert.IsNotNull(portSettings.PortTypeIP);
         }
 
         [TestMethod]
@@ -462,7 +462,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.PortTypeIP);
+            Assert.IsNull(portSettings.PortTypeIP);
         }
 
         #endregion
@@ -488,7 +488,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.PortTypeSerial);
+            Assert.IsNotNull(portSettings.PortTypeSerial);
         }
 
         [TestMethod]
@@ -508,7 +508,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.PortTypeSerial);
+            Assert.IsNull(portSettings.PortTypeSerial);
         }
 
         #endregion
@@ -534,7 +534,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.PortTypeUDP);
+            Assert.IsNotNull(portSettings.PortTypeUDP);
         }
 
         [TestMethod]
@@ -554,7 +554,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.PortTypeUDP);
+            Assert.IsNull(portSettings.PortTypeUDP);
         }
 
         #endregion
@@ -580,7 +580,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.Retries);
+            Assert.IsNotNull(portSettings.Retries);
         }
 
         [TestMethod]
@@ -600,7 +600,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.Retries);
+            Assert.IsNull(portSettings.Retries);
         }
 
         #endregion
@@ -626,7 +626,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.SetCommunity);
+            Assert.IsNotNull(portSettings.SetCommunity);
         }
 
         [TestMethod]
@@ -646,7 +646,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.SetCommunity);
+            Assert.IsNull(portSettings.SetCommunity);
         }
 
         #endregion
@@ -670,7 +670,7 @@
             IPortSettingsMain portSettings = protocol.PortSettings;
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.SlowPoll);
+            Assert.IsNotNull(portSettings.SlowPoll);
         }
 
         [TestMethod]
@@ -688,7 +688,7 @@
             IPortSettingsMain portSettings = protocol.PortSettings;
 
             // Assert
-            Assert.AreEqual(null, portSettings.SlowPoll);
+            Assert.IsNull(portSettings.SlowPoll);
         }
 
         #endregion
@@ -712,7 +712,7 @@
             IPortSettingsMain portSettings = protocol.PortSettings;
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.SlowPollBase);
+            Assert.IsNotNull(portSettings.SlowPollBase);
         }
 
         [TestMethod]
@@ -730,7 +730,7 @@
             IPortSettingsMain portSettings = protocol.PortSettings;
 
             // Assert
-            Assert.AreEqual(null, portSettings.SlowPollBase);
+            Assert.IsNull(portSettings.SlowPollBase);
         }
 
         #endregion
@@ -756,7 +756,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.Stopbits);
+            Assert.IsNotNull(portSettings.Stopbits);
         }
 
         [TestMethod]
@@ -776,7 +776,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.Stopbits);
+            Assert.IsNull(portSettings.Stopbits);
         }
 
         #endregion
@@ -802,7 +802,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.TimeoutTime);
+            Assert.IsNotNull(portSettings.TimeoutTime);
         }
 
         [TestMethod]
@@ -822,7 +822,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.TimeoutTime);
+            Assert.IsNull(portSettings.TimeoutTime);
         }
 
         #endregion
@@ -848,7 +848,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.TimeoutTimeElement);
+            Assert.IsNotNull(portSettings.TimeoutTimeElement);
         }
 
         [TestMethod]
@@ -868,7 +868,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.TimeoutTimeElement);
+            Assert.IsNull(portSettings.TimeoutTimeElement);
         }
 
         #endregion
@@ -894,7 +894,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreNotEqual(null, portSettings.Type);
+            Assert.IsNotNull(portSettings.Type);
         }
 
         [TestMethod]
@@ -914,7 +914,7 @@
             IPortSettings portSettings = protocol.Ports[0];
 
             // Assert
-            Assert.AreEqual(null, portSettings.Type);
+            Assert.IsNull(portSettings.Type);
         }
 
         #endregion

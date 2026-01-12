@@ -39,7 +39,7 @@
             IParamsParam parent = name.TryFindParent<IParamsParam>();
 
             // Assert
-            Assert.AreEqual(null, parent);
+            Assert.IsNull(parent);
         }
     }
 }

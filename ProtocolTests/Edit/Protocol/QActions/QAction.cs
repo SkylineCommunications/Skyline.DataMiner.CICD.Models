@@ -68,7 +68,7 @@
                 },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.QActions[0].Code);
+                    Assert.IsNull(m.Protocol.QActions[0].Code);
                     Assert.AreEqual(expected, o);
                 }
             );
@@ -95,7 +95,7 @@
                 input: input,
                 action: m =>
                 {
-                    Assert.AreEqual(null, m.Protocol.QActions[0].Code);
+                    Assert.IsNull(m.Protocol.QActions[0].Code);
                     m.Protocol.QActions[0].Code = "using System;";
                 },
                 checks: (m, x, o) =>

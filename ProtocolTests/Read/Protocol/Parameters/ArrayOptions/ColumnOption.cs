@@ -101,7 +101,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.CpeAlignment.Value);
+            Assert.IsNull(columnOption.CpeAlignment.Value);
         }
 
         [TestMethod]
@@ -119,7 +119,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.CpeAlignment.Value);
+            Assert.IsNull(columnOption.CpeAlignment.Value);
         }
 
         [TestMethod]
@@ -137,7 +137,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.CpeAlignment);
+            Assert.IsNull(columnOption.CpeAlignment);
         }
 
         #endregion
@@ -177,7 +177,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.Idx.Value);
+            Assert.IsNull(columnOption.Idx.Value);
         }
 
         [TestMethod]
@@ -195,7 +195,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.Idx.Value);
+            Assert.IsNull(columnOption.Idx.Value);
         }
 
         [TestMethod]
@@ -213,7 +213,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.Idx);
+            Assert.IsNull(columnOption.Idx);
         }
 
         #endregion
@@ -271,7 +271,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.Options);
+            Assert.IsNull(columnOption.Options);
         }
 
         #endregion
@@ -311,7 +311,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.Pid.Value);
+            Assert.IsNull(columnOption.Pid.Value);
         }
 
         [TestMethod]
@@ -329,7 +329,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.Pid.Value);
+            Assert.IsNull(columnOption.Pid.Value);
         }
 
         [TestMethod]
@@ -347,7 +347,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.Pid);
+            Assert.IsNull(columnOption.Pid);
         }
 
         #endregion
@@ -387,7 +387,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.PollingRate.Value);
+            Assert.IsNull(columnOption.PollingRate.Value);
         }
 
         [TestMethod]
@@ -405,7 +405,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.PollingRate.Value);
+            Assert.IsNull(columnOption.PollingRate.Value);
         }
 
         [TestMethod]
@@ -423,7 +423,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.PollingRate);
+            Assert.IsNull(columnOption.PollingRate);
         }
 
         #endregion
@@ -481,7 +481,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.ValueAttribute);
+            Assert.IsNull(columnOption.ValueAttribute);
         }
 
         #endregion
@@ -647,7 +647,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.Type.Value);
+            Assert.IsNull(columnOption.Type.Value);
         }
 
         [TestMethod]
@@ -665,7 +665,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.Type.Value);
+            Assert.IsNull(columnOption.Type.Value);
         }
 
         [TestMethod]
@@ -683,7 +683,7 @@
             var columnOption = arrayOptions[0];
 
             // Assert
-            Assert.AreEqual(null, columnOption.Type);
+            Assert.IsNull(columnOption.Type);
         }
 
         #endregion

@@ -30,7 +30,7 @@
             var details = treeControl.ExtraTabs;
 
             // Assert
-            Assert.AreEqual(2, details.Count);
+            Assert.HasCount(2, details);
         }
 
         [TestMethod]
@@ -54,7 +54,7 @@
             var details = treeControl.ExtraTabs;
 
             // Assert
-            Assert.AreEqual(0, details.Count);
+            Assert.IsEmpty(details);
         }
 
         [TestMethod]
@@ -80,7 +80,7 @@
             var details = treeControl.ExtraTabs;
 
             // Assert
-            Assert.AreNotEqual(null, details.GetEnumerator());
+            Assert.IsNotNull(details.GetEnumerator());
         }
 
     }

@@ -43,7 +43,7 @@
             Assert.AreEqual(EnumProtocolType.Virtual, protocol.Type.Value);
             Assert.IsNull(protocol.Timers);
 
-            Assert.AreEqual(2, protocol.Params.Count);
+            Assert.HasCount(2, protocol.Params);
             Assert.AreEqual("Param 10", protocol.Params[0].Name.Value);
             Assert.AreEqual("Param 11", protocol.Params[1].Name.Value);
 
@@ -53,7 +53,7 @@
             // check if main protocol object is still intact
             var mainProtocol = model.Protocol;
             Assert.AreEqual("My Protocol", mainProtocol.Name.Value);
-            Assert.AreEqual(3, mainProtocol.Params.Count);
+            Assert.HasCount(3, mainProtocol.Params);
             Assert.IsNotNull(mainProtocol.Timers);
 
             new ProtocolCheckVisitor(x => Assert.IsNotInstanceOfType(x.ReadNode, typeof(XmlElementExportOverride)))
@@ -82,8 +82,8 @@
             var model100 = model.GetExportedProtocol(100, "My Protocol - DVE 100");
             var model200 = model.GetExportedProtocol(200, "My Protocol - DVE 200");
 
-            Assert.AreEqual(2, model100.Protocol.Params.Count);
-            Assert.AreEqual(2, model200.Protocol.Params.Count);
+            Assert.HasCount(2, model100.Protocol.Params);
+            Assert.HasCount(2, model200.Protocol.Params);
         }
 
         [TestMethod]
@@ -166,7 +166,7 @@
             var model = CreateModelFromXML(xml);
             var allExportedProtocols = model.GetAllExportedProtocols().ToList();
 
-            Assert.AreEqual(2, allExportedProtocols.Count);
+            Assert.HasCount(2, allExportedProtocols);
 
             var exportA = allExportedProtocols[0];
             Assert.AreEqual(100, exportA.TablePid);
@@ -191,7 +191,7 @@
             var model = CreateModelFromXML(xml);
             var allExportedProtocols = model.GetAllExportedProtocols().ToList();
 
-            Assert.AreEqual(0, allExportedProtocols.Count);
+            Assert.IsEmpty(allExportedProtocols);
         }
 
         [TestMethod]
@@ -208,7 +208,7 @@
             var model = CreateModelFromXML(xml);
             var allExportedProtocols = model.GetAllExportedProtocols().ToList();
 
-            Assert.AreEqual(0, allExportedProtocols.Count);
+            Assert.IsEmpty(allExportedProtocols);
         }
 
         [TestMethod]
@@ -231,7 +231,7 @@
             var model = CreateModelFromXML(xml);
             var allExportedProtocols = model.GetAllExportedProtocols().ToList();
 
-            Assert.AreEqual(2, allExportedProtocols.Count);
+            Assert.HasCount(2, allExportedProtocols);
 
             var exportA = allExportedProtocols[0];
             Assert.AreEqual(100, exportA.TablePid);
@@ -261,7 +261,7 @@
             var model = CreateModelFromXML(xml);
             var allExportedProtocols = model.GetAllExportedProtocols().ToList();
 
-            Assert.AreEqual(0, allExportedProtocols.Count);
+            Assert.IsEmpty(allExportedProtocols);
         }
 
         [TestMethod]
@@ -283,7 +283,7 @@
             var model = CreateModelFromXML(xml);
             var allExportedProtocols = model.GetAllExportedProtocols().ToList();
 
-            Assert.AreEqual(0, allExportedProtocols.Count);
+            Assert.IsEmpty(allExportedProtocols);
         }
 
         [TestMethod]

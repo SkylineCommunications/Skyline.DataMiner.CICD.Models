@@ -30,7 +30,7 @@
             var mappings = param.SNMP.TrapMappings;
 
             // Assert
-            Assert.AreEqual(0, mappings.Count);
+            Assert.IsEmpty(mappings);
         }
 
         [TestMethod]
@@ -58,7 +58,7 @@
             var mappings = param.SNMP.TrapMappings;
 
             // Assert
-            Assert.AreEqual(2, mappings.Count);
+            Assert.HasCount(2, mappings);
         }
 
         [TestMethod]
@@ -86,7 +86,7 @@
             var mappings = param.SNMP.TrapMappings;
 
             // Assert
-            Assert.AreNotEqual(null, mappings.GetEnumerator());
+            Assert.IsNotNull(mappings.GetEnumerator());
         }
 
     }

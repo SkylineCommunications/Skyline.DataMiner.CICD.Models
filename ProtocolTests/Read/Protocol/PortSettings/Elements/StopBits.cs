@@ -81,7 +81,7 @@
             var Stopbits = portSettings.Stopbits;
 
             // Assert
-            Assert.AreEqual(null, Stopbits.DefaultValue);
+            Assert.IsNull(Stopbits.DefaultValue);
         }
 
         #endregion
@@ -110,7 +110,7 @@
             var Stopbits = portSettings.Stopbits;
 
             // Assert
-            Assert.AreEqual(true, Stopbits.Disabled.Value);
+            Assert.IsTrue(Stopbits.Disabled.Value);
         }
 
         [TestMethod]
@@ -135,7 +135,7 @@
             var Stopbits = portSettings.Stopbits;
 
             // Assert
-            Assert.AreEqual(null, Stopbits.Disabled.Value);
+            Assert.IsNull(Stopbits.Disabled.Value);
         }
 
         [TestMethod]
@@ -160,7 +160,7 @@
             var Stopbits = portSettings.Stopbits;
 
             // Assert
-            Assert.AreEqual(null, Stopbits.Disabled.Value);
+            Assert.IsNull(Stopbits.Disabled.Value);
         }
 
         [TestMethod]
@@ -184,7 +184,7 @@
             var Stopbits = portSettings.Stopbits;
 
             // Assert
-            Assert.AreEqual(null, Stopbits.Disabled);
+            Assert.IsNull(Stopbits.Disabled);
         }
 
         #endregion

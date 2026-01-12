@@ -28,7 +28,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(true, treeControl.ReadOnly.Value);
+            Assert.IsTrue(treeControl.ReadOnly.Value);
         }
 
         [TestMethod]
@@ -49,7 +49,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.ReadOnly.Value);
+            Assert.IsNull(treeControl.ReadOnly.Value);
         }
 
         [TestMethod]
@@ -70,7 +70,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.ReadOnly.Value);
+            Assert.IsNull(treeControl.ReadOnly.Value);
         }
 
         [TestMethod]
@@ -91,7 +91,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.ReadOnly);
+            Assert.IsNull(treeControl.ReadOnly);
         }
 
         #endregion
@@ -137,7 +137,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.ParameterId.Value);
+            Assert.IsNull(treeControl.ParameterId.Value);
         }
 
         [TestMethod]
@@ -158,7 +158,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.ParameterId.Value);
+            Assert.IsNull(treeControl.ParameterId.Value);
         }
 
         [TestMethod]
@@ -179,7 +179,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.ParameterId);
+            Assert.IsNull(treeControl.ParameterId);
         }
 
         #endregion
@@ -250,7 +250,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.HiddenColumns);
+            Assert.IsNull(treeControl.HiddenColumns);
         }
 
         #endregion
@@ -321,7 +321,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.OverrideDisplayColumns);
+            Assert.IsNull(treeControl.OverrideDisplayColumns);
         }
 
         #endregion
@@ -392,7 +392,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.OverrideIconColumns);
+            Assert.IsNull(treeControl.OverrideIconColumns);
         }
 
         #endregion
@@ -463,7 +463,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.ReadonlyColumns);
+            Assert.IsNull(treeControl.ReadonlyColumns);
         }
 
         #endregion
@@ -489,7 +489,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.ExtraDetails);
+            Assert.IsNull(treeControl.ExtraDetails);
         }
 
         [TestMethod]
@@ -512,7 +512,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreNotEqual(null, treeControl.ExtraDetails);
+            Assert.IsNotNull(treeControl.ExtraDetails);
         }
 
         #endregion
@@ -538,7 +538,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.ExtraTabs);
+            Assert.IsNull(treeControl.ExtraTabs);
         }
 
         [TestMethod]
@@ -561,7 +561,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreNotEqual(null, treeControl.ExtraTabs);
+            Assert.IsNotNull(treeControl.ExtraTabs);
         }
 
         #endregion
@@ -587,7 +587,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreEqual(null, treeControl.Hierarchy);
+            Assert.IsNull(treeControl.Hierarchy);
         }
 
         [TestMethod]
@@ -610,7 +610,7 @@
             var treeControl = treeControls[0];
 
             // Assert
-            Assert.AreNotEqual(null, treeControl.Hierarchy);
+            Assert.IsNotNull(treeControl.Hierarchy);
         }
 
         #endregion

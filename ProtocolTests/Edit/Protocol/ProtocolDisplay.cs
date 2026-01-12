@@ -53,7 +53,7 @@
                     },          
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.Display.DefaultPage);
+                    Assert.IsNull(m.Protocol.Display.DefaultPage);
                     Assert.AreEqual("<Protocol><Display /></Protocol>", o);
                 }
             );

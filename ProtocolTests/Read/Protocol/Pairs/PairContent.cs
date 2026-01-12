@@ -29,7 +29,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(0, pair.Content.Count);
+            Assert.IsEmpty(pair.Content);
         }
 
         [TestMethod]
@@ -54,7 +54,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(2, pair.Content.Count);
+            Assert.HasCount(2, pair.Content);
         }
 
         [TestMethod]
@@ -77,7 +77,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreNotEqual(null, pair.Content.GetEnumerator());
+            Assert.IsNotNull(pair.Content.GetEnumerator());
         }
 
         [TestMethod]
@@ -102,7 +102,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreNotEqual(null, pair.Content[0]);
+            Assert.IsNotNull(pair.Content[0]);
         }
 
         #endregion

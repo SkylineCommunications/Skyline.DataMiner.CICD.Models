@@ -33,7 +33,7 @@
             var Parameters = request.Parameters;
 
             // Assert
-            Assert.AreEqual(0, Parameters.Count);
+            Assert.IsEmpty(Parameters);
         }
 
         [TestMethod]
@@ -65,7 +65,7 @@
             var Parameters = request.Parameters;
 
             // Assert
-            Assert.AreEqual(2, Parameters.Count);
+            Assert.HasCount(2, Parameters);
         }
 
         [TestMethod]
@@ -97,7 +97,7 @@
             var parameters = request.Parameters;
 
             // Assert
-            Assert.AreNotEqual(null, parameters.GetEnumerator());
+            Assert.IsNotNull(parameters.GetEnumerator());
         }
 
     }

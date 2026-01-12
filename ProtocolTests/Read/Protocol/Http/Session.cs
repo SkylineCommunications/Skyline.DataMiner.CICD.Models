@@ -47,7 +47,7 @@
             var session = protocol.HTTP[0];
 
             // Assert
-            Assert.AreEqual(null, session.Id.Value);
+            Assert.IsNull(session.Id.Value);
         }
 
         [TestMethod]
@@ -67,7 +67,7 @@
             var session = protocol.HTTP[0];
 
             // Assert
-            Assert.AreEqual(null, session.Id.Value);
+            Assert.IsNull(session.Id.Value);
         }
 
         [TestMethod]
@@ -87,7 +87,7 @@
             var session = protocol.HTTP[0];
 
             // Assert
-            Assert.AreEqual(null, session.Id);
+            Assert.IsNull(session.Id);
         }
 
         #endregion
@@ -151,7 +151,7 @@
             var session = protocol.HTTP[0];
 
             // Assert
-            Assert.AreEqual(null, session.Name);
+            Assert.IsNull(session.Name);
         }
 
         #endregion
@@ -177,7 +177,7 @@
             var session = protocol.HTTP[0];
 
             // Assert
-            Assert.AreEqual(0, session.Count);
+            Assert.IsEmpty(session);
         }
 
         [TestMethod]
@@ -200,7 +200,7 @@
             var connection = session[0];
 
             // Assert
-            Assert.AreNotEqual(null, connection);
+            Assert.IsNotNull(connection);
         }
 
         #endregion

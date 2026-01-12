@@ -25,7 +25,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(true, arrayOptions.DeleteRow.Value);
+            Assert.IsTrue(arrayOptions.DeleteRow.Value);
         }
 
         [TestMethod]
@@ -42,7 +42,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(null, arrayOptions.DeleteRow.Value);
+            Assert.IsNull(arrayOptions.DeleteRow.Value);
         }
 
         [TestMethod]
@@ -59,7 +59,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(null, arrayOptions.DeleteRow.Value);
+            Assert.IsNull(arrayOptions.DeleteRow.Value);
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(null, arrayOptions.DeleteRow);
+            Assert.IsNull(arrayOptions.DeleteRow);
         }
 
         #endregion
@@ -114,7 +114,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(null, arrayOptions.DisplayColumn.Value);
+            Assert.IsNull(arrayOptions.DisplayColumn.Value);
         }
 
         [TestMethod]
@@ -131,7 +131,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(null, arrayOptions.DisplayColumn);
+            Assert.IsNull(arrayOptions.DisplayColumn);
         }
         #endregion
 
@@ -168,7 +168,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(null, arrayOptions.Index.Value);
+            Assert.IsNull(arrayOptions.Index.Value);
         }
 
         [TestMethod]
@@ -185,7 +185,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(null, arrayOptions.Index);
+            Assert.IsNull(arrayOptions.Index);
         }
 
         #endregion
@@ -240,7 +240,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(null, arrayOptions.Options);
+            Assert.IsNull(arrayOptions.Options);
         }
 
         #endregion
@@ -295,7 +295,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(null, arrayOptions.Partial);
+            Assert.IsNull(arrayOptions.Partial);
         }
 
         #endregion
@@ -350,7 +350,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(null, arrayOptions.SnmpIndex);
+            Assert.IsNull(arrayOptions.SnmpIndex);
         }
 
         #endregion
@@ -381,7 +381,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(0, arrayOptions.Count);
+            Assert.IsEmpty(arrayOptions);
         }
 
         [TestMethod]
@@ -407,7 +407,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(2, arrayOptions.Count);
+            Assert.HasCount(2, arrayOptions);
         }
 
         [TestMethod]
@@ -433,7 +433,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreNotEqual(null, arrayOptions.GetEnumerator());
+            Assert.IsNotNull(arrayOptions.GetEnumerator());
         }
 
         #endregion
@@ -460,7 +460,7 @@
             var arrayOptions = parameter.ArrayOptions;
 
             // Assert
-            Assert.AreEqual(null, arrayOptions.NamingFormat);
+            Assert.IsNull(arrayOptions.NamingFormat);
         }
 
 

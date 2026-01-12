@@ -34,10 +34,10 @@
             var group1 = model.Protocol.Groups[0];
 
             var linksParam = model.RelationManager.GetLinks(param1).ToList();
-            Assert.AreEqual(3, linksParam.Count);
+            Assert.HasCount(3, linksParam);
 
             var linksGroup = model.RelationManager.GetLinks(group1).ToList();
-            Assert.AreEqual(3, linksGroup.Count);
+            Assert.HasCount(3, linksGroup);
 
         }
     }

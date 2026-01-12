@@ -29,7 +29,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(0, parameter.Interprete.Exceptions.Count);
+            Assert.IsEmpty(parameter.Interprete.Exceptions);
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(2, parameter.Interprete.Exceptions.Count);
+            Assert.HasCount(2, parameter.Interprete.Exceptions);
         }
 
         [TestMethod]
@@ -83,7 +83,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreNotEqual(null, parameter.Interprete.Exceptions.GetEnumerator());
+            Assert.IsNotNull(parameter.Interprete.Exceptions.GetEnumerator());
         }
 
 

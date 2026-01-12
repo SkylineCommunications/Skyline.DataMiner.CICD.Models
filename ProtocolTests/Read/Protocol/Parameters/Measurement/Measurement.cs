@@ -30,7 +30,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreNotEqual(null, parameter.Measurement.Type);
+            Assert.IsNotNull(parameter.Measurement.Type);
         }
 
         [TestMethod]
@@ -53,7 +53,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Measurement.Type);
+            Assert.IsNull(parameter.Measurement.Type);
         }
 
         #endregion
@@ -81,7 +81,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreNotEqual(null, parameter.Measurement.Discreets);
+            Assert.IsNotNull(parameter.Measurement.Discreets);
         }
 
         [TestMethod]
@@ -104,7 +104,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Measurement.Discreets);
+            Assert.IsNull(parameter.Measurement.Discreets);
         }
 
         #endregion

@@ -26,7 +26,7 @@
             var content = protocol.Commands[0].Content;
 
             // Assert
-            Assert.AreEqual(0, content.Count);
+            Assert.IsEmpty(content);
         }
 
         [TestMethod]
@@ -51,7 +51,7 @@
             var content = protocol.Commands[0].Content;
 
             // Assert
-            Assert.AreEqual(2, content.Count);
+            Assert.HasCount(2, content);
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@
             var content = protocol.Commands[0].Content;
 
             // Assert
-            Assert.AreNotEqual(null, content.GetEnumerator());
+            Assert.IsNotNull(content.GetEnumerator());
         }
 
         [TestMethod]
@@ -101,7 +101,7 @@
             var content = protocol.Commands[0].Content;
 
             // Assert
-            Assert.AreNotEqual(null, content[0]);
+            Assert.IsNotNull(content[0]);
         }
     }
 }

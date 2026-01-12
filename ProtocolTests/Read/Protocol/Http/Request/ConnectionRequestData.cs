@@ -93,7 +93,7 @@
             var data = request.Data;
 
             // Assert
-            Assert.AreEqual(null, data);
+            Assert.IsNull(data);
         }
 
         #endregion

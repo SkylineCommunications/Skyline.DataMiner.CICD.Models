@@ -81,7 +81,7 @@
             var Busaddress = portSettings.BusAddress;
 
             // Assert
-            Assert.AreEqual(null, Busaddress.DefaultValue);
+            Assert.IsNull(Busaddress.DefaultValue);
         }
 
         #endregion
@@ -110,7 +110,7 @@
             var Busaddress = portSettings.BusAddress;
 
             // Assert
-            Assert.AreEqual(true, Busaddress.Disabled.Value);
+            Assert.IsTrue(Busaddress.Disabled.Value);
         }
 
         [TestMethod]
@@ -135,7 +135,7 @@
             var Busaddress = portSettings.BusAddress;
 
             // Assert
-            Assert.AreEqual(null, Busaddress.Disabled.Value);
+            Assert.IsNull(Busaddress.Disabled.Value);
         }
 
         [TestMethod]
@@ -160,7 +160,7 @@
             var Busaddress = portSettings.BusAddress;
 
             // Assert
-            Assert.AreEqual(null, Busaddress.Disabled.Value);
+            Assert.IsNull(Busaddress.Disabled.Value);
         }
 
         [TestMethod]
@@ -184,7 +184,7 @@
             var Busaddress = portSettings.BusAddress;
 
             // Assert
-            Assert.AreEqual(null, Busaddress.Disabled);
+            Assert.IsNull(Busaddress.Disabled);
         }
 
         #endregion
@@ -214,7 +214,7 @@
             var range = Busaddress.Range;
 
             // Assert
-            Assert.AreNotEqual(null, range);
+            Assert.IsNotNull(range);
         }
 
         [TestMethod]
@@ -239,7 +239,7 @@
             var range = Busaddress.Range;
 
             // Assert
-            Assert.AreEqual(null, range);
+            Assert.IsNull(range);
         }
 
         #endregion

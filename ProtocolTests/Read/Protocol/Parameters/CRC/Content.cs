@@ -59,7 +59,7 @@
             var param = parameter.CRC.Content[0];
 
             // Assert
-            Assert.AreEqual(null, param.Value);
+            Assert.IsNull(param.Value);
         }
                
         [TestMethod]
@@ -86,7 +86,7 @@
             var param = parameter.CRC.Content[0];
 
             // Assert
-            Assert.AreEqual(null, param.Value);
+            Assert.IsNull(param.Value);
         }
 
         [TestMethod]
@@ -113,7 +113,7 @@
             var param = parameter.CRC.Content[0];
 
             // Assert
-            Assert.AreEqual(null, param.Value);
+            Assert.IsNull(param.Value);
         }
 
         [TestMethod]
@@ -142,7 +142,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreNotEqual(null, parameter.CRC.Content.GetEnumerator());
+            Assert.IsNotNull(parameter.CRC.Content.GetEnumerator());
         }
 
         #endregion
@@ -173,7 +173,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(2, parameter.CRC.Content.Count);
+            Assert.HasCount(2, parameter.CRC.Content);
         }
     }
 }

@@ -24,7 +24,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(0, protocol.DVEs.DVEProtocols.Count);
+            Assert.IsEmpty(protocol.DVEs.DVEProtocols);
         }
 
         [TestMethod]
@@ -46,7 +46,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(2, protocol.DVEs.DVEProtocols.Count);
+            Assert.HasCount(2, protocol.DVEs.DVEProtocols);
         }
 
         [TestMethod]
@@ -68,7 +68,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.DVEs.DVEProtocols.GetEnumerator());
+            Assert.IsNotNull(protocol.DVEs.DVEProtocols.GetEnumerator());
         }
     }
 }

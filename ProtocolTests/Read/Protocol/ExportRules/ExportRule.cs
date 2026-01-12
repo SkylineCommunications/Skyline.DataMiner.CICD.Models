@@ -71,7 +71,7 @@
             var rule = protocol.ExportRules[0];
 
             // Assert
-            Assert.AreEqual(null, rule.Attribute);
+            Assert.IsNull(rule.Attribute);
         }
 
         #endregion
@@ -138,7 +138,7 @@
             var rule = protocol.ExportRules[0];
 
             // Assert
-            Assert.AreEqual(null, rule.Name);
+            Assert.IsNull(rule.Name);
         }
 
         #endregion
@@ -205,7 +205,7 @@
             var rule = protocol.ExportRules[0];
 
             // Assert
-            Assert.AreEqual(null, rule.Regex);
+            Assert.IsNull(rule.Regex);
         }
 
         #endregion
@@ -272,7 +272,7 @@
             var rule = protocol.ExportRules[0];
 
             // Assert
-            Assert.AreEqual(null, rule.Table);
+            Assert.IsNull(rule.Table);
         }
 
         #endregion
@@ -339,7 +339,7 @@
             var rule = protocol.ExportRules[0];
 
             // Assert
-            Assert.AreEqual(null, rule.Tag);
+            Assert.IsNull(rule.Tag);
         }
 
         #endregion
@@ -406,7 +406,7 @@
             var rule = protocol.ExportRules[0];
 
             // Assert
-            Assert.AreEqual(null, rule.ValueAttribute);
+            Assert.IsNull(rule.ValueAttribute);
         }
 
         #endregion
@@ -473,7 +473,7 @@
             var rule = protocol.ExportRules[0];
 
             // Assert
-            Assert.AreEqual(null, rule.WhereTag);
+            Assert.IsNull(rule.WhereTag);
         }
 
         #endregion
@@ -540,7 +540,7 @@
             var rule = protocol.ExportRules[0];
 
             // Assert
-            Assert.AreEqual(null, rule.WhereValue);
+            Assert.IsNull(rule.WhereValue);
         }
 
         #endregion

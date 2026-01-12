@@ -51,7 +51,7 @@
             var content = protocol.Commands[0].Content;
 
             // Assert
-            Assert.AreEqual(null, content[0].Value);
+            Assert.IsNull(content[0].Value);
         }
 
         [TestMethod]
@@ -75,7 +75,7 @@
             var content = protocol.Commands[0].Content;
 
             // Assert
-            Assert.AreEqual(null, content[0].Value);
+            Assert.IsNull(content[0].Value);
         }
     }
 }

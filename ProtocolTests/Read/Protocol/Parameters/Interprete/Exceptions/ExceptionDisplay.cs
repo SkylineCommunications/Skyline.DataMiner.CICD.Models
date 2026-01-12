@@ -93,7 +93,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete.Exceptions
             var exception = parameter.Interprete.Exceptions[0];
 
             // Assert
-            Assert.AreEqual(null, exception.Display);
+            Assert.IsNull(exception.Display);
         }
 
         #endregion
@@ -181,7 +181,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete.Exceptions
             var exception = parameter.Interprete.Exceptions[0];
 
             // Assert
-            Assert.AreEqual(null, exception.Display.State.Value);
+            Assert.IsNull(exception.Display.State.Value);
         }
 
         [TestMethod]
@@ -210,7 +210,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete.Exceptions
             var exception = parameter.Interprete.Exceptions[0];
 
             // Assert
-            Assert.AreEqual(null, exception.Display.State.Value);
+            Assert.IsNull(exception.Display.State.Value);
         }
 
         [TestMethod]
@@ -239,7 +239,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete.Exceptions
             var exception = parameter.Interprete.Exceptions[0];
 
             // Assert
-            Assert.AreEqual(null, exception.Display.State);
+            Assert.IsNull(exception.Display.State);
         }
 
         #endregion

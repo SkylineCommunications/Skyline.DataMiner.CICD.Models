@@ -56,7 +56,7 @@
             var IPPort = portSettings.IPport;
 
             // Assert
-            Assert.AreEqual(null, IPPort.DefaultValue.Value);
+            Assert.IsNull(IPPort.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@
             var IPPort = portSettings.IPport;
 
             // Assert
-            Assert.AreEqual(null, IPPort.DefaultValue.Value);
+            Assert.IsNull(IPPort.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -105,7 +105,7 @@
             var IPPort = portSettings.IPport;
 
             // Assert
-            Assert.AreEqual(null, IPPort.DefaultValue);
+            Assert.IsNull(IPPort.DefaultValue);
         }
 
         #endregion
@@ -134,7 +134,7 @@
             var IPPort = portSettings.IPport;
 
             // Assert
-            Assert.AreEqual(true, IPPort.Disabled.Value);
+            Assert.IsTrue(IPPort.Disabled.Value);
         }
 
         [TestMethod]
@@ -159,7 +159,7 @@
             var IPPort = portSettings.IPport;
 
             // Assert
-            Assert.AreEqual(null, IPPort.Disabled.Value);
+            Assert.IsNull(IPPort.Disabled.Value);
         }
 
         [TestMethod]
@@ -184,7 +184,7 @@
             var IPPort = portSettings.IPport;
 
             // Assert
-            Assert.AreEqual(null, IPPort.Disabled.Value);
+            Assert.IsNull(IPPort.Disabled.Value);
         }
 
         [TestMethod]
@@ -208,7 +208,7 @@
             var IPPort = portSettings.IPport;
 
             // Assert
-            Assert.AreEqual(null, IPPort.Disabled);
+            Assert.IsNull(IPPort.Disabled);
         }
 
         #endregion

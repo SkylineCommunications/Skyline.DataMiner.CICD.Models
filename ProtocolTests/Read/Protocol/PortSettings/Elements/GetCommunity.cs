@@ -81,7 +81,7 @@
             var GetCommunity = portSettings.GetCommunity;
 
             // Assert
-            Assert.AreEqual(null, GetCommunity.DefaultValue);
+            Assert.IsNull(GetCommunity.DefaultValue);
         }
 
         #endregion
@@ -110,7 +110,7 @@
             var GetCommunity = portSettings.GetCommunity;
 
             // Assert
-            Assert.AreEqual(true, GetCommunity.Disabled.Value);
+            Assert.IsTrue(GetCommunity.Disabled.Value);
         }
 
         [TestMethod]
@@ -135,7 +135,7 @@
             var GetCommunity = portSettings.GetCommunity;
 
             // Assert
-            Assert.AreEqual(null, GetCommunity.Disabled.Value);
+            Assert.IsNull(GetCommunity.Disabled.Value);
         }
 
         [TestMethod]
@@ -160,7 +160,7 @@
             var GetCommunity = portSettings.GetCommunity;
 
             // Assert
-            Assert.AreEqual(null, GetCommunity.Disabled.Value);
+            Assert.IsNull(GetCommunity.Disabled.Value);
         }
 
         [TestMethod]
@@ -184,7 +184,7 @@
             var GetCommunity = portSettings.GetCommunity;
 
             // Assert
-            Assert.AreEqual(null, GetCommunity.Disabled);
+            Assert.IsNull(GetCommunity.Disabled);
         }
 
         #endregion

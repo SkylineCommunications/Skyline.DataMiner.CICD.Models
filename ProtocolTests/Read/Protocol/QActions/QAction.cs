@@ -69,7 +69,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Condition);
+            Assert.IsNull(qaction.Condition);
         }
 
 
@@ -134,7 +134,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.DllImport);
+            Assert.IsNull(qaction.DllImport);
         }
 
 
@@ -219,7 +219,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Encoding.Value);
+            Assert.IsNull(qaction.Encoding.Value);
         }
 
         [TestMethod]
@@ -239,7 +239,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Encoding.Value);
+            Assert.IsNull(qaction.Encoding.Value);
         }
 
         [TestMethod]
@@ -259,7 +259,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Encoding);
+            Assert.IsNull(qaction.Encoding);
         }
 
         #endregion
@@ -323,7 +323,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.EntryPoint);
+            Assert.IsNull(qaction.EntryPoint);
         }
 
 
@@ -368,7 +368,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Id.Value);
+            Assert.IsNull(qaction.Id.Value);
         }
 
         [TestMethod]
@@ -388,7 +388,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Id.Value);
+            Assert.IsNull(qaction.Id.Value);
         }
 
         [TestMethod]
@@ -408,7 +408,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Id);
+            Assert.IsNull(qaction.Id);
         }
 
 
@@ -473,7 +473,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Include);
+            Assert.IsNull(qaction.Include);
         }
 
 
@@ -538,7 +538,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.InputParameters);
+            Assert.IsNull(qaction.InputParameters);
         }
 
 
@@ -603,7 +603,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Name);
+            Assert.IsNull(qaction.Name);
         }
 
 
@@ -668,7 +668,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Options);
+            Assert.IsNull(qaction.Options);
         }
 
 
@@ -693,7 +693,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(true, qaction.Row.Value);
+            Assert.IsTrue(qaction.Row.Value);
         }
 
         [TestMethod]
@@ -713,7 +713,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Row.Value);
+            Assert.IsNull(qaction.Row.Value);
         }
 
         [TestMethod]
@@ -733,7 +733,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Row.Value);
+            Assert.IsNull(qaction.Row.Value);
         }
 
         [TestMethod]
@@ -753,7 +753,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             var qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Row);
+            Assert.IsNull(qaction.Row);
         }
 
 
@@ -823,7 +823,7 @@ namespace Models.ProtocolTests.Read.Protocol.QActions
             IQActionsQAction qaction = protocol.QActions[0];
 
             // Assert
-            Assert.AreEqual(null, qaction.Code);
+            Assert.IsNull(qaction.Code);
         }
 
 

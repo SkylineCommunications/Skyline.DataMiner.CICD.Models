@@ -64,7 +64,7 @@
             var content = response.Content;
 
             // Assert
-            Assert.AreEqual(null, content.Pid.Value);
+            Assert.IsNull(content.Pid.Value);
         }
 
         [TestMethod]
@@ -93,7 +93,7 @@
             var content = response.Content;
 
             // Assert
-            Assert.AreEqual(null, content.Pid.Value);
+            Assert.IsNull(content.Pid.Value);
         }
 
         [TestMethod]
@@ -122,7 +122,7 @@
             var content = response.Content;
 
             // Assert
-            Assert.AreEqual(null, content.Pid);
+            Assert.IsNull(content.Pid);
         }
 
         #endregion

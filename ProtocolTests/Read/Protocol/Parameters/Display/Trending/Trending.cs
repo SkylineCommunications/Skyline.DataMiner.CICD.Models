@@ -32,7 +32,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(true, parameter.Display.Trending.Logarithmic.Value);
+            Assert.IsTrue(parameter.Display.Trending.Logarithmic.Value);
         }
 
         [TestMethod]
@@ -58,7 +58,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Trending.Logarithmic.Value);
+            Assert.IsNull(parameter.Display.Trending.Logarithmic.Value);
         }
 
         [TestMethod]
@@ -84,7 +84,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Trending.Logarithmic.Value);
+            Assert.IsNull(parameter.Display.Trending.Logarithmic.Value);
         }
 
         [TestMethod]
@@ -110,7 +110,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Trending.Logarithmic);
+            Assert.IsNull(parameter.Display.Trending.Logarithmic);
         }
 
         #endregion
@@ -168,7 +168,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Trending.Type.Value);
+            Assert.IsNull(parameter.Display.Trending.Type.Value);
         }
 
         [TestMethod]
@@ -195,7 +195,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Trending.Type.Value);
+            Assert.IsNull(parameter.Display.Trending.Type.Value);
         }
 
         [TestMethod]
@@ -220,7 +220,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Trending.Type);
+            Assert.IsNull(parameter.Display.Trending.Type);
         }
 
         #endregion

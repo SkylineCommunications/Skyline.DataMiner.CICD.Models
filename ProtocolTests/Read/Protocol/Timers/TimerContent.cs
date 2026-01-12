@@ -29,7 +29,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(0, timer.Content.Count);
+            Assert.IsEmpty(timer.Content);
         }
 
         [TestMethod]
@@ -54,7 +54,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(2, timer.Content.Count);
+            Assert.HasCount(2, timer.Content);
         }
 
         [TestMethod]
@@ -79,7 +79,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreNotEqual(null, timer.Content.GetEnumerator());
+            Assert.IsNotNull(timer.Content.GetEnumerator());
         }
 
         [TestMethod]
@@ -104,7 +104,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreNotEqual(null, timer.Content[0]);
+            Assert.IsNotNull(timer.Content[0]);
         }
 
 

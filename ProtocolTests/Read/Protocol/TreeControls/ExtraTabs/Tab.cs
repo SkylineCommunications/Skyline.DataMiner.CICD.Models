@@ -84,7 +84,7 @@
             var tab = details[0];
 
             // Assert
-            Assert.AreEqual(null, tab.Parameter);
+            Assert.IsNull(tab.Parameter);
         }
 
         #endregion
@@ -140,7 +140,7 @@
             var tab = details[0];
 
             // Assert
-            Assert.AreEqual(null, tab.TableId.Value);
+            Assert.IsNull(tab.TableId.Value);
         }
 
         [TestMethod]
@@ -166,7 +166,7 @@
             var tab = details[0];
 
             // Assert
-            Assert.AreEqual(null, tab.TableId.Value);
+            Assert.IsNull(tab.TableId.Value);
         }
 
         [TestMethod]
@@ -192,7 +192,7 @@
             var tab = details[0];
 
             // Assert
-            Assert.AreEqual(null, tab.TableId);
+            Assert.IsNull(tab.TableId);
         }
 
         #endregion
@@ -274,7 +274,7 @@
             var tab = details[0];
 
             // Assert
-            Assert.AreEqual(null, tab.Title);
+            Assert.IsNull(tab.Title);
         }
 
         #endregion
@@ -356,7 +356,7 @@
             var tab = details[0];
 
             // Assert
-            Assert.AreEqual(null, tab.Type);
+            Assert.IsNull(tab.Type);
         }
 
         #endregion

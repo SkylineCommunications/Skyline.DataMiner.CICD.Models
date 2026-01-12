@@ -66,7 +66,7 @@
 
             // Assert
             Assert.AreEqual("MotherChildASlot", result.Name);
-            Assert.AreEqual(null, result.TablePid);
+            Assert.IsNull(result.TablePid);
             Assert.IsTrue(result.NoElementPrefix);
         }
 
@@ -102,7 +102,7 @@
 
             // Assert
             Assert.AreEqual(String.Empty, result.Name);
-            Assert.AreEqual(null, result.TablePid);
+            Assert.IsNull(result.TablePid);
             Assert.IsFalse(result.NoElementPrefix);
         }
     }

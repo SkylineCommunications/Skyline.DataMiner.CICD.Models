@@ -58,7 +58,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Flowcontrol = portSettings.Flowcontrol;
 
             // Assert
-            Assert.AreEqual(null, Flowcontrol.DefaultValue.Value);
+            Assert.IsNull(Flowcontrol.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -82,7 +82,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Flowcontrol = portSettings.Flowcontrol;
 
             // Assert
-            Assert.AreEqual(null, Flowcontrol.DefaultValue);
+            Assert.IsNull(Flowcontrol.DefaultValue);
         }
 
         #endregion
@@ -111,7 +111,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Flowcontrol = portSettings.Flowcontrol;
 
             // Assert
-            Assert.AreEqual(true, Flowcontrol.Disabled.Value);
+            Assert.IsTrue(Flowcontrol.Disabled.Value);
         }
 
         [TestMethod]
@@ -136,7 +136,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Flowcontrol = portSettings.Flowcontrol;
 
             // Assert
-            Assert.AreEqual(null, Flowcontrol.Disabled.Value);
+            Assert.IsNull(Flowcontrol.Disabled.Value);
         }
 
         [TestMethod]
@@ -161,7 +161,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Flowcontrol = portSettings.Flowcontrol;
 
             // Assert
-            Assert.AreEqual(null, Flowcontrol.Disabled.Value);
+            Assert.IsNull(Flowcontrol.Disabled.Value);
         }
 
         [TestMethod]
@@ -185,7 +185,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Flowcontrol = portSettings.Flowcontrol;
 
             // Assert
-            Assert.AreEqual(null, Flowcontrol.Disabled);
+            Assert.IsNull(Flowcontrol.Disabled);
         }
 
         #endregion

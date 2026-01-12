@@ -58,7 +58,7 @@
             var response = connection.Response;
 
             // Assert
-            Assert.AreEqual(null, response.StatusCode.Value);
+            Assert.IsNull(response.StatusCode.Value);
         }
 
         [TestMethod]
@@ -84,7 +84,7 @@
             var response = connection.Response;
 
             // Assert
-            Assert.AreEqual(null, response.StatusCode.Value);
+            Assert.IsNull(response.StatusCode.Value);
         }
 
         [TestMethod]
@@ -110,7 +110,7 @@
             var response = connection.Response;
 
             // Assert
-            Assert.AreEqual(null, response.StatusCode);
+            Assert.IsNull(response.StatusCode);
         }
 
         #endregion
@@ -140,7 +140,7 @@
             var response = connection.Response;
 
             // Assert
-            Assert.AreNotEqual(null, response.Content);
+            Assert.IsNotNull(response.Content);
         }
 
         [TestMethod]
@@ -166,7 +166,7 @@
             var response = connection.Response;
 
             // Assert
-            Assert.AreEqual(null, response.Content);
+            Assert.IsNull(response.Content);
         }
 
         #endregion
@@ -196,7 +196,7 @@
             var response = connection.Response;
 
             // Assert
-            Assert.AreNotEqual(null, response.Headers);
+            Assert.IsNotNull(response.Headers);
         }
 
         [TestMethod]
@@ -222,7 +222,7 @@
             var response = connection.Response;
 
             // Assert
-            Assert.AreEqual(null, response.Headers);
+            Assert.IsNull(response.Headers);
         }
 
         #endregion

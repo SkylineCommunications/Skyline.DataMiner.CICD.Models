@@ -103,7 +103,7 @@
             var parameter = parameters[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Key);
+            Assert.IsNull(parameter.Key);
         }
 
         #endregion

@@ -125,7 +125,7 @@
             IParamsParamDisplayPositionsPosition position = parameter.Display.Positions[0];
 
             // Assert
-            Assert.AreEqual(null, position.Page);
+            Assert.IsNull(position.Page);
         }
 
         #endregion
@@ -189,7 +189,7 @@
             IParamsParamDisplayPositionsPosition position = parameter.Display.Positions[0];
 
             // Assert
-            Assert.AreEqual(null, position.Row.Value);
+            Assert.IsNull(position.Row.Value);
         }
 
         [TestMethod]
@@ -219,7 +219,7 @@
             IParamsParamDisplayPositionsPosition position = parameter.Display.Positions[0];
 
             // Assert
-            Assert.AreEqual(null, position.Row.Value);
+            Assert.IsNull(position.Row.Value);
         }
 
         [TestMethod]
@@ -248,7 +248,7 @@
             IParamsParamDisplayPositionsPosition position = parameter.Display.Positions[0];
 
             // Assert
-            Assert.AreEqual(null, position.Row);
+            Assert.IsNull(position.Row);
         }
 
         #endregion
@@ -312,7 +312,7 @@
             IParamsParamDisplayPositionsPosition position = parameter.Display.Positions[0];
 
             // Assert
-            Assert.AreEqual(null, position.Column.Value);
+            Assert.IsNull(position.Column.Value);
         }
 
         [TestMethod]
@@ -342,7 +342,7 @@
             IParamsParamDisplayPositionsPosition position = parameter.Display.Positions[0];
 
             // Assert
-            Assert.AreEqual(null, position.Column.Value);
+            Assert.IsNull(position.Column.Value);
         }
 
         [TestMethod]
@@ -371,7 +371,7 @@
             IParamsParamDisplayPositionsPosition position = parameter.Display.Positions[0];
 
             // Assert
-            Assert.AreEqual(null, position.Column);
+            Assert.IsNull(position.Column);
         }
 
         #endregion

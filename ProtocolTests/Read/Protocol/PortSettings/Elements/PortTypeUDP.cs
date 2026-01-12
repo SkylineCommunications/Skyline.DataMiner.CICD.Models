@@ -31,7 +31,7 @@
             var PortTypeUDP = portSettings.PortTypeUDP;
 
             // Assert
-            Assert.AreEqual(true, PortTypeUDP.Disabled.Value);
+            Assert.IsTrue(PortTypeUDP.Disabled.Value);
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@
             var PortTypeUDP = portSettings.PortTypeUDP;
 
             // Assert
-            Assert.AreEqual(null, PortTypeUDP.Disabled.Value);
+            Assert.IsNull(PortTypeUDP.Disabled.Value);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@
             var PortTypeUDP = portSettings.PortTypeUDP;
 
             // Assert
-            Assert.AreEqual(null, PortTypeUDP.Disabled.Value);
+            Assert.IsNull(PortTypeUDP.Disabled.Value);
         }
 
         [TestMethod]
@@ -105,7 +105,7 @@
             var PortTypeUDP = portSettings.PortTypeUDP;
 
             // Assert
-            Assert.AreEqual(null, PortTypeUDP.Disabled);
+            Assert.IsNull(PortTypeUDP.Disabled);
         }
 
         #endregion

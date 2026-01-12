@@ -55,7 +55,7 @@ namespace Models.ProtocolTests.Read.Protocol
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.SNMP.Value);
+            Assert.IsNull(protocol.SNMP.Value);
             Assert.AreEqual("au", protocol.SNMP.RawValue);
 
         }
@@ -72,7 +72,7 @@ namespace Models.ProtocolTests.Read.Protocol
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.SNMP.Value);
+            Assert.IsNull(protocol.SNMP.Value);
             Assert.AreEqual("", protocol.SNMP.RawValue);
 
         }
@@ -93,7 +93,7 @@ namespace Models.ProtocolTests.Read.Protocol
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(true, protocol.SNMP.Includepages.Value);
+            Assert.IsTrue(protocol.SNMP.Includepages.Value);
         }
 
         [TestMethod]
@@ -108,7 +108,7 @@ namespace Models.ProtocolTests.Read.Protocol
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.SNMP.Includepages.Value);
+            Assert.IsNull(protocol.SNMP.Includepages.Value);
         }
 
         [TestMethod]
@@ -123,7 +123,7 @@ namespace Models.ProtocolTests.Read.Protocol
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.SNMP.Includepages.Value);
+            Assert.IsNull(protocol.SNMP.Includepages.Value);
         }
 
         [TestMethod]
@@ -138,7 +138,7 @@ namespace Models.ProtocolTests.Read.Protocol
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.SNMP.Includepages);
+            Assert.IsNull(protocol.SNMP.Includepages);
         }
 
 

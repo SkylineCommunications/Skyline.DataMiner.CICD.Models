@@ -38,7 +38,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Byteoffset.Value);
+            Assert.IsNull(parameter.CRC.Type.Byteoffset.Value);
         }
 
         [TestMethod]
@@ -54,7 +54,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Byteoffset.Value);
+            Assert.IsNull(parameter.CRC.Type.Byteoffset.Value);
         }
 
         [TestMethod]
@@ -70,7 +70,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Byteoffset);
+            Assert.IsNull(parameter.CRC.Type.Byteoffset);
         }
 
         #endregion
@@ -122,7 +122,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Groupbytes);
+            Assert.IsNull(parameter.CRC.Type.Groupbytes);
         }
 
         #endregion
@@ -158,7 +158,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Mod.Value);
+            Assert.IsNull(parameter.CRC.Type.Mod.Value);
         }
 
         [TestMethod]
@@ -174,7 +174,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Mod.Value);
+            Assert.IsNull(parameter.CRC.Type.Mod.Value);
         }
 
         [TestMethod]
@@ -190,7 +190,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Mod.Value);
+            Assert.IsNull(parameter.CRC.Type.Mod.Value);
         }
 
         [TestMethod]
@@ -206,7 +206,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Mod);
+            Assert.IsNull(parameter.CRC.Type.Mod);
         }
 
         #endregion
@@ -242,7 +242,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Off.Value);
+            Assert.IsNull(parameter.CRC.Type.Off.Value);
         }
 
         [TestMethod]
@@ -258,7 +258,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Off.Value);
+            Assert.IsNull(parameter.CRC.Type.Off.Value);
         }
 
         [TestMethod]
@@ -274,7 +274,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Off);
+            Assert.IsNull(parameter.CRC.Type.Off);
         }
 
         #endregion
@@ -326,7 +326,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Options);
+            Assert.IsNull(parameter.CRC.Type.Options);
         }
 
         #endregion
@@ -362,7 +362,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Totaloffset.Value);
+            Assert.IsNull(parameter.CRC.Type.Totaloffset.Value);
         }
 
         [TestMethod]
@@ -378,7 +378,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Totaloffset.Value);
+            Assert.IsNull(parameter.CRC.Type.Totaloffset.Value);
         }
 
         [TestMethod]
@@ -394,7 +394,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Totaloffset.Value);
+            Assert.IsNull(parameter.CRC.Type.Totaloffset.Value);
         }
 
         [TestMethod]
@@ -410,7 +410,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.CRC.Type.Totaloffset);
+            Assert.IsNull(parameter.CRC.Type.Totaloffset);
         }
 
         #endregion

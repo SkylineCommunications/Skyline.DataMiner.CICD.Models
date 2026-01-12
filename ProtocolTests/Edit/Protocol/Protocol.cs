@@ -54,7 +54,7 @@
                     },          
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.Name);
+                    Assert.IsNull(m.Protocol.Name);
                     Assert.AreEqual("<Protocol />", o);
                 }
             );
@@ -145,7 +145,7 @@
                     },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.Description);
+                    Assert.IsNull(m.Protocol.Description);
                     Assert.AreEqual("<Protocol />", o);
                 }
             );

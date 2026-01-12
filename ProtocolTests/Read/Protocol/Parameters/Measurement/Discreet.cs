@@ -95,7 +95,7 @@
             var discreet = parameter.Measurement.Discreets[0];
 
             // Assert
-            Assert.AreEqual(null, discreet.Display);
+            Assert.IsNull(discreet.Display);
         }
 
         #endregion
@@ -186,7 +186,7 @@
             var discreet = parameter.Measurement.Discreets[0];
 
             // Assert
-            Assert.AreEqual(null, discreet.ValueElement);
+            Assert.IsNull(discreet.ValueElement);
         }
 
         #endregion

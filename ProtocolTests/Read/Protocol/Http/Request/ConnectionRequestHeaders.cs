@@ -33,7 +33,7 @@
             var headers = request.Headers;
 
             // Assert
-            Assert.AreEqual(0, headers.Count);
+            Assert.IsEmpty(headers);
         }
 
         [TestMethod]
@@ -65,7 +65,7 @@
             var headers = request.Headers;
 
             // Assert
-            Assert.AreEqual(2, headers.Count);
+            Assert.HasCount(2, headers);
         }
 
         [TestMethod]
@@ -97,7 +97,7 @@
             var headers = request.Headers;
 
             // Assert
-            Assert.AreNotEqual(null, headers.GetEnumerator());
+            Assert.IsNotNull(headers.GetEnumerator());
         }
     }
 }

@@ -47,7 +47,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.Id.Value);
+            Assert.IsNull(timer.Id.Value);
         }
 
         [TestMethod]
@@ -67,7 +67,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.Id.Value);
+            Assert.IsNull(timer.Id.Value);
         }
 
         [TestMethod]
@@ -87,7 +87,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.Id);
+            Assert.IsNull(timer.Id);
         }
 
         #endregion
@@ -111,7 +111,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(true, timer.FixedTimer.Value);
+            Assert.IsTrue(timer.FixedTimer.Value);
         }
 
         [TestMethod]
@@ -131,7 +131,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.FixedTimer.Value);
+            Assert.IsNull(timer.FixedTimer.Value);
         }
 
         [TestMethod]
@@ -151,7 +151,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.FixedTimer.Value);
+            Assert.IsNull(timer.FixedTimer.Value);
         }
 
         [TestMethod]
@@ -171,7 +171,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.FixedTimer);
+            Assert.IsNull(timer.FixedTimer);
         }
 
         #endregion
@@ -235,7 +235,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.Options);
+            Assert.IsNull(timer.Options);
         }
 
         #endregion
@@ -299,7 +299,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.Name);
+            Assert.IsNull(timer.Name);
         }
 
         #endregion
@@ -343,7 +343,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.Interval.Value);
+            Assert.IsNull(timer.Interval.Value);
         }
 
         [TestMethod]
@@ -363,7 +363,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.Interval.Value);
+            Assert.IsNull(timer.Interval.Value);
         }
 
         [TestMethod]
@@ -383,7 +383,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.Interval);
+            Assert.IsNull(timer.Interval);
         }
 
         #endregion
@@ -407,7 +407,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreNotEqual(null, timer.Time);
+            Assert.IsNotNull(timer.Time);
         }
 
         [TestMethod]
@@ -427,7 +427,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.Time);
+            Assert.IsNull(timer.Time);
         }
 
         #endregion
@@ -451,7 +451,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreNotEqual(null, timer.Content);
+            Assert.IsNotNull(timer.Content);
         }
 
         [TestMethod]
@@ -471,7 +471,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.Content);
+            Assert.IsNull(timer.Content);
         }
 
         #endregion
@@ -535,7 +535,7 @@
             var timer = protocol.Timers[0];
 
             // Assert
-            Assert.AreEqual(null, timer.Condition);
+            Assert.IsNull(timer.Condition);
         }
 
         #endregion

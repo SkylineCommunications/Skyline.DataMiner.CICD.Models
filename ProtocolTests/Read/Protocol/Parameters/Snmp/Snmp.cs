@@ -81,7 +81,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.Options);
+            Assert.IsNull(snmp.Options);
         }
 
         #endregion
@@ -110,7 +110,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(true, snmp.Enabled.Value);
+            Assert.IsTrue(snmp.Enabled.Value);
         }
 
         [TestMethod]
@@ -135,7 +135,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.Enabled.Value);
+            Assert.IsNull(snmp.Enabled.Value);
         }
 
 
@@ -161,7 +161,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.Enabled.Value);
+            Assert.IsNull(snmp.Enabled.Value);
         }
 
         [TestMethod]
@@ -185,7 +185,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.Enabled);
+            Assert.IsNull(snmp.Enabled);
         }
 
         #endregion
@@ -239,7 +239,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.Factor.Value);
+            Assert.IsNull(snmp.Factor.Value);
         }
 
 
@@ -265,7 +265,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.Factor.Value);
+            Assert.IsNull(snmp.Factor.Value);
         }
 
         [TestMethod]
@@ -289,7 +289,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.Factor);
+            Assert.IsNull(snmp.Factor);
         }
 
         #endregion
@@ -318,7 +318,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreNotEqual(null, snmp.OID);
+            Assert.IsNotNull(snmp.OID);
         }
 
         [TestMethod]
@@ -342,7 +342,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.OID);
+            Assert.IsNull(snmp.OID);
         }
 
         #endregion
@@ -371,7 +371,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreNotEqual(null, snmp.TrapOID);
+            Assert.IsNotNull(snmp.TrapOID);
         }
 
         [TestMethod]
@@ -395,7 +395,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.TrapOID);
+            Assert.IsNull(snmp.TrapOID);
         }
 
         #endregion
@@ -424,7 +424,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreNotEqual(null, snmp.TrapMappings);
+            Assert.IsNotNull(snmp.TrapMappings);
         }
 
         [TestMethod]
@@ -448,7 +448,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.TrapMappings);
+            Assert.IsNull(snmp.TrapMappings);
         }
 
         #endregion
@@ -952,7 +952,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.Type.Value);
+            Assert.IsNull(snmp.Type.Value);
         }
 
         [TestMethod]
@@ -977,7 +977,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.Type.Value);
+            Assert.IsNull(snmp.Type.Value);
         }
 
         [TestMethod]
@@ -1001,7 +1001,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var snmp = param.SNMP;
 
             // Assert
-            Assert.AreEqual(null, snmp.Type);
+            Assert.IsNull(snmp.Type);
         }
         #endregion
 

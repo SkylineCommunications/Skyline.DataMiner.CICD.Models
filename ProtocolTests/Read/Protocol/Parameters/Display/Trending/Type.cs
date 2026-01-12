@@ -84,7 +84,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Trending.Type.Operations);
+            Assert.IsNull(parameter.Display.Trending.Type.Operations);
         }
 
         #endregion

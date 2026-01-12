@@ -63,7 +63,7 @@
             var exception = parameter.Interprete.Exceptions[0];
 
             // Assert
-            Assert.AreEqual(null, exception.Id.Value);
+            Assert.IsNull(exception.Id.Value);
         }
 
         [TestMethod]
@@ -91,7 +91,7 @@
             var exception = parameter.Interprete.Exceptions[0];
 
             // Assert
-            Assert.AreEqual(null, exception.Id.Value);
+            Assert.IsNull(exception.Id.Value);
         }
 
         [TestMethod]
@@ -119,7 +119,7 @@
             var exception = parameter.Interprete.Exceptions[0];
 
             // Assert
-            Assert.AreEqual(null, exception.Id);
+            Assert.IsNull(exception.Id);
         }
 
         #endregion
@@ -208,7 +208,7 @@
             var exception = parameter.Interprete.Exceptions[0];
 
             // Assert
-            Assert.AreEqual(null, exception.ValueAttribute);
+            Assert.IsNull(exception.ValueAttribute);
         }
 
 
@@ -299,7 +299,7 @@
             var exception = parameter.Interprete.Exceptions[0];
 
             // Assert
-            Assert.AreEqual(null, exception.ValueAttribute);
+            Assert.IsNull(exception.ValueAttribute);
         }
 
         #endregion
@@ -332,7 +332,7 @@
             var exception = parameter.Interprete.Exceptions[0];
 
             // Assert
-            Assert.AreEqual(null, exception.Display);
+            Assert.IsNull(exception.Display);
         }
 
         [TestMethod]
@@ -362,7 +362,7 @@
             var exception = parameter.Interprete.Exceptions[0];
 
             // Assert
-            Assert.AreNotEqual(null, exception.Display);
+            Assert.IsNotNull(exception.Display);
         }
 
         #endregion

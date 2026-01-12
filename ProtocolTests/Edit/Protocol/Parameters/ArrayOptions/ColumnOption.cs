@@ -44,7 +44,7 @@
                     },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.Params[0].ArrayOptions[0].Type);
+                    Assert.IsNull(m.Protocol.Params[0].ArrayOptions[0].Type);
                     Assert.AreEqual(@"<Protocol><Params><Param><ArrayOptions><ColumnOption /></ArrayOptions></Param></Params></Protocol>", o);
                 }
             );
@@ -102,7 +102,7 @@
                 },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.Params[0].ArrayOptions[0].Type.Value);
+                    Assert.IsNull(m.Protocol.Params[0].ArrayOptions[0].Type.Value);
                     Assert.AreEqual("test", m.Protocol.Params[0].ArrayOptions[0].Type.RawValue);
                     Assert.AreEqual(@"<Protocol><Params><Param><ArrayOptions><ColumnOption type=""test"" /></ArrayOptions></Param></Params></Protocol>", o);
                 }
@@ -124,7 +124,7 @@
                     },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.Params[0].ArrayOptions[0].Type.Value);
+                    Assert.IsNull(m.Protocol.Params[0].ArrayOptions[0].Type.Value);
                     Assert.AreEqual("test", m.Protocol.Params[0].ArrayOptions[0].Type.RawValue);
                     Assert.AreEqual(@"<Protocol><Params><Param><ArrayOptions><ColumnOption type=""test"" /></ArrayOptions></Param></Params></Protocol>", o);
                 }

@@ -53,7 +53,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Measurement.Discreets.DependencyId.Value);
+            Assert.IsNull(parameter.Measurement.Discreets.DependencyId.Value);
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Measurement.Discreets.DependencyId.Value);
+            Assert.IsNull(parameter.Measurement.Discreets.DependencyId.Value);
         }
 
         [TestMethod]
@@ -100,7 +100,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Measurement.Discreets.DependencyId);
+            Assert.IsNull(parameter.Measurement.Discreets.DependencyId);
         }
 
         #endregion
@@ -127,7 +127,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(0, parameter.Measurement.Discreets.Count);
+            Assert.IsEmpty(parameter.Measurement.Discreets);
         }
 
         [TestMethod]
@@ -154,7 +154,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(2, parameter.Measurement.Discreets.Count);
+            Assert.HasCount(2, parameter.Measurement.Discreets);
         }
 
         [TestMethod]

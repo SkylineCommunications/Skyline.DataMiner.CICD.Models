@@ -22,7 +22,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(0, protocol.TreeControls.Count);
+            Assert.IsEmpty(protocol.TreeControls);
         }
 
         [TestMethod]
@@ -43,7 +43,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(2, protocol.TreeControls.Count);
+            Assert.HasCount(2, protocol.TreeControls);
         }
 
         [TestMethod]
@@ -64,7 +64,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.TreeControls.GetEnumerator());
+            Assert.IsNotNull(protocol.TreeControls.GetEnumerator());
         }
 
     }

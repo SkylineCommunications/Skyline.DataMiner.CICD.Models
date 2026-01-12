@@ -31,7 +31,7 @@
             var PortTypeIP = portSettings.PortTypeIP;
 
             // Assert
-            Assert.AreEqual(true, PortTypeIP.Disabled.Value);
+            Assert.IsTrue(PortTypeIP.Disabled.Value);
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@
             var PortTypeIP = portSettings.PortTypeIP;
 
             // Assert
-            Assert.AreEqual(null, PortTypeIP.Disabled.Value);
+            Assert.IsNull(PortTypeIP.Disabled.Value);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@
             var PortTypeIP = portSettings.PortTypeIP;
 
             // Assert
-            Assert.AreEqual(null, PortTypeIP.Disabled.Value);
+            Assert.IsNull(PortTypeIP.Disabled.Value);
         }
 
         [TestMethod]
@@ -105,7 +105,7 @@
             var PortTypeIP = portSettings.PortTypeIP;
 
             // Assert
-            Assert.AreEqual(null, PortTypeIP.Disabled);
+            Assert.IsNull(PortTypeIP.Disabled);
         }
 
         #endregion

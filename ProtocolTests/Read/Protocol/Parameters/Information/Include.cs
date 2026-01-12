@@ -141,7 +141,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Information
             var includes = parameter.Information.Includes;
 
             // Assert
-            Assert.AreEqual(null, includes[0].Value);
+            Assert.IsNull(includes[0].Value);
         }
 
         [TestMethod]
@@ -168,7 +168,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Information
             var includes = parameter.Information.Includes;
 
             // Assert
-            Assert.AreEqual(null, includes[0].Value);
+            Assert.IsNull(includes[0].Value);
         }
 
     }

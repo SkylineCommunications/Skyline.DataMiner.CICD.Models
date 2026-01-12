@@ -56,7 +56,7 @@
             var Retries = portSettings.Retries;
 
             // Assert
-            Assert.AreEqual(null, Retries.DefaultValue.Value);
+            Assert.IsNull(Retries.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@
             var Retries = portSettings.Retries;
 
             // Assert
-            Assert.AreEqual(null, Retries.DefaultValue.Value);
+            Assert.IsNull(Retries.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -105,7 +105,7 @@
             var Retries = portSettings.Retries;
 
             // Assert
-            Assert.AreEqual(null, Retries.DefaultValue);
+            Assert.IsNull(Retries.DefaultValue);
         }
 
         #endregion
@@ -134,7 +134,7 @@
             var Retries = portSettings.Retries;
 
             // Assert
-            Assert.AreEqual(true, Retries.Disabled.Value);
+            Assert.IsTrue(Retries.Disabled.Value);
         }
 
         [TestMethod]
@@ -159,7 +159,7 @@
             var Retries = portSettings.Retries;
 
             // Assert
-            Assert.AreEqual(null, Retries.Disabled.Value);
+            Assert.IsNull(Retries.Disabled.Value);
         }
 
         [TestMethod]
@@ -184,7 +184,7 @@
             var Retries = portSettings.Retries;
 
             // Assert
-            Assert.AreEqual(null, Retries.Disabled.Value);
+            Assert.IsNull(Retries.Disabled.Value);
         }
 
         [TestMethod]
@@ -208,7 +208,7 @@
             var Retries = portSettings.Retries;
 
             // Assert
-            Assert.AreEqual(null, Retries.Disabled);
+            Assert.IsNull(Retries.Disabled);
         }
 
         #endregion

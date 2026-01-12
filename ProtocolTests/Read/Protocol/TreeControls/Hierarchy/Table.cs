@@ -84,7 +84,7 @@
             var table = hierarchy[0];
 
             // Assert
-            Assert.AreEqual(null, table.Condition);
+            Assert.IsNull(table.Condition);
         }
 
         #endregion
@@ -140,7 +140,7 @@
             var table = hierarchy[0];
 
             // Assert
-            Assert.AreEqual(null, table.Id.Value);
+            Assert.IsNull(table.Id.Value);
         }
 
 
@@ -167,7 +167,7 @@
             var table = hierarchy[0];
 
             // Assert
-            Assert.AreEqual(null, table.Id.Value);
+            Assert.IsNull(table.Id.Value);
         }
 
         [TestMethod]
@@ -193,7 +193,7 @@
             var table = hierarchy[0];
 
             // Assert
-            Assert.AreEqual(null, table.Id);
+            Assert.IsNull(table.Id);
         }
 
         #endregion
@@ -249,7 +249,7 @@
             var table = hierarchy[0];
 
             // Assert
-            Assert.AreEqual(null, table.ParentAttribute.Value);
+            Assert.IsNull(table.ParentAttribute.Value);
         }
 
 
@@ -276,7 +276,7 @@
             var table = hierarchy[0];
 
             // Assert
-            Assert.AreEqual(null, table.ParentAttribute.Value);
+            Assert.IsNull(table.ParentAttribute.Value);
         }
 
         [TestMethod]
@@ -302,7 +302,7 @@
             var table = hierarchy[0];
 
             // Assert
-            Assert.AreEqual(null, table.ParentAttribute);
+            Assert.IsNull(table.ParentAttribute);
         }
 
         #endregion

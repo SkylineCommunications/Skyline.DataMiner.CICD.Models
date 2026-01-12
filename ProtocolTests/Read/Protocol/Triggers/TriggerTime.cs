@@ -79,7 +79,7 @@ namespace Models.ProtocolTests.Read.Protocol.Triggers
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Time.Case);
+            Assert.IsNull(trigger.Time.Case);
         }
 
         #endregion
@@ -152,7 +152,7 @@ namespace Models.ProtocolTests.Read.Protocol.Triggers
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Time.ValueAttribute);
+            Assert.IsNull(trigger.Time.ValueAttribute);
 
         }
 
@@ -203,7 +203,7 @@ namespace Models.ProtocolTests.Read.Protocol.Triggers
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Time.Id.Value);
+            Assert.IsNull(trigger.Time.Id.Value);
         }
 
         [TestMethod]
@@ -226,7 +226,7 @@ namespace Models.ProtocolTests.Read.Protocol.Triggers
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Time.Id.Value);
+            Assert.IsNull(trigger.Time.Id.Value);
         }
 
         [TestMethod]
@@ -249,7 +249,7 @@ namespace Models.ProtocolTests.Read.Protocol.Triggers
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Time.Id);
+            Assert.IsNull(trigger.Time.Id);
 
         }
 
@@ -277,7 +277,7 @@ namespace Models.ProtocolTests.Read.Protocol.Triggers
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(true, trigger.Time.Nr.Value);
+            Assert.IsTrue(trigger.Time.Nr.Value);
         }
 
         [TestMethod]
@@ -300,7 +300,7 @@ namespace Models.ProtocolTests.Read.Protocol.Triggers
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Time.Nr.Value);
+            Assert.IsNull(trigger.Time.Nr.Value);
         }
 
         [TestMethod]
@@ -323,7 +323,7 @@ namespace Models.ProtocolTests.Read.Protocol.Triggers
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Time.Nr.Value);
+            Assert.IsNull(trigger.Time.Nr.Value);
         }
 
         [TestMethod]
@@ -346,7 +346,7 @@ namespace Models.ProtocolTests.Read.Protocol.Triggers
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Time.Nr);
+            Assert.IsNull(trigger.Time.Nr);
 
         }
 

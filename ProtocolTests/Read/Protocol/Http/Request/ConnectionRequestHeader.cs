@@ -166,7 +166,7 @@
             var header = request.Headers[0];
 
             // Assert
-            Assert.AreEqual(null, header.Key);
+            Assert.IsNull(header.Key);
         }
         #endregion
 
@@ -231,7 +231,7 @@
             var header = request.Headers[0];
 
             // Assert
-            Assert.AreEqual(null, header.Pid.Value);
+            Assert.IsNull(header.Pid.Value);
         }
 
         [TestMethod]
@@ -262,7 +262,7 @@
             var header = request.Headers[0];
 
             // Assert
-            Assert.AreEqual(null, header.Pid.Value);
+            Assert.IsNull(header.Pid.Value);
         }
 
         [TestMethod]
@@ -293,7 +293,7 @@
             var header = request.Headers[0];
 
             // Assert
-            Assert.AreEqual(null, header.Pid);
+            Assert.IsNull(header.Pid);
         }
         #endregion
 

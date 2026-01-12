@@ -43,7 +43,7 @@
                     },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.Params[0].Id);
+                    Assert.IsNull(m.Protocol.Params[0].Id);
                     Assert.AreEqual(@"<Protocol><Params><Param /></Params></Protocol>", o);
                 }
             );
@@ -78,7 +78,7 @@
                     m => m.Protocol.Params[0].Trending = true,
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(true, m.Protocol.Params[0].Trending.Value);
+                    Assert.IsTrue(m.Protocol.Params[0].Trending.Value);
                     Assert.AreEqual("true", m.Protocol.Params[0].Trending.RawValue);
                     Assert.AreEqual(@"<Protocol><Params><Param id=""10"" trending=""true"" save=""true"" /></Params></Protocol>", o);
                 }
@@ -120,7 +120,7 @@
                 },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.Params[0].Id.Value);
+                    Assert.IsNull(m.Protocol.Params[0].Id.Value);
                     Assert.AreEqual("abc", m.Protocol.Params[0].Id.RawValue);
                     Assert.AreEqual(@"<Protocol><Params><Param id=""abc"" /></Params></Protocol>", o);
                 }
@@ -140,7 +140,7 @@
                     },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.Params[0].Id.Value);
+                    Assert.IsNull(m.Protocol.Params[0].Id.Value);
                     Assert.AreEqual("abc", m.Protocol.Params[0].Id.RawValue);
                     Assert.AreEqual(@"<Protocol><Params><Param id=""abc"" /></Params></Protocol>", o);
                 }
@@ -235,7 +235,7 @@
                     },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.Params[0].Type);
+                    Assert.IsNull(m.Protocol.Params[0].Type);
                     Assert.AreEqual(@"<Protocol><Params><Param /></Params></Protocol>", o);
                 }
             );
@@ -295,7 +295,7 @@
                 },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.Params[0].Type.Value);
+                    Assert.IsNull(m.Protocol.Params[0].Type.Value);
                     Assert.AreEqual("test", m.Protocol.Params[0].Type.RawValue);
                     Assert.AreEqual(@"<Protocol><Params><Param><Type>test</Type></Param></Params></Protocol>", o);
                 }
@@ -317,7 +317,7 @@
                     },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.Params[0].Type.Value);
+                    Assert.IsNull(m.Protocol.Params[0].Type.Value);
                     Assert.AreEqual("test", m.Protocol.Params[0].Type.RawValue);
                     Assert.AreEqual(@"<Protocol><Params><Param>
 			<Type>test</Type>

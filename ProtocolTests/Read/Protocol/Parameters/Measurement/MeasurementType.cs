@@ -153,7 +153,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Measurement
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Measurement.Type.Value);
+            Assert.IsNull(parameter.Measurement.Type.Value);
         }
 
         [TestMethod]
@@ -369,7 +369,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Measurement
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Measurement.Type.Value);
+            Assert.IsNull(parameter.Measurement.Type.Value);
         }
 
         [TestMethod]
@@ -392,7 +392,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Measurement
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Measurement.Type);
+            Assert.IsNull(parameter.Measurement.Type);
         }
 
         #endregion
@@ -444,7 +444,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Measurement
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Measurement.Type.Width.Value);
+            Assert.IsNull(parameter.Measurement.Type.Width.Value);
         }
 
         [TestMethod]
@@ -468,7 +468,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Measurement
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Measurement.Type.Width.Value);
+            Assert.IsNull(parameter.Measurement.Type.Width.Value);
         }
 
         [TestMethod]
@@ -492,7 +492,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Measurement
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Measurement.Type.Width);
+            Assert.IsNull(parameter.Measurement.Type.Width);
         }
 
         #endregion
@@ -568,7 +568,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Measurement
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Measurement.Type.Options);
+            Assert.IsNull(parameter.Measurement.Type.Options);
         }
 
         #endregion

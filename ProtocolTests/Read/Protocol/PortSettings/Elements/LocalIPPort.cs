@@ -56,7 +56,7 @@
             var LocalIPPort = portSettings.LocalIPport;
 
             // Assert
-            Assert.AreEqual(null, LocalIPPort.DefaultValue.Value);
+            Assert.IsNull(LocalIPPort.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@
             var LocalIPPort = portSettings.LocalIPport;
 
             // Assert
-            Assert.AreEqual(null, LocalIPPort.DefaultValue.Value);
+            Assert.IsNull(LocalIPPort.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -105,7 +105,7 @@
             var LocalIPPort = portSettings.LocalIPport;
 
             // Assert
-            Assert.AreEqual(null, LocalIPPort.DefaultValue);
+            Assert.IsNull(LocalIPPort.DefaultValue);
         }
 
         #endregion
@@ -134,7 +134,7 @@
             var LocalIPPort = portSettings.LocalIPport;
 
             // Assert
-            Assert.AreEqual(true, LocalIPPort.Disabled.Value);
+            Assert.IsTrue(LocalIPPort.Disabled.Value);
         }
 
         [TestMethod]
@@ -159,7 +159,7 @@
             var LocalIPPort = portSettings.LocalIPport;
 
             // Assert
-            Assert.AreEqual(null, LocalIPPort.Disabled.Value);
+            Assert.IsNull(LocalIPPort.Disabled.Value);
         }
 
         [TestMethod]
@@ -184,7 +184,7 @@
             var LocalIPPort = portSettings.LocalIPport;
 
             // Assert
-            Assert.AreEqual(null, LocalIPPort.Disabled.Value);
+            Assert.IsNull(LocalIPPort.Disabled.Value);
         }
 
         [TestMethod]
@@ -208,7 +208,7 @@
             var LocalIPPort = portSettings.LocalIPport;
 
             // Assert
-            Assert.AreEqual(null, LocalIPPort.Disabled);
+            Assert.IsNull(LocalIPPort.Disabled);
         }
 
         #endregion

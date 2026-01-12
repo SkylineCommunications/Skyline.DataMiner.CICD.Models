@@ -55,7 +55,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.BaseFor);
+            Assert.IsNull(protocol.BaseFor);
         }
 
         #endregion
@@ -108,7 +108,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Name);
+            Assert.IsNull(protocol.Name);
         }
 
         #endregion
@@ -157,7 +157,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Description);
+            Assert.IsNull(protocol.Description);
         }
 
         #endregion
@@ -206,7 +206,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Version);
+            Assert.IsNull(protocol.Version);
         }
 
         #endregion
@@ -255,7 +255,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Provider);
+            Assert.IsNull(protocol.Provider);
         }
 
         #endregion
@@ -304,7 +304,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Vendor);
+            Assert.IsNull(protocol.Vendor);
         }
 
         #endregion
@@ -351,7 +351,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.VendorOID);
+            Assert.IsNull(protocol.VendorOID);
         }
 
         #endregion
@@ -385,7 +385,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.DeviceOID.Value);
+            Assert.IsNull(protocol.DeviceOID.Value);
         }
 
         [TestMethod]
@@ -400,7 +400,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.DeviceOID);
+            Assert.IsNull(protocol.DeviceOID);
         }
 
         #endregion
@@ -449,7 +449,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.ElementType);
+            Assert.IsNull(protocol.ElementType);
         }
 
         #endregion
@@ -468,7 +468,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Type);
+            Assert.IsNotNull(protocol.Type);
         }
 
         [TestMethod]
@@ -483,7 +483,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Type);
+            Assert.IsNull(protocol.Type);
         }
 
         #endregion
@@ -502,7 +502,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Display);
+            Assert.IsNotNull(protocol.Display);
         }
 
         [TestMethod]
@@ -517,7 +517,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Display);
+            Assert.IsNull(protocol.Display);
         }
 
         #endregion
@@ -536,7 +536,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.SNMP);
+            Assert.IsNotNull(protocol.SNMP);
         }
 
         [TestMethod]
@@ -551,7 +551,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.SNMP);
+            Assert.IsNull(protocol.SNMP);
         }
 
         #endregion
@@ -570,7 +570,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Params);
+            Assert.IsNotNull(protocol.Params);
         }
 
         [TestMethod]
@@ -585,7 +585,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Params);
+            Assert.IsNull(protocol.Params);
         }
 
         #endregion
@@ -604,7 +604,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.QActions);
+            Assert.IsNotNull(protocol.QActions);
         }
 
         [TestMethod]
@@ -619,7 +619,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.QActions);
+            Assert.IsNull(protocol.QActions);
         }
 
         #endregion
@@ -638,7 +638,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Groups);
+            Assert.IsNotNull(protocol.Groups);
         }
 
         [TestMethod]
@@ -653,7 +653,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Groups);
+            Assert.IsNull(protocol.Groups);
         }
 
         #endregion
@@ -672,7 +672,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Triggers);
+            Assert.IsNotNull(protocol.Triggers);
         }
 
         [TestMethod]
@@ -687,7 +687,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Triggers);
+            Assert.IsNull(protocol.Triggers);
         }
 
         #endregion
@@ -706,7 +706,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Actions);
+            Assert.IsNotNull(protocol.Actions);
         }
 
         [TestMethod]
@@ -721,7 +721,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Actions);
+            Assert.IsNull(protocol.Actions);
         }
 
         #endregion
@@ -740,7 +740,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Timers);
+            Assert.IsNotNull(protocol.Timers);
         }
 
         [TestMethod]
@@ -755,7 +755,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Timers);
+            Assert.IsNull(protocol.Timers);
         }
 
         #endregion
@@ -774,7 +774,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.PortSettings);
+            Assert.IsNotNull(protocol.PortSettings);
         }
 
         [TestMethod]
@@ -789,7 +789,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.PortSettings);
+            Assert.IsNull(protocol.PortSettings);
         }
 
         #endregion
@@ -808,7 +808,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Commands);
+            Assert.IsNotNull(protocol.Commands);
         }
 
         [TestMethod]
@@ -823,7 +823,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Commands);
+            Assert.IsNull(protocol.Commands);
         }
 
         #endregion
@@ -842,7 +842,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Responses);
+            Assert.IsNotNull(protocol.Responses);
         }
 
         [TestMethod]
@@ -857,7 +857,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Responses);
+            Assert.IsNull(protocol.Responses);
         }
 
         #endregion
@@ -876,7 +876,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Pairs);
+            Assert.IsNotNull(protocol.Pairs);
         }
 
         [TestMethod]
@@ -891,7 +891,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Pairs);
+            Assert.IsNull(protocol.Pairs);
         }
 
         #endregion
@@ -910,7 +910,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Relations);
+            Assert.IsNotNull(protocol.Relations);
         }
 
         [TestMethod]
@@ -925,7 +925,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Relations);
+            Assert.IsNull(protocol.Relations);
         }
 
         #endregion
@@ -944,7 +944,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.HTTP);
+            Assert.IsNotNull(protocol.HTTP);
         }
 
         [TestMethod]
@@ -959,7 +959,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.HTTP);
+            Assert.IsNull(protocol.HTTP);
         }
 
         #endregion
@@ -978,7 +978,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Ports);
+            Assert.IsNotNull(protocol.Ports);
         }
 
         [TestMethod]
@@ -993,7 +993,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Ports);
+            Assert.IsNull(protocol.Ports);
         }
 
         #endregion
@@ -1012,7 +1012,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.ExportRules);
+            Assert.IsNotNull(protocol.ExportRules);
         }
 
         [TestMethod]
@@ -1027,7 +1027,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.ExportRules);
+            Assert.IsNull(protocol.ExportRules);
         }
 
         #endregion
@@ -1046,7 +1046,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.ParameterGroups);
+            Assert.IsNotNull(protocol.ParameterGroups);
         }
 
         [TestMethod]
@@ -1061,7 +1061,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.ParameterGroups);
+            Assert.IsNull(protocol.ParameterGroups);
         }
 
         #endregion

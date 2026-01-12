@@ -52,7 +52,7 @@
             ISlowPoll SlowPoll = portSettings.SlowPoll;
 
             // Assert
-            Assert.AreEqual(null, SlowPoll.DefaultValue.Value);
+            Assert.IsNull(SlowPoll.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -74,7 +74,7 @@
             ISlowPoll SlowPoll = portSettings.SlowPoll;
 
             // Assert
-            Assert.AreEqual(null, SlowPoll.DefaultValue);
+            Assert.IsNull(SlowPoll.DefaultValue);
         }
 
         #endregion
@@ -101,7 +101,7 @@
             ISlowPoll SlowPoll = portSettings.SlowPoll;
 
             // Assert
-            Assert.AreEqual(true, SlowPoll.Disabled.Value);
+            Assert.IsTrue(SlowPoll.Disabled.Value);
         }
 
         [TestMethod]
@@ -124,7 +124,7 @@
             ISlowPoll SlowPoll = portSettings.SlowPoll;
 
             // Assert
-            Assert.AreEqual(null, SlowPoll.Disabled.Value);
+            Assert.IsNull(SlowPoll.Disabled.Value);
         }
 
         [TestMethod]
@@ -147,7 +147,7 @@
             ISlowPoll SlowPoll = portSettings.SlowPoll;
 
             // Assert
-            Assert.AreEqual(null, SlowPoll.Disabled.Value);
+            Assert.IsNull(SlowPoll.Disabled.Value);
         }
 
         [TestMethod]
@@ -169,7 +169,7 @@
             ISlowPoll SlowPoll = portSettings.SlowPoll;
 
             // Assert
-            Assert.AreEqual(null, SlowPoll.Disabled);
+            Assert.IsNull(SlowPoll.Disabled);
         }
 
         #endregion

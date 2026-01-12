@@ -49,7 +49,7 @@
 
             // Assert
             Assert.AreEqual(String.Empty, result.Name);
-            Assert.AreEqual(null, result.Type);
+            Assert.IsNull(result.Type);
             Assert.AreEqual((uint)1, result.ConnectionId);
         }
     }

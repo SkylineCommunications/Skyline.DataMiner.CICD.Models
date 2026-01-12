@@ -88,7 +88,7 @@
             var mapping = param.SNMP.TrapMappings[0];
 
             // Assert
-            Assert.AreEqual(null, mapping.BindingMatch);
+            Assert.IsNull(mapping.BindingMatch);
         }
 
         #endregion
@@ -173,7 +173,7 @@
             var mapping = param.SNMP.TrapMappings[0];
 
             // Assert
-            Assert.AreEqual(null, mapping.Severity);
+            Assert.IsNull(mapping.Severity);
         }
 
         #endregion
@@ -258,7 +258,7 @@
             var mapping = param.SNMP.TrapMappings[0];
 
             // Assert
-            Assert.AreEqual(null, mapping.ValueAttribute);
+            Assert.IsNull(mapping.ValueAttribute);
         }
 
         #endregion

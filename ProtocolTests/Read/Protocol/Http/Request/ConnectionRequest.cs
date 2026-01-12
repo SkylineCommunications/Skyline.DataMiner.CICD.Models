@@ -425,7 +425,7 @@ namespace Models.ProtocolTests.Read.Protocol.Http.Request
             var request = connection.Request;
 
             // Assert
-            Assert.AreEqual(null, request.Verb.Value);
+            Assert.IsNull(request.Verb.Value);
         }
 
         [TestMethod]
@@ -451,7 +451,7 @@ namespace Models.ProtocolTests.Read.Protocol.Http.Request
             var request = connection.Request;
 
             // Assert
-            Assert.AreEqual(null, request.Verb.Value);
+            Assert.IsNull(request.Verb.Value);
         }
 
         [TestMethod]
@@ -477,7 +477,7 @@ namespace Models.ProtocolTests.Read.Protocol.Http.Request
             var request = connection.Request;
 
             // Assert
-            Assert.AreEqual(null, request.Verb);
+            Assert.IsNull(request.Verb);
         }
 
         #endregion
@@ -559,7 +559,7 @@ namespace Models.ProtocolTests.Read.Protocol.Http.Request
             var request = connection.Request;
 
             // Assert
-            Assert.AreEqual(null, request.Url);
+            Assert.IsNull(request.Url);
         }
 
         #endregion
@@ -589,7 +589,7 @@ namespace Models.ProtocolTests.Read.Protocol.Http.Request
             var request = connection.Request;
 
             // Assert
-            Assert.AreEqual(null, request.Headers);
+            Assert.IsNull(request.Headers);
         }
 
 
@@ -616,7 +616,7 @@ namespace Models.ProtocolTests.Read.Protocol.Http.Request
             var request = connection.Request;
 
             // Assert
-            Assert.AreNotEqual(null, request.Headers);
+            Assert.IsNotNull(request.Headers);
         }
 
         #endregion
@@ -646,7 +646,7 @@ namespace Models.ProtocolTests.Read.Protocol.Http.Request
             var request = connection.Request;
 
             // Assert
-            Assert.AreEqual(null, request.Data);
+            Assert.IsNull(request.Data);
         }
 
 
@@ -673,7 +673,7 @@ namespace Models.ProtocolTests.Read.Protocol.Http.Request
             var request = connection.Request;
 
             // Assert
-            Assert.AreNotEqual(null, request.Data);
+            Assert.IsNotNull(request.Data);
         }
 
         #endregion
@@ -703,7 +703,7 @@ namespace Models.ProtocolTests.Read.Protocol.Http.Request
             var request = connection.Request;
 
             // Assert
-            Assert.AreEqual(null, request.Parameters);
+            Assert.IsNull(request.Parameters);
         }
 
 
@@ -730,7 +730,7 @@ namespace Models.ProtocolTests.Read.Protocol.Http.Request
             var request = connection.Request;
 
             // Assert
-            Assert.AreNotEqual(null, request.Parameters);
+            Assert.IsNotNull(request.Parameters);
         }
 
         #endregion

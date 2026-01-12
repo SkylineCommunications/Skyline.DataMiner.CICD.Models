@@ -56,7 +56,7 @@
             var command =  pair.Content[0];
 
             // Assert
-            Assert.AreEqual(null, command.Value);
+            Assert.IsNull(command.Value);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@
             var command =  pair.Content[0];
 
             // Assert
-            Assert.AreEqual(null, command.Value);
+            Assert.IsNull(command.Value);
         }
 
         #endregion

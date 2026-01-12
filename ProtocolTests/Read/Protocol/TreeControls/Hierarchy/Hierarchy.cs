@@ -84,7 +84,7 @@
             var hierarchy = treeControl.Hierarchy;
 
             // Assert
-            Assert.AreEqual(null, hierarchy.Path);
+            Assert.IsNull(hierarchy.Path);
         }
 
         #endregion
@@ -112,7 +112,7 @@
             var details = treeControl.Hierarchy;
 
             // Assert
-            Assert.AreEqual(2, details.Count);
+            Assert.HasCount(2, details);
         }
 
         [TestMethod]
@@ -136,7 +136,7 @@
             var details = treeControl.Hierarchy;
 
             // Assert
-            Assert.AreEqual(0, details.Count);
+            Assert.IsEmpty(details);
         }
 
         [TestMethod]
@@ -162,7 +162,7 @@
             var details = treeControl.Hierarchy;
 
             // Assert
-            Assert.AreNotEqual(null, details.GetEnumerator());
+            Assert.IsNotNull(details.GetEnumerator());
         }
 
     }

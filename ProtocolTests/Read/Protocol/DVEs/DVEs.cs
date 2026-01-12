@@ -22,7 +22,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.DVEs.DVEProtocols);
+            Assert.IsNotNull(protocol.DVEs.DVEProtocols);
         }
 
         [TestMethod]
@@ -40,7 +40,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.DVEs.DVEProtocols);
+            Assert.IsNull(protocol.DVEs.DVEProtocols);
         }
 
         [TestMethod]
@@ -59,7 +59,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.DVEs.ExportRules);
+            Assert.IsNotNull(protocol.DVEs.ExportRules);
         }
 
         [TestMethod]
@@ -77,7 +77,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.DVEs.ExportRules);
+            Assert.IsNull(protocol.DVEs.ExportRules);
         }
     }
 }

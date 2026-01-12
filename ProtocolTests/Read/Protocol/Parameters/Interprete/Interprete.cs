@@ -224,7 +224,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Interprete.RawType.Value);
+            Assert.IsNull(parameter.Interprete.RawType.Value);
         }
 
         [TestMethod]
@@ -247,7 +247,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Interprete.RawType.Value);
+            Assert.IsNull(parameter.Interprete.RawType.Value);
         }
 
         [TestMethod]
@@ -270,7 +270,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Interprete.RawType);
+            Assert.IsNull(parameter.Interprete.RawType);
         }
 
         #endregion
@@ -397,7 +397,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Interprete.LengthType.Value);
+            Assert.IsNull(parameter.Interprete.LengthType.Value);
         }
 
         [TestMethod]
@@ -421,7 +421,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Interprete.LengthType.Value);
+            Assert.IsNull(parameter.Interprete.LengthType.Value);
         }
 
         [TestMethod]
@@ -444,7 +444,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Interprete.LengthType);
+            Assert.IsNull(parameter.Interprete.LengthType);
         }
 
         #endregion
@@ -544,7 +544,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Interprete.Type.Value);
+            Assert.IsNull(parameter.Interprete.Type.Value);
         }
 
         [TestMethod]
@@ -568,7 +568,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Interprete.Type.Value);
+            Assert.IsNull(parameter.Interprete.Type.Value);
         }
 
         [TestMethod]
@@ -591,7 +591,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Interprete.Type);
+            Assert.IsNull(parameter.Interprete.Type);
         }
 
         #endregion
@@ -666,7 +666,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Interprete.DefaultValue);
+            Assert.IsNull(parameter.Interprete.DefaultValue);
         }
 
         #endregion
@@ -741,7 +741,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Interprete.Sequence);
+            Assert.IsNull(parameter.Interprete.Sequence);
         }
 
         #endregion
@@ -769,7 +769,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreNotEqual(null, parameter.Interprete.Exceptions);
+            Assert.IsNotNull(parameter.Interprete.Exceptions);
         }
 
         [TestMethod]
@@ -791,7 +791,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Interprete
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Interprete.Exceptions);
+            Assert.IsNull(parameter.Interprete.Exceptions);
         }
 
         #endregion

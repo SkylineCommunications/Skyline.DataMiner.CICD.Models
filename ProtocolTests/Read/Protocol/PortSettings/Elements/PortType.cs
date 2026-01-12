@@ -108,7 +108,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Type = portSettings.Type;
 
             // Assert
-            Assert.AreEqual(null, Type.DefaultValue.Value);
+            Assert.IsNull(Type.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -133,7 +133,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Type = portSettings.Type;
 
             // Assert
-            Assert.AreEqual(null, Type.DefaultValue.Value);
+            Assert.IsNull(Type.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -157,7 +157,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Type = portSettings.Type;
 
             // Assert
-            Assert.AreEqual(null, Type.DefaultValue);
+            Assert.IsNull(Type.DefaultValue);
         }
 
         #endregion

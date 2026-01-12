@@ -31,7 +31,7 @@
             var PortTypeSerial = portSettings.PortTypeSerial;
 
             // Assert
-            Assert.AreEqual(true, PortTypeSerial.Disabled.Value);
+            Assert.IsTrue(PortTypeSerial.Disabled.Value);
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@
             var PortTypeSerial = portSettings.PortTypeSerial;
 
             // Assert
-            Assert.AreEqual(null, PortTypeSerial.Disabled.Value);
+            Assert.IsNull(PortTypeSerial.Disabled.Value);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@
             var PortTypeSerial = portSettings.PortTypeSerial;
 
             // Assert
-            Assert.AreEqual(null, PortTypeSerial.Disabled.Value);
+            Assert.IsNull(PortTypeSerial.Disabled.Value);
         }
 
         [TestMethod]
@@ -105,7 +105,7 @@
             var PortTypeSerial = portSettings.PortTypeSerial;
 
             // Assert
-            Assert.AreEqual(null, PortTypeSerial.Disabled);
+            Assert.IsNull(PortTypeSerial.Disabled);
         }
 
         #endregion

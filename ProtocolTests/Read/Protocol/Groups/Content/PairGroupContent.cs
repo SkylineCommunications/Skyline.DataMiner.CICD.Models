@@ -58,7 +58,7 @@
             var content = contents[0] as GroupsGroupContentPair;
 
             // Assert
-            Assert.AreEqual(null, content.Value);
+            Assert.IsNull(content.Value);
         }
 
         #endregion

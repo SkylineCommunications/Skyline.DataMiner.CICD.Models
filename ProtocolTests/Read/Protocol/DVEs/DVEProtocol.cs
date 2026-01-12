@@ -75,7 +75,7 @@
             var dve = protocol.DVEs.DVEProtocols[0];
 
             // Assert
-            Assert.AreEqual(null, dve.Name);
+            Assert.IsNull(dve.Name);
         }
 
         #endregion Name
@@ -125,7 +125,7 @@
             var dve = protocol.DVEs.DVEProtocols[0];
 
             // Assert
-            Assert.AreEqual(null, dve.TablePID.Value);
+            Assert.IsNull(dve.TablePID.Value);
         }
 
         [TestMethod]
@@ -148,7 +148,7 @@
             var dve = protocol.DVEs.DVEProtocols[0];
 
             // Assert
-            Assert.AreEqual(null, dve.TablePID);
+            Assert.IsNull(dve.TablePID);
         }
 
         #endregion TablePID
@@ -176,7 +176,7 @@
             var dve = protocol.DVEs.DVEProtocols[0];
 
             // Assert
-            Assert.AreEqual(true, dve.ElementPrefix.Value);
+            Assert.IsTrue(dve.ElementPrefix.Value);
         }
 
         [TestMethod]
@@ -200,7 +200,7 @@
             var dve = protocol.DVEs.DVEProtocols[0];
 
             // Assert
-            Assert.AreEqual(null, dve.ElementPrefix.Value);
+            Assert.IsNull(dve.ElementPrefix.Value);
         }
 
         [TestMethod]
@@ -223,7 +223,7 @@
             var dve = protocol.DVEs.DVEProtocols[0];
 
             // Assert
-            Assert.AreEqual(null, dve.ElementPrefix);
+            Assert.IsNull(dve.ElementPrefix);
         }
 
         #endregion ElementPrefix

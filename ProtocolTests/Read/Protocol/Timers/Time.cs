@@ -52,7 +52,7 @@
             var time = timer.Time;
 
             // Assert
-            Assert.AreEqual(null, time.DataDisplay.Value);
+            Assert.IsNull(time.DataDisplay.Value);
 
         }
 
@@ -76,7 +76,7 @@
             var time = timer.Time;
 
             // Assert
-            Assert.AreEqual(null, time.DataDisplay.Value);
+            Assert.IsNull(time.DataDisplay.Value);
 
         }
 
@@ -100,7 +100,7 @@
             var time = timer.Time;
 
             // Assert
-            Assert.AreEqual(null, time.DataDisplay);
+            Assert.IsNull(time.DataDisplay);
 
         }
 
@@ -178,7 +178,7 @@
             var time = timer.Time;
 
             // Assert
-            Assert.AreEqual(null, time.Initial);
+            Assert.IsNull(time.Initial);
 
         }
 

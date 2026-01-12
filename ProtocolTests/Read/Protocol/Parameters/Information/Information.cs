@@ -103,7 +103,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Information.Text);
+            Assert.IsNull(parameter.Information.Text);
         }
 
         #endregion
@@ -178,7 +178,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Information.Subtext);
+            Assert.IsNull(parameter.Information.Subtext);
         }
 
         #endregion
@@ -206,7 +206,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreNotEqual(null, parameter.Information.Includes);
+            Assert.IsNotNull(parameter.Information.Includes);
         }
 
         [TestMethod]
@@ -229,7 +229,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Information.Includes);
+            Assert.IsNull(parameter.Information.Includes);
         }
 
 

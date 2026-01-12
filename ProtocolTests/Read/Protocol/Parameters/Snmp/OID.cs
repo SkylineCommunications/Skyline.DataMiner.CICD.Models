@@ -113,7 +113,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.Id.Value);
+            Assert.IsNull(OID.Id.Value);
         }
 
         [TestMethod]
@@ -138,7 +138,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.Id.Value);
+            Assert.IsNull(OID.Id.Value);
         }
 
         [TestMethod]
@@ -163,7 +163,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.Id);
+            Assert.IsNull(OID.Id);
         }
 
         #endregion
@@ -217,7 +217,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.Ipid.Value);
+            Assert.IsNull(OID.Ipid.Value);
         }
 
         [TestMethod]
@@ -242,7 +242,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.Ipid.Value);
+            Assert.IsNull(OID.Ipid.Value);
         }
 
         [TestMethod]
@@ -267,7 +267,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.Ipid);
+            Assert.IsNull(OID.Ipid);
         }
 
         #endregion
@@ -346,7 +346,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.Options);
+            Assert.IsNull(OID.Options);
         }
 
         #endregion
@@ -375,7 +375,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(true, OID.SkipDynamicSNMPGet.Value);
+            Assert.IsTrue(OID.SkipDynamicSNMPGet.Value);
         }
 
         [TestMethod]
@@ -400,7 +400,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.SkipDynamicSNMPGet.Value);
+            Assert.IsNull(OID.SkipDynamicSNMPGet.Value);
         }
 
         [TestMethod]
@@ -425,7 +425,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.SkipDynamicSNMPGet.Value);
+            Assert.IsNull(OID.SkipDynamicSNMPGet.Value);
         }
 
         [TestMethod]
@@ -450,7 +450,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.SkipDynamicSNMPGet);
+            Assert.IsNull(OID.SkipDynamicSNMPGet);
         }
 
         #endregion
@@ -579,7 +579,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.Type.Value);
+            Assert.IsNull(OID.Type.Value);
         }
 
         [TestMethod]
@@ -604,7 +604,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.Type.Value);
+            Assert.IsNull(OID.Type.Value);
         }
 
         [TestMethod]
@@ -629,7 +629,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var OID = param.SNMP.OID;
 
             // Assert
-            Assert.AreEqual(null, OID.Type);
+            Assert.IsNull(OID.Type);
         }
 
         #endregion

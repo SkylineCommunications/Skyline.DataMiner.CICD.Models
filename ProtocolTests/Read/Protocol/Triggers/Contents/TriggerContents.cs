@@ -59,7 +59,7 @@
             var contents = trigger.Content;
 
             // Assert
-            Assert.AreEqual(null, contents[0].Value);
+            Assert.IsNull(contents[0].Value);
         }
 
 
@@ -86,7 +86,7 @@
             var contents = trigger.Content;
 
             // Assert
-            Assert.AreEqual(null, contents[0].Value);
+            Assert.IsNull(contents[0].Value);
         }
 
         #endregion
@@ -116,7 +116,7 @@
             var contents = trigger.Content;
 
             // Assert
-            Assert.AreEqual(true, contents[0].Else.Value);
+            Assert.IsTrue(contents[0].Else.Value);
         }
 
         [TestMethod]
@@ -142,7 +142,7 @@
             var contents = trigger.Content;
 
             // Assert
-            Assert.AreEqual(null, contents[0].Else.Value);
+            Assert.IsNull(contents[0].Else.Value);
         }
 
         [TestMethod]
@@ -168,7 +168,7 @@
             var contents = trigger.Content;
 
             // Assert
-            Assert.AreEqual(null, contents[0].Else.Value);
+            Assert.IsNull(contents[0].Else.Value);
         }
 
 
@@ -195,7 +195,7 @@
             var contents = trigger.Content;
 
             // Assert
-            Assert.AreEqual(null, contents[0].Else);
+            Assert.IsNull(contents[0].Else);
         }
 
         #endregion

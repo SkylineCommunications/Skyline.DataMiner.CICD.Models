@@ -59,7 +59,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.ParametersView.Type.Value);
+            Assert.IsNull(parameter.Display.ParametersView.Type.Value);
         }
 
         [TestMethod]
@@ -84,7 +84,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.ParametersView.Type.Value);
+            Assert.IsNull(parameter.Display.ParametersView.Type.Value);
         }
 
         [TestMethod]
@@ -109,7 +109,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.ParametersView.Type);
+            Assert.IsNull(parameter.Display.ParametersView.Type);
         }
 
         #endregion
@@ -188,7 +188,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.ParametersView.Options);
+            Assert.IsNull(parameter.Display.ParametersView.Options);
         }
 
         #endregion
@@ -219,7 +219,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.ParametersView.Parameters);
+            Assert.IsNull(parameter.Display.ParametersView.Parameters);
         }
 
         [TestMethod]
@@ -245,7 +245,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(0, parameter.Display.ParametersView.Parameters.Count);
+            Assert.IsEmpty(parameter.Display.ParametersView.Parameters);
         }
 
         [TestMethod]
@@ -274,7 +274,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(2, parameter.Display.ParametersView.Parameters.Count);
+            Assert.HasCount(2, parameter.Display.ParametersView.Parameters);
         }
 
         [TestMethod]
@@ -303,7 +303,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreNotEqual(null, parameter.Display.ParametersView.Parameters.GetEnumerator());
+            Assert.IsNotNull(parameter.Display.ParametersView.Parameters.GetEnumerator());
         }
 
         #endregion

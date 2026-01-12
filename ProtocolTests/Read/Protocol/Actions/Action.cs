@@ -49,7 +49,7 @@
             var action = protocol.Actions[0];
 
             // Assert
-            Assert.AreEqual(null, action.Id.Value);
+            Assert.IsNull(action.Id.Value);
         }
 
         [TestMethod]
@@ -69,7 +69,7 @@
             var action = protocol.Actions[0];
 
             // Assert
-            Assert.AreEqual(null, action.Id.Value);
+            Assert.IsNull(action.Id.Value);
         }
 
         [TestMethod]
@@ -90,7 +90,7 @@
             var action = protocol.Actions[0];
 
             // Assert
-            Assert.AreEqual(null, action.Id);
+            Assert.IsNull(action.Id);
         }
 
         #endregion
@@ -159,7 +159,7 @@
             var action = protocol.Actions[0];
 
             // Assert
-            Assert.AreEqual(null, action.Name);
+            Assert.IsNull(action.Name);
         }
 
         #endregion
@@ -228,7 +228,7 @@
             var action = protocol.Actions[0];
 
             // Assert
-            Assert.AreEqual(null, action.Condition);
+            Assert.IsNull(action.Condition);
         }
 
         #endregion
@@ -254,7 +254,7 @@
             var action = protocol.Actions[0];
 
             // Assert
-            Assert.AreNotEqual(null, action.Type);
+            Assert.IsNotNull(action.Type);
         }
 
         [TestMethod]
@@ -275,7 +275,7 @@
             var action = protocol.Actions[0];
 
             // Assert
-            Assert.AreEqual(null, action.Type);
+            Assert.IsNull(action.Type);
         }
 
         #endregion
@@ -301,7 +301,7 @@
             var action = protocol.Actions[0];
 
             // Assert
-            Assert.AreNotEqual(null, action.On);
+            Assert.IsNotNull(action.On);
         }
 
         [TestMethod]
@@ -322,7 +322,7 @@
             var action = protocol.Actions[0];
 
             // Assert
-            Assert.AreEqual(null, action.On);
+            Assert.IsNull(action.On);
         }
 
         [TestMethod]

@@ -191,7 +191,7 @@
             var on = action.On;
 
             // Assert
-            Assert.AreEqual(null, on.Value);
+            Assert.IsNull(on.Value);
         }
 
         [TestMethod]
@@ -214,7 +214,7 @@
             var on = action.On;
 
             // Assert
-            Assert.AreEqual(null, on.Value);
+            Assert.IsNull(on.Value);
         }
 
         #endregion
@@ -287,7 +287,7 @@
             var on = action.On;
 
             // Assert
-            Assert.AreEqual(null, on.Id);
+            Assert.IsNull(on.Id);
         }
 
         #endregion
@@ -360,7 +360,7 @@
             var on = action.On;
 
             // Assert
-            Assert.AreEqual(null, on.Nr);
+            Assert.IsNull(on.Nr);
         }
 
         #endregion

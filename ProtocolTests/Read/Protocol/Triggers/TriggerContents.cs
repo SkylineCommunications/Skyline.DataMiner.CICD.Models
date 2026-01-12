@@ -29,7 +29,7 @@
             var contents = trigger.Content;
 
             // Assert
-            Assert.AreEqual(0, contents.Count);
+            Assert.IsEmpty(contents);
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@
             var contents = trigger.Content;
 
             // Assert
-            Assert.AreEqual(2, contents.Count);
+            Assert.HasCount(2, contents);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@
             var contents = trigger.Content;
 
             // Assert
-            Assert.AreNotEqual(null, contents.GetEnumerator());
+            Assert.IsNotNull(contents.GetEnumerator());
         }
 
     }

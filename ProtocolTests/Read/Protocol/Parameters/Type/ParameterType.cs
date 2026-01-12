@@ -359,7 +359,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Type.Value);
+            Assert.IsNull(parameter.Type.Value);
         }
 
         [TestMethod]
@@ -375,7 +375,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Type.Value);
+            Assert.IsNull(parameter.Type.Value);
         }
 
         [TestMethod]
@@ -391,7 +391,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Type);
+            Assert.IsNull(parameter.Type);
         }
 
         #endregion
@@ -443,7 +443,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Type.Id);
+            Assert.IsNull(parameter.Type.Id);
         }
 
         #endregion
@@ -546,7 +546,7 @@
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(1, result.ColumnTypes.ColumnTypes.Count);
+            Assert.HasCount(1, result.ColumnTypes.ColumnTypes);
         }
 
         [TestMethod]
@@ -570,7 +570,7 @@
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(2, result.ColumnTypes.ColumnTypes.Count);
+            Assert.HasCount(2, result.ColumnTypes.ColumnTypes);
         }
 
         [TestMethod]

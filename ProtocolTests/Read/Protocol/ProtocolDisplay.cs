@@ -68,7 +68,7 @@ namespace Models.ProtocolTests.Read.Protocol
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Display.DefaultPage);
+            Assert.IsNull(protocol.Display.DefaultPage);
         }
 
         #endregion
@@ -132,7 +132,7 @@ namespace Models.ProtocolTests.Read.Protocol
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Display.DefaultPage);
+            Assert.IsNull(protocol.Display.DefaultPage);
         }
 
         #endregion
@@ -196,7 +196,7 @@ namespace Models.ProtocolTests.Read.Protocol
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Display.WideColumnPages);
+            Assert.IsNull(protocol.Display.WideColumnPages);
         }
 
         #endregion
@@ -246,7 +246,7 @@ namespace Models.ProtocolTests.Read.Protocol
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Display.Type.Value);
+            Assert.IsNull(protocol.Display.Type.Value);
         }
 
         [TestMethod]
@@ -261,7 +261,7 @@ namespace Models.ProtocolTests.Read.Protocol
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Display.Type.Value);
+            Assert.IsNull(protocol.Display.Type.Value);
         }
 
         [TestMethod]
@@ -276,7 +276,7 @@ namespace Models.ProtocolTests.Read.Protocol
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Display.Type);
+            Assert.IsNull(protocol.Display.Type);
         }
 
 

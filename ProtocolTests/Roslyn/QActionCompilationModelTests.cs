@@ -233,7 +233,7 @@ namespace Skyline.DataMiner.Scripting
                 Assert.Fail(message);
             }
 
-            Assert.AreEqual(5, compiledQActionProjects.Count); // 5 C# QActions
+            Assert.HasCount(5, compiledQActionProjects); // 5 C# QActions
 
             Assert.IsNull(compiledQActionProjects.FirstOrDefault(q => q.Value.QAction.Id.Value == 10000).Value); // jscript QAction.
             Assert.IsNull(compiledQActionProjects.FirstOrDefault(q => q.Value.QAction.Id.Value == 10001).Value); // vbscript QAction.

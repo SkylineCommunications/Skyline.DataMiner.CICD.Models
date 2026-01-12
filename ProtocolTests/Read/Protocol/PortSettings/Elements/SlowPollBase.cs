@@ -77,7 +77,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             ISlowPollBase SlowPollBase = portSettings.SlowPollBase;
 
             // Assert
-            Assert.AreEqual(null, SlowPollBase.DefaultValue.Value);
+            Assert.IsNull(SlowPollBase.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -99,7 +99,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             ISlowPollBase SlowPollBase = portSettings.SlowPollBase;
 
             // Assert
-            Assert.AreEqual(null, SlowPollBase.DefaultValue);
+            Assert.IsNull(SlowPollBase.DefaultValue);
         }
 
         #endregion
@@ -126,7 +126,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             ISlowPollBase SlowPollBase = portSettings.SlowPollBase;
 
             // Assert
-            Assert.AreEqual(true, SlowPollBase.Disabled.Value);
+            Assert.IsTrue(SlowPollBase.Disabled.Value);
         }
 
         [TestMethod]
@@ -149,7 +149,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             ISlowPollBase SlowPollBase = portSettings.SlowPollBase;
 
             // Assert
-            Assert.AreEqual(null, SlowPollBase.Disabled.Value);
+            Assert.IsNull(SlowPollBase.Disabled.Value);
         }
 
         [TestMethod]
@@ -172,7 +172,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             ISlowPollBase SlowPollBase = portSettings.SlowPollBase;
 
             // Assert
-            Assert.AreEqual(null, SlowPollBase.Disabled.Value);
+            Assert.IsNull(SlowPollBase.Disabled.Value);
         }
 
         [TestMethod]
@@ -194,7 +194,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             ISlowPollBase SlowPollBase = portSettings.SlowPollBase;
 
             // Assert
-            Assert.AreEqual(null, SlowPollBase.Disabled);
+            Assert.IsNull(SlowPollBase.Disabled);
         }
 
         #endregion

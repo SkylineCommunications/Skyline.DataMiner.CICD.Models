@@ -221,7 +221,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Type.Value);
+            Assert.IsNull(protocol.Type.Value);
         }
 
         [TestMethod]
@@ -236,7 +236,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Type.Value);
+            Assert.IsNull(protocol.Type.Value);
         }
 
         [TestMethod]
@@ -251,7 +251,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Type);
+            Assert.IsNull(protocol.Type);
         }
 
 
@@ -303,7 +303,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Type.RelativeTimers.Value);
+            Assert.IsNull(protocol.Type.RelativeTimers.Value);
         }
 
 
@@ -319,7 +319,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Type.RelativeTimers.Value);
+            Assert.IsNull(protocol.Type.RelativeTimers.Value);
         }
         [TestMethod]
         public void RelativeTimers_MissingRelativeTimers_ReturnsNull()
@@ -333,7 +333,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Type.RelativeTimers);
+            Assert.IsNull(protocol.Type.RelativeTimers);
         }
 
         #endregion
@@ -367,7 +367,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Type.OverrideTimeoutDVE.Value);
+            Assert.IsNull(protocol.Type.OverrideTimeoutDVE.Value);
         }
 
         [TestMethod]
@@ -382,7 +382,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Type.OverrideTimeoutDVE.Value);
+            Assert.IsNull(protocol.Type.OverrideTimeoutDVE.Value);
         }
 
         [TestMethod]
@@ -397,7 +397,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Type.OverrideTimeoutDVE);
+            Assert.IsNull(protocol.Type.OverrideTimeoutDVE);
         }
 
         #endregion
@@ -446,7 +446,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(null, protocol.Type.Options);
+            Assert.IsNull(protocol.Type.Options);
         }
 
         #endregion
@@ -473,7 +473,7 @@
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(2, result.Count);
+            Assert.HasCount(2, result);
             Assert.AreEqual("MotherChildASlot", result[0].Name);
             Assert.AreEqual((uint?)100, result[0].TablePid);
             Assert.IsTrue(result[0].NoElementPrefix);
@@ -498,12 +498,12 @@
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(2, result.Count);
+            Assert.HasCount(2, result);
             Assert.AreEqual("MotherChildASlot", result[0].Name);
-            Assert.AreEqual(null, result[0].TablePid);
+            Assert.IsNull(result[0].TablePid);
             Assert.IsTrue(result[0].NoElementPrefix);
             Assert.AreEqual("MotherChildAOldName", result[1].Name);
-            Assert.AreEqual(null, result[1].TablePid);
+            Assert.IsNull(result[1].TablePid);
             Assert.IsFalse(result[1].NoElementPrefix);
         }
 
@@ -550,9 +550,9 @@
 
             // Assert
             Assert.IsNotNull(connections);
-            Assert.AreEqual(2, connections.Count);
+            Assert.HasCount(2, connections);
             Assert.AreEqual(Enums.EnumProtocolType.SmartSerial, connections[0].Type.Value);
-            Assert.AreEqual(null, connections[0].Name);
+            Assert.IsNull(connections[0].Name);
             Assert.AreEqual(Enums.EnumProtocolType.Http, connections[1].Type.Value);
             Assert.AreEqual("HTTP Connection2", connections[1].Name);
         }
@@ -573,10 +573,10 @@
 
             // Assert
             Assert.IsNotNull(connections);
-            Assert.AreEqual(2, connections.Count);
+            Assert.HasCount(2, connections);
             Assert.AreEqual(Enums.EnumProtocolType.SmartSerial, connections[0].Type.Value);
-            Assert.AreEqual(null, connections[0].Name);
-            Assert.AreEqual(null, connections[1].Type);
+            Assert.IsNull(connections[0].Name);
+            Assert.IsNull(connections[1].Type);
             Assert.AreEqual("HTTP Connection2", connections[1].Name);
         }
 
@@ -596,7 +596,7 @@
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(0, result.Count);
+            Assert.IsEmpty(result);
         }
 
         [TestMethod]

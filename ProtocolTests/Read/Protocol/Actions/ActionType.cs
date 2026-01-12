@@ -76,7 +76,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Allowed);
+            Assert.IsNull(type.Allowed);
         }
 
         #endregion
@@ -149,7 +149,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Arguments);
+            Assert.IsNull(type.Arguments);
         }
 
         #endregion
@@ -176,7 +176,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Endoffset.Value);
+            Assert.IsNull(type.Endoffset.Value);
         }
 
         [TestMethod]
@@ -199,7 +199,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Endoffset.Value);
+            Assert.IsNull(type.Endoffset.Value);
         }
 
         [TestMethod]
@@ -222,7 +222,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Endoffset);
+            Assert.IsNull(type.Endoffset);
         }
 
         #endregion
@@ -272,7 +272,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Id.Value);
+            Assert.IsNull(type.Id.Value);
         }
 
         [TestMethod]
@@ -295,7 +295,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Id);
+            Assert.IsNull(type.Id);
         }
 
         #endregion
@@ -368,7 +368,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Nr);
+            Assert.IsNull(type.Nr);
         }
 
         #endregion
@@ -441,7 +441,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Options);
+            Assert.IsNull(type.Options);
         }
 
         #endregion
@@ -468,7 +468,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(true, type.Reschedule.Value);
+            Assert.IsTrue(type.Reschedule.Value);
         }
 
         [TestMethod]
@@ -491,7 +491,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Reschedule.Value);
+            Assert.IsNull(type.Reschedule.Value);
         }
 
         [TestMethod]
@@ -514,7 +514,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Reschedule);
+            Assert.IsNull(type.Reschedule);
         }
 
         #endregion
@@ -587,7 +587,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.ReturnValue);
+            Assert.IsNull(type.ReturnValue);
         }
 
         #endregion
@@ -660,7 +660,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Scale);
+            Assert.IsNull(type.Scale);
         }
 
         #endregion
@@ -733,7 +733,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Script);
+            Assert.IsNull(type.Script);
         }
 
         #endregion
@@ -806,7 +806,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Sequence);
+            Assert.IsNull(type.Sequence);
         }
 
         #endregion
@@ -856,7 +856,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Startoffset.Value);
+            Assert.IsNull(type.Startoffset.Value);
         }
 
         [TestMethod]
@@ -879,7 +879,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.Startoffset);
+            Assert.IsNull(type.Startoffset);
         }
 
         #endregion
@@ -952,7 +952,7 @@
             var type = action.Type;
 
             // Assert
-            Assert.AreEqual(null, type.ValueAttribute);
+            Assert.IsNull(type.ValueAttribute);
         }
 
         #endregion

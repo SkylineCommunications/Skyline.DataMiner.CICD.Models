@@ -81,7 +81,7 @@
             var Databits = portSettings.Databits;
 
             // Assert
-            Assert.AreEqual(null, Databits.DefaultValue);
+            Assert.IsNull(Databits.DefaultValue);
         }
 
         #endregion
@@ -110,7 +110,7 @@
             var Databits = portSettings.Databits;
 
             // Assert
-            Assert.AreEqual(true, Databits.Disabled.Value);
+            Assert.IsTrue(Databits.Disabled.Value);
         }
 
         [TestMethod]
@@ -135,7 +135,7 @@
             var Databits = portSettings.Databits;
 
             // Assert
-            Assert.AreEqual(null, Databits.Disabled.Value);
+            Assert.IsNull(Databits.Disabled.Value);
         }
 
         [TestMethod]
@@ -160,7 +160,7 @@
             var Databits = portSettings.Databits;
 
             // Assert
-            Assert.AreEqual(null, Databits.Disabled.Value);
+            Assert.IsNull(Databits.Disabled.Value);
         }
 
         [TestMethod]
@@ -184,7 +184,7 @@
             var Databits = portSettings.Databits;
 
             // Assert
-            Assert.AreEqual(null, Databits.Disabled);
+            Assert.IsNull(Databits.Disabled);
         }
 
         #endregion
@@ -214,7 +214,7 @@
             var range = Databits.Range;
 
             // Assert
-            Assert.AreNotEqual(null, range);
+            Assert.IsNotNull(range);
         }
 
         [TestMethod]
@@ -239,7 +239,7 @@
             var range = Databits.Range;
 
             // Assert
-            Assert.AreEqual(null, range);
+            Assert.IsNull(range);
         }
 
         #endregion

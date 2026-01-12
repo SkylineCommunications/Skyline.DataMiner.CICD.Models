@@ -58,7 +58,7 @@
             var detail = details[0];
 
             // Assert
-            Assert.AreEqual(null, detail.DetailsTableId.Value);
+            Assert.IsNull(detail.DetailsTableId.Value);
         }
 
         [TestMethod]
@@ -84,7 +84,7 @@
             var detail = details[0];
 
             // Assert
-            Assert.AreEqual(null, detail.DetailsTableId.Value);
+            Assert.IsNull(detail.DetailsTableId.Value);
         }
 
         [TestMethod]
@@ -110,7 +110,7 @@
             var detail = details[0];
 
             // Assert
-            Assert.AreEqual(null, detail.DetailsTableId);
+            Assert.IsNull(detail.DetailsTableId);
         }
 
         #endregion
@@ -166,7 +166,7 @@
             var detail = details[0];
 
             // Assert
-            Assert.AreEqual(null, detail.DiscreetColumnId.Value);
+            Assert.IsNull(detail.DiscreetColumnId.Value);
         }
 
         [TestMethod]
@@ -192,7 +192,7 @@
             var detail = details[0];
 
             // Assert
-            Assert.AreEqual(null, detail.DiscreetColumnId.Value);
+            Assert.IsNull(detail.DiscreetColumnId.Value);
         }
 
         [TestMethod]
@@ -218,7 +218,7 @@
             var detail = details[0];
 
             // Assert
-            Assert.AreEqual(null, detail.DiscreetColumnId);
+            Assert.IsNull(detail.DiscreetColumnId);
         }
 
         #endregion
@@ -300,7 +300,7 @@
             var detail = details[0];
 
             // Assert
-            Assert.AreEqual(null, detail.ValueAttribute);
+            Assert.IsNull(detail.ValueAttribute);
         }
 
         #endregion

@@ -46,7 +46,7 @@
             var Command = protocol.Commands[0];
 
             // Assert
-            Assert.AreEqual(null, Command.Id.Value);
+            Assert.IsNull(Command.Id.Value);
         }
 
         [TestMethod]
@@ -66,7 +66,7 @@
             var Command = protocol.Commands[0];
 
             // Assert
-            Assert.AreEqual(null, Command.Id.Value);
+            Assert.IsNull(Command.Id.Value);
         }
 
         [TestMethod]
@@ -87,7 +87,7 @@
             var Command = protocol.Commands[0];
 
             // Assert
-            Assert.AreEqual(null, Command.Id);
+            Assert.IsNull(Command.Id);
         }
 
         #endregion
@@ -152,7 +152,7 @@
             var Command = protocol.Commands[0];
 
             // Assert
-            Assert.AreEqual(null, Command.Ascii);
+            Assert.IsNull(Command.Ascii);
         }
 
         #endregion
@@ -221,7 +221,7 @@
             var Command = protocol.Commands[0];
 
             // Assert
-            Assert.AreEqual(null, Command.Name);
+            Assert.IsNull(Command.Name);
         }
 
         #endregion
@@ -290,7 +290,7 @@
             var Command = protocol.Commands[0];
 
             // Assert
-            Assert.AreEqual(null, Command.Description);
+            Assert.IsNull(Command.Description);
         }
 
         #endregion
@@ -315,7 +315,7 @@
             var Command = protocol.Commands[0];
 
             // Assert
-            Assert.AreEqual(null, Command.Content);
+            Assert.IsNull(Command.Content);
         }
 
         [TestMethod]
@@ -337,7 +337,7 @@
             var Command = protocol.Commands[0];
 
             // Assert
-            Assert.AreNotEqual(null, Command.Content);
+            Assert.IsNotNull(Command.Content);
         }
 
 

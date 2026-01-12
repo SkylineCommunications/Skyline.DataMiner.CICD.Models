@@ -53,7 +53,7 @@
             var connection = session[0];
 
             // Assert
-            Assert.AreEqual(null, connection.Id.Value);
+            Assert.IsNull(connection.Id.Value);
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@
             var connection = session[0];
 
             // Assert
-            Assert.AreEqual(null, connection.Id.Value);
+            Assert.IsNull(connection.Id.Value);
         }
 
         [TestMethod]
@@ -99,7 +99,7 @@
             var connection = session[0];
 
             // Assert
-            Assert.AreEqual(null, connection.Id);
+            Assert.IsNull(connection.Id);
 
         }
 
@@ -173,7 +173,7 @@
             var connection = session[0];
 
             // Assert
-            Assert.AreEqual(null, connection.Name);
+            Assert.IsNull(connection.Name);
         }
 
         #endregion
@@ -202,7 +202,7 @@
             var connection = session[0];
 
             // Assert
-            Assert.AreNotEqual(null, connection.Request);
+            Assert.IsNotNull(connection.Request);
         }
 
         [TestMethod]
@@ -226,7 +226,7 @@
             var connection = session[0];
 
             // Assert
-            Assert.AreEqual(null, connection.Request);
+            Assert.IsNull(connection.Request);
         }
 
         #endregion
@@ -255,7 +255,7 @@
             var connection = session[0];
 
             // Assert
-            Assert.AreNotEqual(null, connection.Response);
+            Assert.IsNotNull(connection.Response);
         }
 
         [TestMethod]
@@ -279,7 +279,7 @@
             var connection = session[0];
 
             // Assert
-            Assert.AreEqual(null, connection.Response);
+            Assert.IsNull(connection.Response);
         }
 
         #endregion

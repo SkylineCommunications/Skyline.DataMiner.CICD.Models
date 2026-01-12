@@ -59,7 +59,7 @@
             var parameter = paramGroupsParams[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Id.Value);
+            Assert.IsNull(parameter.Id.Value);
         }
 
         [TestMethod]
@@ -85,7 +85,7 @@
             var parameter = paramGroupsParams[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Id.Value);
+            Assert.IsNull(parameter.Id.Value);
         }
 
         [TestMethod]
@@ -111,7 +111,7 @@
             var parameter = paramGroupsParams[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Id);
+            Assert.IsNull(parameter.Id);
         }
 
         #endregion
@@ -193,7 +193,7 @@
             var parameter = paramGroupsParams[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Index);
+            Assert.IsNull(parameter.Index);
         }
 
         #endregion

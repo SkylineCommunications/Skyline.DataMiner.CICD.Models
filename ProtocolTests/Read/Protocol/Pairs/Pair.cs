@@ -47,7 +47,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Id.Value);
+            Assert.IsNull(pair.Id.Value);
         }
 
         [TestMethod]
@@ -67,7 +67,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Id.Value);
+            Assert.IsNull(pair.Id.Value);
         }
 
         [TestMethod]
@@ -88,7 +88,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Id);
+            Assert.IsNull(pair.Id);
         }
 
         #endregion
@@ -152,7 +152,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Options);
+            Assert.IsNull(pair.Options);
         }
 
         #endregion
@@ -176,7 +176,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(true, pair.Ping.Value);
+            Assert.IsTrue(pair.Ping.Value);
         }
 
         [TestMethod]
@@ -196,7 +196,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Ping.Value);
+            Assert.IsNull(pair.Ping.Value);
         }
 
         [TestMethod]
@@ -216,7 +216,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Ping.Value);
+            Assert.IsNull(pair.Ping.Value);
         }
 
         [TestMethod]
@@ -236,7 +236,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Ping);
+            Assert.IsNull(pair.Ping);
         }
 
         #endregion
@@ -280,7 +280,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Timeout.Value);
+            Assert.IsNull(pair.Timeout.Value);
         }
 
         [TestMethod]
@@ -300,7 +300,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Timeout.Value);
+            Assert.IsNull(pair.Timeout.Value);
         }
 
         [TestMethod]
@@ -320,7 +320,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Timeout);
+            Assert.IsNull(pair.Timeout);
         }
 
         #endregion
@@ -388,7 +388,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Name);
+            Assert.IsNull(pair.Name);
         }
 
         #endregion
@@ -456,7 +456,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Description);
+            Assert.IsNull(pair.Description);
         }
 
         #endregion
@@ -524,7 +524,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Condition);
+            Assert.IsNull(pair.Condition);
         }
 
         #endregion
@@ -550,7 +550,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreNotEqual(null, pair.Content);
+            Assert.IsNotNull(pair.Content);
         }
 
         [TestMethod]
@@ -571,7 +571,7 @@
             var pair = protocol.Pairs[0];
 
             // Assert
-            Assert.AreEqual(null, pair.Content);
+            Assert.IsNull(pair.Content);
         }
 
         #endregion

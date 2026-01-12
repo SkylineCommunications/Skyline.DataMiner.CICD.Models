@@ -44,7 +44,7 @@
                     },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.SNMP);
+                    Assert.IsNull(m.Protocol.SNMP);
                     Assert.AreEqual("<Protocol />", o);
                 }
             );
@@ -102,7 +102,7 @@
                 },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.SNMP.Value);
+                    Assert.IsNull(m.Protocol.SNMP.Value);
                     Assert.AreEqual("test", m.Protocol.SNMP.RawValue);
                     Assert.AreEqual("<Protocol><SNMP>test</SNMP></Protocol>", o);
                 }
@@ -124,7 +124,7 @@
                     },
                 checks: (m, x, o) =>
                 {
-                    Assert.AreEqual(null, m.Protocol.SNMP.Value);
+                    Assert.IsNull(m.Protocol.SNMP.Value);
                     Assert.AreEqual("test", m.Protocol.SNMP.RawValue);
                     Assert.AreEqual("<Protocol>\r\n\t<SNMP>test</SNMP>\r\n</Protocol>", o);
                 }

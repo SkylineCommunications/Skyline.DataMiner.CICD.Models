@@ -56,7 +56,7 @@
             var TimeoutTime = portSettings.TimeoutTime;
 
             // Assert
-            Assert.AreEqual(null, TimeoutTime.DefaultValue.Value);
+            Assert.IsNull(TimeoutTime.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@
             var TimeoutTime = portSettings.TimeoutTime;
 
             // Assert
-            Assert.AreEqual(null, TimeoutTime.DefaultValue.Value);
+            Assert.IsNull(TimeoutTime.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -105,7 +105,7 @@
             var TimeoutTime = portSettings.TimeoutTime;
 
             // Assert
-            Assert.AreEqual(null, TimeoutTime.DefaultValue);
+            Assert.IsNull(TimeoutTime.DefaultValue);
         }
 
         #endregion
@@ -134,7 +134,7 @@
             var TimeoutTime = portSettings.TimeoutTime;
 
             // Assert
-            Assert.AreEqual(true, TimeoutTime.Disabled.Value);
+            Assert.IsTrue(TimeoutTime.Disabled.Value);
         }
 
         [TestMethod]
@@ -159,7 +159,7 @@
             var TimeoutTime = portSettings.TimeoutTime;
 
             // Assert
-            Assert.AreEqual(null, TimeoutTime.Disabled.Value);
+            Assert.IsNull(TimeoutTime.Disabled.Value);
         }
 
         [TestMethod]
@@ -184,7 +184,7 @@
             var TimeoutTime = portSettings.TimeoutTime;
 
             // Assert
-            Assert.AreEqual(null, TimeoutTime.Disabled.Value);
+            Assert.IsNull(TimeoutTime.Disabled.Value);
         }
 
         [TestMethod]
@@ -208,7 +208,7 @@
             var TimeoutTime = portSettings.TimeoutTime;
 
             // Assert
-            Assert.AreEqual(null, TimeoutTime.Disabled);
+            Assert.IsNull(TimeoutTime.Disabled);
         }
 
         #endregion

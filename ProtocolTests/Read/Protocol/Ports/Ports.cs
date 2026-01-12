@@ -22,7 +22,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(0, protocol.Ports.Count);
+            Assert.IsEmpty(protocol.Ports);
         }
 
         [TestMethod]
@@ -43,7 +43,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(2, protocol.Ports.Count);
+            Assert.HasCount(2, protocol.Ports);
         }
 
         [TestMethod]
@@ -64,7 +64,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.Ports.GetEnumerator());
+            Assert.IsNotNull(protocol.Ports.GetEnumerator());
         }
 
 

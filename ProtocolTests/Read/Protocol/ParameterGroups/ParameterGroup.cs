@@ -53,7 +53,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.DynamicId.Value);
+            Assert.IsNull(group.DynamicId.Value);
         }
 
         [TestMethod]
@@ -75,7 +75,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.DynamicId.Value);
+            Assert.IsNull(group.DynamicId.Value);
         }
 
         [TestMethod]
@@ -97,7 +97,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.DynamicId);
+            Assert.IsNull(group.DynamicId);
         }
 
         #endregion
@@ -167,7 +167,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.DynamicIndex);
+            Assert.IsNull(group.DynamicIndex);
         }
 
         #endregion
@@ -193,7 +193,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(true, group.DynamicUsePK.Value);
+            Assert.IsTrue(group.DynamicUsePK.Value);
         }
 
         [TestMethod]
@@ -215,7 +215,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.DynamicUsePK.Value);
+            Assert.IsNull(group.DynamicUsePK.Value);
         }
 
         [TestMethod]
@@ -237,7 +237,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.DynamicUsePK.Value);
+            Assert.IsNull(group.DynamicUsePK.Value);
         }
 
         [TestMethod]
@@ -259,7 +259,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.DynamicUsePK);
+            Assert.IsNull(group.DynamicUsePK);
         }
 
         #endregion
@@ -329,7 +329,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Name);
+            Assert.IsNull(group.Name);
         }
 
         #endregion
@@ -377,7 +377,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Id.Value);
+            Assert.IsNull(group.Id.Value);
         }
 
         [TestMethod]
@@ -399,7 +399,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Id.Value);
+            Assert.IsNull(group.Id.Value);
         }
 
         [TestMethod]
@@ -421,7 +421,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Id);
+            Assert.IsNull(group.Id);
         }
 
         #endregion
@@ -513,7 +513,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Type.Value);
+            Assert.IsNull(group.Type.Value);
         }
 
         [TestMethod]
@@ -535,7 +535,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Type.Value);
+            Assert.IsNull(group.Type.Value);
         }
 
         [TestMethod]
@@ -557,7 +557,7 @@ namespace Models.ProtocolTests.Read.Protocol.ParameterGroups
             var group = paramGroups[0];
 
             // Assert
-            Assert.AreEqual(null, group.Type);
+            Assert.IsNull(group.Type);
         }
 
         #endregion

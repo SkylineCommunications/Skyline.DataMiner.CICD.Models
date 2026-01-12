@@ -28,7 +28,7 @@
             var paramGroupsParams = paramGroups[0].Params;
 
             // Assert
-            Assert.AreEqual(0, paramGroupsParams.Count);
+            Assert.IsEmpty(paramGroupsParams);
         }
 
         [TestMethod]
@@ -54,7 +54,7 @@
             var paramGroupsParams = paramGroups[0].Params;
 
             // Assert
-            Assert.AreEqual(2, paramGroupsParams.Count);
+            Assert.HasCount(2, paramGroupsParams);
         }
 
         [TestMethod]
@@ -80,7 +80,7 @@
             var paramGroupsParams = paramGroups[0].Params;
 
             // Assert
-            Assert.AreNotEqual(null, paramGroupsParams.GetEnumerator());
+            Assert.IsNotNull(paramGroupsParams.GetEnumerator());
         }
 
     }

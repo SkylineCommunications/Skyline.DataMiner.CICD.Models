@@ -58,7 +58,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Parity = portSettings.Parity;
 
             // Assert
-            Assert.AreEqual(null, Parity.DefaultValue.Value);
+            Assert.IsNull(Parity.DefaultValue.Value);
         }
 
         [TestMethod]
@@ -82,7 +82,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Parity = portSettings.Parity;
 
             // Assert
-            Assert.AreEqual(null, Parity.DefaultValue);
+            Assert.IsNull(Parity.DefaultValue);
         }
 
         #endregion
@@ -111,7 +111,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Parity = portSettings.Parity;
 
             // Assert
-            Assert.AreEqual(true, Parity.Disabled.Value);
+            Assert.IsTrue(Parity.Disabled.Value);
         }
 
         [TestMethod]
@@ -136,7 +136,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Parity = portSettings.Parity;
 
             // Assert
-            Assert.AreEqual(null, Parity.Disabled.Value);
+            Assert.IsNull(Parity.Disabled.Value);
         }
 
         [TestMethod]
@@ -161,7 +161,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Parity = portSettings.Parity;
 
             // Assert
-            Assert.AreEqual(null, Parity.Disabled.Value);
+            Assert.IsNull(Parity.Disabled.Value);
         }
 
         [TestMethod]
@@ -185,7 +185,7 @@ namespace Models.ProtocolTests.Read.Protocol.PortSettings.Elements
             var Parity = portSettings.Parity;
 
             // Assert
-            Assert.AreEqual(null, Parity.Disabled);
+            Assert.IsNull(Parity.Disabled);
         }
 
         #endregion

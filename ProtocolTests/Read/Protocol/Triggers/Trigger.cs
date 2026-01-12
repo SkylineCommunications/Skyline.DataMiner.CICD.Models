@@ -48,7 +48,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Id.Value);
+            Assert.IsNull(trigger.Id.Value);
         }
 
         [TestMethod]
@@ -68,7 +68,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Id.Value);
+            Assert.IsNull(trigger.Id.Value);
         }
 
         [TestMethod]
@@ -88,7 +88,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Id);
+            Assert.IsNull(trigger.Id);
         }
 
         #endregion
@@ -158,7 +158,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Name);
+            Assert.IsNull(trigger.Name);
         }
 
         #endregion
@@ -228,7 +228,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Condition);
+            Assert.IsNull(trigger.Condition);
         }
 
         #endregion
@@ -254,7 +254,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.On);
+            Assert.IsNull(trigger.On);
         }
 
         [TestMethod]
@@ -277,7 +277,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreNotEqual(null, trigger.On);
+            Assert.IsNotNull(trigger.On);
         }
 
         #endregion
@@ -303,7 +303,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Time);
+            Assert.IsNull(trigger.Time);
         }
 
         [TestMethod]
@@ -326,7 +326,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreNotEqual(null, trigger.Time);
+            Assert.IsNotNull(trigger.Time);
         }
 
         #endregion
@@ -352,7 +352,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Content);
+            Assert.IsNull(trigger.Content);
         }
 
         [TestMethod]
@@ -375,7 +375,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreNotEqual(null, trigger.Content);
+            Assert.IsNotNull(trigger.Content);
         }
 
         #endregion
@@ -401,7 +401,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreEqual(null, trigger.Type);
+            Assert.IsNull(trigger.Type);
         }
 
         [TestMethod]
@@ -424,7 +424,7 @@
             var trigger = protocol.Triggers[0];
 
             // Assert
-            Assert.AreNotEqual(null, trigger.Type);
+            Assert.IsNotNull(trigger.Type);
         }
 
         #endregion

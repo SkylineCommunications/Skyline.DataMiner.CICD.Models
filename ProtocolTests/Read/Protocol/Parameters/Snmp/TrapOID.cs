@@ -138,7 +138,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var trapOID = param.SNMP.TrapOID;
 
             // Assert
-            Assert.AreEqual(null, trapOID.CheckBindings);
+            Assert.IsNull(trapOID.CheckBindings);
         }
 
         #endregion
@@ -217,7 +217,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var trapOID = param.SNMP.TrapOID;
 
             // Assert
-            Assert.AreEqual(null, trapOID.Ipid);
+            Assert.IsNull(trapOID.Ipid);
         }
 
         #endregion
@@ -296,7 +296,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var trapOID = param.SNMP.TrapOID;
 
             // Assert
-            Assert.AreEqual(null, trapOID.MapAlarm);
+            Assert.IsNull(trapOID.MapAlarm);
         }
 
         #endregion
@@ -375,7 +375,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var trapOID = param.SNMP.TrapOID;
 
             // Assert
-            Assert.AreEqual(null, trapOID.SetBindings);
+            Assert.IsNull(trapOID.SetBindings);
         }
 
         #endregion
@@ -504,7 +504,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var trapOID = param.SNMP.TrapOID;
 
             // Assert
-            Assert.AreEqual(null, trapOID.Type.Value);
+            Assert.IsNull(trapOID.Type.Value);
         }
 
         [TestMethod]
@@ -529,7 +529,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var trapOID = param.SNMP.TrapOID;
 
             // Assert
-            Assert.AreEqual(null, trapOID.Type.Value);
+            Assert.IsNull(trapOID.Type.Value);
         }
 
         [TestMethod]
@@ -554,7 +554,7 @@ namespace Models.ProtocolTests.Read.Protocol.Parameters.Snmp
             var trapOID = param.SNMP.TrapOID;
 
             // Assert
-            Assert.AreEqual(null, trapOID.Type);
+            Assert.IsNull(trapOID.Type);
         }
 
         #endregion

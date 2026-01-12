@@ -58,7 +58,7 @@
             var range = baudrate.Range;
 
             // Assert
-            Assert.AreEqual(null, range.From.Value);
+            Assert.IsNull(range.From.Value);
         }
 
         [TestMethod]
@@ -84,7 +84,7 @@
             var range = baudrate.Range;
 
             // Assert
-            Assert.AreEqual(null, range.From.Value);
+            Assert.IsNull(range.From.Value);
         }
 
         [TestMethod]
@@ -110,7 +110,7 @@
             var range = baudrate.Range;
 
             // Assert
-            Assert.AreEqual(null, range.From);
+            Assert.IsNull(range.From);
         }
 
         #endregion
@@ -166,7 +166,7 @@
             var range = baudrate.Range;
 
             // Assert
-            Assert.AreEqual(null, range.To.Value);
+            Assert.IsNull(range.To.Value);
         }
 
         [TestMethod]
@@ -192,7 +192,7 @@
             var range = baudrate.Range;
 
             // Assert
-            Assert.AreEqual(null, range.To.Value);
+            Assert.IsNull(range.To.Value);
         }
 
         [TestMethod]
@@ -218,7 +218,7 @@
             var range = baudrate.Range;
 
             // Assert
-            Assert.AreEqual(null, range.To);
+            Assert.IsNull(range.To);
         }
 
 

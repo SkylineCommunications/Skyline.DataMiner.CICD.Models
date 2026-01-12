@@ -24,7 +24,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(0, protocol.DVEs.ExportRules.Count);
+            Assert.IsEmpty(protocol.DVEs.ExportRules);
         }
 
         [TestMethod]
@@ -46,7 +46,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreEqual(2, protocol.DVEs.ExportRules.Count);
+            Assert.HasCount(2, protocol.DVEs.ExportRules);
         }
 
         [TestMethod]
@@ -68,7 +68,7 @@
             IProtocol protocol = model.Protocol;
 
             // Assert
-            Assert.AreNotEqual(null, protocol.DVEs.ExportRules.GetEnumerator());
+            Assert.IsNotNull(protocol.DVEs.ExportRules.GetEnumerator());
         }
     }
 }

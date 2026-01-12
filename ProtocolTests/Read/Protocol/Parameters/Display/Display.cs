@@ -30,7 +30,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(true, parameter.Display.RTDisplay.Value);
+            Assert.IsTrue(parameter.Display.RTDisplay.Value);
         }
 
         [TestMethod]
@@ -54,7 +54,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.RTDisplay.Value);
+            Assert.IsNull(parameter.Display.RTDisplay.Value);
         }
 
         [TestMethod]
@@ -78,7 +78,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.RTDisplay.Value);
+            Assert.IsNull(parameter.Display.RTDisplay.Value);
         }
 
         [TestMethod]
@@ -101,7 +101,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.RTDisplay);
+            Assert.IsNull(parameter.Display.RTDisplay);
         }
 
         #endregion
@@ -129,7 +129,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(true, parameter.Display.RTDisplay.OnAppLevel.Value);
+            Assert.IsTrue(parameter.Display.RTDisplay.OnAppLevel.Value);
         }
 
         [TestMethod]
@@ -153,7 +153,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.RTDisplay.OnAppLevel.Value);
+            Assert.IsNull(parameter.Display.RTDisplay.OnAppLevel.Value);
         }
 
         [TestMethod]
@@ -177,7 +177,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.RTDisplay.OnAppLevel.Value);
+            Assert.IsNull(parameter.Display.RTDisplay.OnAppLevel.Value);
         }
 
         [TestMethod]
@@ -201,7 +201,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.RTDisplay.OnAppLevel);
+            Assert.IsNull(parameter.Display.RTDisplay.OnAppLevel);
         }
 
         #endregion
@@ -276,7 +276,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Units);
+            Assert.IsNull(parameter.Display.Units);
         }
         #endregion
 
@@ -327,7 +327,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Decimals.Value);
+            Assert.IsNull(parameter.Display.Decimals.Value);
         }
 
         [TestMethod]
@@ -352,7 +352,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Decimals.Value);
+            Assert.IsNull(parameter.Display.Decimals.Value);
         }
 
         [TestMethod]
@@ -375,7 +375,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Decimals);
+            Assert.IsNull(parameter.Display.Decimals);
         }
 
         #endregion
@@ -403,7 +403,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreNotEqual(null, parameter.Display.Range);
+            Assert.IsNotNull(parameter.Display.Range);
         }
 
         [TestMethod]
@@ -426,7 +426,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Range);
+            Assert.IsNull(parameter.Display.Range);
         }
 
         #endregion
@@ -454,7 +454,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreNotEqual(null, parameter.Display.Positions);
+            Assert.IsNotNull(parameter.Display.Positions);
         }
 
         [TestMethod]
@@ -477,7 +477,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Positions);
+            Assert.IsNull(parameter.Display.Positions);
         }
 
         #endregion
@@ -505,7 +505,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreNotEqual(null, parameter.Display.ParametersView);
+            Assert.IsNotNull(parameter.Display.ParametersView);
         }
 
         [TestMethod]
@@ -528,7 +528,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.ParametersView);
+            Assert.IsNull(parameter.Display.ParametersView);
         }
 
         #endregion
@@ -580,7 +580,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Steps.Value);
+            Assert.IsNull(parameter.Display.Steps.Value);
         }
 
         [TestMethod]
@@ -603,7 +603,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Steps.Value);
+            Assert.IsNull(parameter.Display.Steps.Value);
         }
 
         [TestMethod]
@@ -626,7 +626,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Steps);
+            Assert.IsNull(parameter.Display.Steps);
         }
 
         #endregion
@@ -654,7 +654,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreNotEqual(null, parameter.Display.Trending);
+            Assert.IsNotNull(parameter.Display.Trending);
         }
 
         [TestMethod]
@@ -677,7 +677,7 @@
             var parameter = protocol.Params[0];
 
             // Assert
-            Assert.AreEqual(null, parameter.Display.Trending);
+            Assert.IsNull(parameter.Display.Trending);
         }
 
         #endregion
