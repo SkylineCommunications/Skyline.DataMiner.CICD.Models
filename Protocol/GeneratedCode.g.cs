@@ -3636,7 +3636,7 @@ Dm
     }
 
     ///<summary>
-    /// Specifies the parameter measurment type.
+    /// Specifies the parameter measurement type.
     ///</summary>
 public enum EnumParamMeasurementType
     {
@@ -10194,6 +10194,7 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Read
         public virtual void VisitVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesFix(IVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesFix obj)
         {
             this.DefaultVisit(obj);
+            obj.IntroducedIn?.Accept(this);
         }
 
         public virtual void VisitVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesChange(IVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesChange obj)
@@ -15392,37 +15393,37 @@ IValueTag<uint?> VerificationTimeout { get; }
 public partial interface IParamsParamAlarm : IReadable
     {
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "critical high" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new critical high alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 IValueTag<string> CH { get; }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "critical low" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new critical low alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 IValueTag<string> CL { get; }
 
         ///<summary>
-        /// When the value of the alarm is equal to the value specified in this element, an information event is generated.
+        /// Defines the default value for information events generation. When the parameter value equals the specified value, an information event is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character.  Note that filling in this tag will effectively enable information events generation in newly created alarm templates. This will generate extra load on the system so use this feature with care. The end users still have the possibility to disable it via the alarm template but they need to do so explicitly.
         ///</summary>
 IValueTag<string> Info { get; }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "major high" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new major high alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 IValueTag<string> MaH { get; }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "major low" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new major low alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 IValueTag<string> MaL { get; }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "minor high" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new minor high alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 IValueTag<string> MiH { get; }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "minor low" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new minor low alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 IValueTag<string> MiL { get; }
 
@@ -15438,12 +15439,12 @@ IParamsParamAlarmMonitored Monitored { get; }
 IValueTag<string> Normal { get; }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "warning high" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new warning high alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 IValueTag<string> WaH { get; }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "warning low" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new warning low alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 IValueTag<string> WaL { get; }
 
@@ -18274,6 +18275,12 @@ public partial interface IVersionHistoryBranchesBranchSystemVersionsSystemVersio
     ///</summary>
 public partial interface IVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesFix : IValueTag<string>, IVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesItem
     {
+        ///<summary>
+        /// Specifies the version in which the bug being fixed was originally introduced.
+        /// This can be determined using Git blame.
+        /// If the bug predates Git, estimate the version based on the available version information (a.k.a. Revision History), or use the last version released prior to the migration to Git.
+        ///</summary>
+IValueTag<string> IntroducedIn { get; }
     }
 
     ///<summary>
@@ -29207,31 +29214,31 @@ internal partial class ParamsParamAlarm : ElementTag, IParamsParamAlarm
         private AttributeTag<string> _options;
         private AttributeTag<string> _type;
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "critical high" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new critical high alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public IValueTag<string> CH => _cH;
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "critical low" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new critical low alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public IValueTag<string> CL => _cL;
         ///<summary>
-        /// When the value of the alarm is equal to the value specified in this element, an information event is generated.
+        /// Defines the default value for information events generation. When the parameter value equals the specified value, an information event is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character.  Note that filling in this tag will effectively enable information events generation in newly created alarm templates. This will generate extra load on the system so use this feature with care. The end users still have the possibility to disable it via the alarm template but they need to do so explicitly.
         ///</summary>
 public IValueTag<string> Info => _info;
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "major high" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new major high alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public IValueTag<string> MaH => _maH;
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "major low" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new major low alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public IValueTag<string> MaL => _maL;
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "minor high" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new minor high alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public IValueTag<string> MiH => _miH;
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "minor low" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new minor low alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public IValueTag<string> MiL => _miL;
         ///<summary>
@@ -29244,11 +29251,11 @@ public IParamsParamAlarmMonitored Monitored => _monitored;
         ///</summary>
 public IValueTag<string> Normal => _normal;
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "warning high" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new warning high alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public IValueTag<string> WaH => _waH;
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "warning low" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new warning low alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public IValueTag<string> WaL => _waL;
         ///<summary>
@@ -35315,6 +35322,20 @@ internal partial class VersionHistoryBranchesBranchSystemVersionsSystemVersionMa
     {
         internal VersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesFix(ProtocolModel model, ProtocolTag parent) : base(model, parent, "Fix")
         {
+        }
+
+        private AttributeTag<string> _introducedIn;
+        ///<summary>
+        /// Specifies the version in which the bug being fixed was originally introduced.
+        /// This can be determined using Git blame.
+        /// If the bug predates Git, estimate the version based on the available version information (a.k.a. Revision History), or use the last version released prior to the migration to Git.
+        ///</summary>
+public IValueTag<string> IntroducedIn => _introducedIn;
+
+        protected override void Parse(string notifyPropertyName)
+        {
+            base.Parse(notifyPropertyName);
+            ParseAttributeTag("introducedIn", nameof(IntroducedIn), _introducedIn, value => _introducedIn = value);
         }
 
         public override void Accept(ProtocolVisitor visitor)
@@ -66364,7 +66385,7 @@ public ParamsParamAlarm() : base("Alarm")
         private AttributeValue<string> _options;
         private AttributeValue<string> _type;
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "critical high" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new critical high alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public ElementValue<string> CH
         {
@@ -66384,7 +66405,7 @@ public ElementValue<string> CH
         }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "critical low" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new critical low alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public ElementValue<string> CL
         {
@@ -66404,7 +66425,7 @@ public ElementValue<string> CL
         }
 
         ///<summary>
-        /// When the value of the alarm is equal to the value specified in this element, an information event is generated.
+        /// Defines the default value for information events generation. When the parameter value equals the specified value, an information event is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character.  Note that filling in this tag will effectively enable information events generation in newly created alarm templates. This will generate extra load on the system so use this feature with care. The end users still have the possibility to disable it via the alarm template but they need to do so explicitly.
         ///</summary>
 public ElementValue<string> Info
         {
@@ -66424,7 +66445,7 @@ public ElementValue<string> Info
         }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "major high" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new major high alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public ElementValue<string> MaH
         {
@@ -66444,7 +66465,7 @@ public ElementValue<string> MaH
         }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "major low" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new major low alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public ElementValue<string> MaL
         {
@@ -66464,7 +66485,7 @@ public ElementValue<string> MaL
         }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "minor high" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new minor high alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public ElementValue<string> MiH
         {
@@ -66484,7 +66505,7 @@ public ElementValue<string> MiH
         }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "minor low" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new minor low alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public ElementValue<string> MiL
         {
@@ -66545,7 +66566,7 @@ public ElementValue<string> Normal
         }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "warning high" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new warning high alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public ElementValue<string> WaH
         {
@@ -66565,7 +66586,7 @@ public ElementValue<string> WaH
         }
 
         ///<summary>
-        /// Defines the default value in the alarm template that this parameter must equal or exceed in order for DataMiner to create a new "warning low" alarm.
+        /// Defines the default threshold value in the alarm template. When the parameter equals or exceeds this value, a new warning low alarm is generated. To specify multiple values, use a semicolon as separator. To denote an exception value, prepend the exception value with a dollar character. Note that filling in this tag does not enable alarming by default in newly created alarm templates, it is still up to users to explicitly enable it.
         ///</summary>
 public ElementValue<string> WaL
         {
@@ -83561,8 +83582,41 @@ public VersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajor
         {
         }
 
+        private AttributeValue<string> _introducedIn;
+        ///<summary>
+        /// Specifies the version in which the bug being fixed was originally introduced.
+        /// This can be determined using Git blame.
+        /// If the bug predates Git, estimate the version based on the available version information (a.k.a. Revision History), or use the last version released prior to the migration to Git.
+        ///</summary>
+public AttributeValue<string> IntroducedIn
+        {
+            get
+            {
+                return _introducedIn;
+            }
+
+            set
+            {
+                if (_introducedIn != value)
+                {
+                    _introducedIn = value;
+                    AttributeHandler.Assign(value, this, "introducedIn");
+                }
+            }
+        }
+
+        public AttributeValue<string> GetOrCreateIntroducedIn()
+        {
+            if (IntroducedIn == null)
+                IntroducedIn = new AttributeValue<string>();
+            return IntroducedIn;
+        }
+
         protected override void Initialize(Read.IVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesFix read, XmlElement editNode)
         {
+            if (read == null)
+                return;
+            _introducedIn = read.IntroducedIn != null ? new AttributeValue<string>(read.IntroducedIn, this) : null;
         }
 
         public static VersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesFix FromRead(Read.IVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesFix read)
@@ -83571,6 +83625,7 @@ public VersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajor
                 return null;
             var item = new VersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesFix();
             item.Value = read.Value;
+            item.IntroducedIn = AttributeValue<string>.FromRead(read.IntroducedIn);
             return item;
         }
 
@@ -103235,6 +103290,7 @@ namespace Skyline.DataMiner.CICD.Models.Protocol.Edit
         public virtual void VisitVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesFix(VersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesFix obj)
         {
             this.DefaultVisit(obj);
+            obj.IntroducedIn?.Accept(this);
         }
 
         public virtual void VisitVersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesChange(VersionHistoryBranchesBranchSystemVersionsSystemVersionMajorVersionsMajorVersionMinorVersionsMinorVersionChangesChange obj)
