@@ -23,7 +23,8 @@
     <Message Text="Listing generator output directory: $(ProjectDir)$(OutDir)" Importance="high" />
     <Exec Command="dir /a &quot;$(ProjectDir)$(OutDir)&quot;" Condition="'$(OS)' == 'Windows_NT'" />
     <Exec Command="ls -la &quot;$(ProjectDir)$(OutDir)&quot;" Condition="'$(OS)' != 'Windows_NT'" />
-    <Exec Command="call &quot;$(ProjectDir)$(OutDir)Protocol.Generator.exe&quot; $(SolutionDir)&#xD;&#xA;" />
+    <Exec Command="call &quot;$(ProjectDir)$(OutDir)Protocol.Generator.exe&quot; &quot;$(SolutionDir).&quot;" Condition="'$(OS)' == 'Windows_NT'" />
+    <Exec Command="mono &quot;$(ProjectDir)$(OutDir)Protocol.Generator.exe&quot; &quot;$(SolutionDir).&quot;" Condition="'$(OS)' != 'Windows_NT'" />
   </Target>
 
 </Project>
