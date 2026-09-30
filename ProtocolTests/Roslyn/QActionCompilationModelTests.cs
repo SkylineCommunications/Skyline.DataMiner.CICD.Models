@@ -19,7 +19,7 @@
         public void FromSolutionUsingStorageTypes()
         {
             // Arrange.
-            string xmlString = File.ReadAllText(@"..\..\..\ProtocolExamples\TestProtocolStorageTypes.xml");
+            string xmlString = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "ProtocolExamples", "TestProtocolStorageTypes.xml"));
 
             (ProtocolModel model, _) = Generic.ParseProtocol(xmlString);
 
@@ -97,7 +97,7 @@ namespace Skyline.DataMiner.Scripting
             int detectedViolationCount = 0;
             int expectedViolationCount = 1;
 
-            string xmlString = File.ReadAllText(@"..\..\..\ProtocolExamples\TestProtocol.xml");
+            string xmlString = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "ProtocolExamples", "TestProtocol.xml"));
 
             (ProtocolModel model, _) = Generic.ParseProtocol(xmlString);
 
@@ -177,7 +177,7 @@ namespace Skyline.DataMiner.Scripting
         public void TestProtocolWithDifferentQActionEncodings()
         {
             // Arrange.
-            string xmlString = File.ReadAllText(@"..\..\..\ProtocolExamples\TestProtocolQActionTypes.xml");
+            string xmlString = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "ProtocolExamples", "TestProtocolQActionTypes.xml"));
 
             (ProtocolModel model, _) = Generic.ParseProtocol(xmlString);
 
