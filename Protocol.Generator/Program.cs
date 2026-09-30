@@ -23,7 +23,7 @@
 			catch (Exception e)
 			{
 				Console.WriteLine(e);
-				Environment.Exit(-1);
+				Environment.Exit(1);
 				return;
 			}
 
@@ -34,7 +34,7 @@
 			catch (Exception e)
 			{
 				Console.WriteLine(e);
-				Environment.Exit(-2);
+				Environment.Exit(2);
 			}
 		}
 	}

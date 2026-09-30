@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="call &quot;$(OutDir)\Protocol.Generator.exe&quot; $(SolutionDir)&#xD;&#xA;" />
+    <Exec Command="call &quot;$(OutDir)/Protocol.Generator.exe&quot; $(SolutionDir)&#xD;&#xA;" />
   </Target>
 
 </Project>
