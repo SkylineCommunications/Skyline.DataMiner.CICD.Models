@@ -19,7 +19,8 @@
         public void FromSolutionUsingStorageTypes()
         {
             // Arrange.
-            string xmlString = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "ProtocolExamples", "TestProtocolStorageTypes.xml"));
+            string baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string xmlString = File.ReadAllText(Path.Combine(baseDir, "ProtocolExamples", "TestProtocolStorageTypes.xml"));
 
             (ProtocolModel model, _) = Generic.ParseProtocol(xmlString);
 
@@ -53,8 +54,6 @@ namespace Skyline.DataMiner.Scripting
             }
         }
     }";
-
-            string baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
             IAssemblyResolver dllImportResolver = new InternalFilesAssemblyResolver(baseDir);
 
@@ -97,7 +96,8 @@ namespace Skyline.DataMiner.Scripting
             int detectedViolationCount = 0;
             int expectedViolationCount = 1;
 
-            string xmlString = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "ProtocolExamples", "TestProtocol.xml"));
+            string baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string xmlString = File.ReadAllText(Path.Combine(baseDir, "ProtocolExamples", "TestProtocol.xml"));
 
             (ProtocolModel model, _) = Generic.ParseProtocol(xmlString);
 
@@ -131,8 +131,6 @@ namespace Skyline.DataMiner.Scripting
             }
         }
     }";
-
-            string baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
             IAssemblyResolver dllImportResolver = new InternalFilesAssemblyResolver(baseDir);
 
@@ -177,7 +175,8 @@ namespace Skyline.DataMiner.Scripting
         public void TestProtocolWithDifferentQActionEncodings()
         {
             // Arrange.
-            string xmlString = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "ProtocolExamples", "TestProtocolQActionTypes.xml"));
+            string baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string xmlString = File.ReadAllText(Path.Combine(baseDir, "ProtocolExamples", "TestProtocolQActionTypes.xml"));
 
             (ProtocolModel model, _) = Generic.ParseProtocol(xmlString);
 
@@ -211,8 +210,6 @@ namespace Skyline.DataMiner.Scripting
             }
         }
     }";
-
-            string baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
             IAssemblyResolver dllImportResolver = new InternalFilesAssemblyResolver(baseDir);
 
